@@ -42,6 +42,43 @@ rules = json.loads(re.search(r'MSL_unlockRules\s*=\s*(\[[^;]+\]);', configuratio
 assert all(isinstance(level,int) and 1 <= level <= len(thresholds) for _,level in rules), 'Unlock rule outside configured level range'
 def setting(name):
     return json.loads(re.search(rf'{name}\s*=\s*([^;]+);', configuration).group(1))
+tiers = setting('MSL_equipmentTiers')
+assert len({row[0] for row in tiers}) == len(tiers), 'Duplicate equipment tier'
+assert all(len(row) == 3 and row[1] >= 0 and isinstance(row[2], int) and 1 <= row[2] <= len(thresholds) for row in tiers), 'Invalid equipment price/level'
+assert not ({row[0] for row in tiers} & {row[0] for row in rules if row[0] not in ['item','goggles','backpack','optic','suppressor','nvg','armor']}), 'Unexpected equipment unlock override'
+weapon_text = (ROOT / 'presets/msl/custom_weapons.sqf').read_text()
+weapon_rows = [json.loads(row) for row in re.findall(r'\["[^"\n]+",\d+,\d+\]', weapon_text)]
+arsenal_weapons = re.findall(r'"([^"\n]+)"', (ROOT / 'arsenal_presets/custom.sqf').read_text().split('];', 1)[0])
+assert len({row[0] for row in weapon_rows}) == len(weapon_rows), 'Duplicate weapon price'
+assert {row[0] for row in weapon_rows} == set(arsenal_weapons), 'Weapon price coverage mismatch'
+assert all(price >= 0 and 1 <= level <= len(thresholds) for _,price,level in weapon_rows), 'Invalid weapon tier'
+weapon_prices = {row[0]: row[1:] for row in weapon_rows}
+for classname, expected in {
+    'rhs_weap_m24sws': [2200,3], 'rhs_weap_m249': [2400,3],
+    'rhs_weap_m240B': [2800,4], 'rhs_weap_M320': [1600,3],
+    'rhs_weap_m32': [3800,5], 'rhs_weap_rpg75': [900,2],
+    'rhs_weap_fgm148': [6500,7], 'uk3cb_auga1_para': [800,1],
+}.items():
+    assert weapon_prices[classname] == expected, f'Incorrect weapon family: {classname}'
+assert all(weapon_prices[row[2]] == [0,1] for row in setting('MSL_freeKits')), 'Free primary kit pricing mismatch'
+assert '["uniform",0,1]' in configuration, 'Basic uniforms must remain free'
+catalog = (ROOT / 'scripts/msl/fn_catalog.sqf').read_text()
+assert catalog.index('forEach MSL_weaponPreset') < catalog.index('forEach MSL_priceOverrides') < catalog.index('if (_unlockKey == "uniform")'), 'Invalid preset/override/free uniform priority'
+from build_msl_attachment_preset import attachment_rows
+attachment_text = (ROOT / 'presets/msl/custom_attachments.sqf').read_text()
+attachment_prices = [json.loads(row) for row in re.findall(r'\["[^"\n]+",\d+,\d+\]', attachment_text)]
+assert attachment_prices == [[c,p,lv] for c,label,cat,p,lv in attachment_rows()], 'Stale attachment preset; run tools/build_msl_attachment_preset.py'
+assert len({c for c,p,lv in attachment_prices}) == len(attachment_prices), 'Duplicate attachment price'
+assert all(p > 0 and 1 <= lv <= len(thresholds) for c,p,lv in attachment_prices), 'Invalid attachment tier'
+ap = {c:[p,lv] for c,p,lv in attachment_prices}
+assert ap['rhs_acc_dtk4short'] == [1100,4] and ap['rhs_acc_dtk3'] == [200,1], 'Suppressor/muzzle brake confusion'
+assert ap['rhsusf_acc_m14_flashsuppresor'] == [200,1], 'Flash suppressor is not a sound suppressor'
+assert ap['rhs_acc_pso1m2_ads_night'] == ap['rhs_acc_pso1m2'], 'Reticle illumination is not night vision'
+assert ap['rhsusf_acc_anpas13gv1'] == [4500,7] and ap['rhsusf_acc_anpvs27'] == [2200,5], 'Thermal/night tiers'
+assert ap['rhsusf_acc_rotex5_grey'] == ap['rhsusf_acc_rotex5_tan'], 'Camo price mismatch'
+assert ap['rhsusf_acc_anpeq15_light'] == ap['rhsusf_acc_anpeq15'], 'Switchable module price mismatch'
+assert 'preprocessFileLineNumbers "presets\\msl\\custom_attachments.sqf"' in configuration, 'Attachment preset not loaded'
+assert catalog.index('forEach MSL_attachmentPreset') < catalog.index('forEach MSL_priceOverrides'), 'Attachment override priority'
 hold = setting('MSL_defenseHoldRange')
 assert 600 <= hold[0] <= hold[1] <= 1200, 'Defense hold must stay within 10..20 minutes'
 fob = setting('MSL_fobCounterDelay')
@@ -77,6 +114,8 @@ assert '_freeWeapons' in (module / 'fn_postInit.sqf').read_text(), 'Free weapons
 changed = subprocess.check_output(['git', 'diff', '--name-only'], cwd=ROOT, text=True).splitlines()
 files = {ROOT / p for p in changed if p.endswith('.sqf') and p != 'arsenal_presets/custom.sqf'}
 files.update(module.glob('*.sqf'))
+files.add(ROOT / 'presets/msl/custom_weapons.sqf')
+files.add(ROOT / 'presets/msl/custom_attachments.sqf')
 files.add(ROOT / 'tools/msl_selftest.sqf')
 files.add(ROOT / 'tools/msl_preflight.sqf')
 files.add(ROOT / 'tools/msl_performance.sqf')
