@@ -1,0 +1,37 @@
+class MSL {
+    class campaign {
+        file = "scripts\msl";
+        class postInit {postInit = 1;};
+        class atBase {};
+        class basePosition {};
+        class atTerminal {};
+        class progress {};
+        class terminalRender {};
+        class defenseEvent {};
+        class queueScenario {};
+        class scenarioLoop {};
+        class evac {};
+        class inventory {};
+        class loadoutInventory {};
+        class removeFromLoadout {};
+        class catalog {};
+        class buildKit {};
+        class account {};
+        class persist {};
+        class publish {};
+        class request {};
+        class settle {};
+        class applyGear {};
+        class clientLife {};
+        class menu {};
+        class captureReady {};
+        class capturePolicy {};
+        class supportFactor {};
+        class campaignLoop {};
+        class airMission {};
+        class airdrop {};
+        class investigate {};
+        class redirectGroup {};
+        class specopsAI {};
+    };
+};

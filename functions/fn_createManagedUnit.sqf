@@ -41,6 +41,10 @@ isNil {
     [_unit] joinSilent _group;
     deleteGroup _groupTemp;
 
+    if (missionNamespace getVariable ["MSL_enabled", false]) then {
+        _unit setVariable ["MSL_issuedWeapons", [primaryWeapon _unit, secondaryWeapon _unit, handgunWeapon _unit], true];
+    };
+
     // Process KP object init
     [_unit] call KPLIB_fnc_addObjectInit;
 };

@@ -16,7 +16,6 @@ GRLIB_arsenal_weapons = [
 	"UK3CB_M21",
 	"UK3CB_BHP",
 	"UK3CB_CZ75",
-	"rhsusf_weap_MP7A2_folded",
 	"rhs_weap_pp2000",	//PP-2000
 	"rhs_weap_m76",	//M76
 	"rhs_weap_ak74m",	//AK-74M
@@ -51,7 +50,6 @@ GRLIB_arsenal_weapons = [
 	"rhs_weap_akms",	//AKMS
 	"rhs_weap_akms_gp25",	//AKMS (GP-25)
 	"rhs_weap_pm63",	//PM-63
-	"rhs_weap_ak103_base",	//AKM
 	"rhs_weap_ak103",	//AK-103
 	"rhs_weap_ak103_npz",	//AK-103 (B-13)
 	"rhs_weap_ak103_zenitco01",	//AK-103 (Zenitco)
@@ -107,46 +105,7 @@ GRLIB_arsenal_weapons = [
 	"rhs_weap_pkm",	//PKM
 	"rhs_weap_rpk74m",	//RPK-74M
 	"rhs_weap_rpk74m_npz",	//RPK-74M (B-13)
-	"rhs_weap_ak74m_dtk",	//AK-74M
-	"rhs_weap_ak74m_pkas",	//AK-74M
-	"rhs_weap_ak74m_1p63",	//AK-74M
-	"rhs_weap_ak74m_pso1m2",	//AK-74M
-	"rhs_weap_ak74m_1p29",	//AK-74M
-	"rhs_weap_ak74m_npz_dtk",	//AK-74M (B-13)
-	"rhs_weap_ak74m_camo_dtk",	//AK-74M (Camo)
-	"rhs_weap_ak74m_camo_pkas",	//AK-74M (Camo)
-	"rhs_weap_ak74m_camo_1p63",	//AK-74M (Camo)
-	"rhs_weap_ak74m_camo_pso1m2",	//AK-74M (Camo)
-	"rhs_weap_ak74m_camo_1p29",	//AK-74M (Camo)
-	"rhs_weap_ak74m_desert_dtk",	//AK-74M (Desert)
-	"rhs_weap_ak74m_fullplum_dtk",	//AK-74M (Plum)
-	"rhs_weap_ak74m_fullplum_npz_dtk",	//AK-74M (Plum/B-13)
-	"rhs_weap_ak74m_fullplum_gp25_dtk",	//AK-74M (GP-25/Plum)
-	"rhs_weap_ak74m_fullplum_gp25_npz_dtk",	//AK-74M (GP-25/Plum/B-13)
-	"rhs_weap_ak74m_gp25_dtk",	//AK-74M (GP-25)
-	"rhs_weap_ak74m_gp25_npz_dtk",	//AK-74M (GP-25/B-13)
-	"rhs_weap_ak74m_gp25_pkas",	//AK-74M (GP-25)
-	"rhs_weap_ak74m_gp25_1p63",	//AK-74M (GP-25)
-	"rhs_weap_ak74m_gp25_pso1m2",	//AK-74M (GP-25)
-	"rhs_weap_ak74m_gp25_1p29",	//AK-74M (GP-25)
-	"rhs_weap_ak74mr_rakursPM",	//AK-74MR (UUK)
-	"rhs_weap_ak74mr_gp25_rakursPM",	//AK-74MR (UUK/GP-25)
-	"rhs_weap_ak74mr_rakursPM_sup",	//AK-74MR (UUK)
-	"rhs_weap_ak74mr_1p87",	//AK-74MR (UUK)
-	"rhs_weap_ak74mr_gp25_1p87",	//AK-74MR (UUK/GP-25)
-	"rhs_weap_ak74mr_1p87_sup",	//AK-74MR (UUK)
-	"rhs_weap_aks74u_sup",	//AKS-74U
-	"rhs_weap_aks74un_sup",	//AKS-74UN
-	"rhs_weap_ak103_npz_dtk",	//AK-103 (B-13)
-	"rhs_weap_ak104_pgs64",	//AK-104
-	"rhs_weap_ak104_npz_pgs64",	//AK-104 (B-13)
-	"rhs_weap_ak105_pgs64",	//AK-105
-	"rhs_weap_ak105_npz_pgs64",	//AK-105 (B-13)
-	"rhs_weap_svd_pso1",	//SVD
-	"rhs_weap_svdp_pso1",	//SVDM
-	"rhs_weap_svds_pso1",	//SVDS
 	"rhs_weap_rpk74m_uuk",	//RPK-74M (B-13)
-	"rhs_weap_rpk74m_sup",	//RPK-74M (B-13)
 	"rhs_weap_XM2010",	//M2010 ESR
 	"rhs_weap_XM2010_d",	//M2010 ESR (Desert)
 	"rhs_weap_XM2010_wd",	//M2010 ESR (Camo)
@@ -228,7 +187,6 @@ GRLIB_arsenal_weapons = [
 	"rhs_weap_hk416d145_wd",	//HK416 D14.5 (Woodland Grass)
 	"rhs_weap_hk416d145_wd_2",	//HK416 D14.5 (Woodland Net)
 	"rhs_weap_m27iar",	//M27 IAR
-	"rhs_weap_M249_base",	//Mk200 6.5mm
 	"rhs_weap_m249",	//M249
 	"rhs_weap_m249_pip_S",	//M249 PIP (Short/Savit)
 	"rhs_weap_m249_pip_S_para",	//M249 PIP (Short/Para)
@@ -238,15 +196,9 @@ GRLIB_arsenal_weapons = [
 	"rhs_weap_m249_pip_L",	//M249 PIP (Long/Savit)
 	"rhs_weap_m249_pip_L_para",	//M249 PIP (Long/Para)
 	"rhs_weap_m249_light_L",	//M249 PIP (Long/LCBA)
-	"rhs_weap_m240_base",	//M240B
 	"rhs_weap_m240B",	//M240B
 	"rhs_weap_m240G",	//M240G
 	"rhs_weap_m240B_CAP",	//M240B (CAP)
-	"rhs_weap_m14_base",	//M14
-	"rhs_weap_m14_rail_base",	//M14 (Rail)
-	"rhs_weap_m14_ris_base",	//M14 (RIS)
-	"rhs_weap_m14_socom_base",	//SOCOM 16
-	"rhs_weap_m14_socom_rail_base",	//SOCOM 16 (Rail)
 	"rhs_weap_m14",	//M14
 	"rhs_weap_m14_wd",	//M14 (Woodland)
 	"rhs_weap_m14_d",	//M14 (Desert)
@@ -261,7 +213,6 @@ GRLIB_arsenal_weapons = [
 	"rhs_weap_m14_ris_fiberglass",	//M14 (RIS/Fiberglass)
 	"rhs_weap_m14_socom",	//SOCOM 16
 	"rhs_weap_m14_socom_rail",	//SOCOM 16 (Rail)
-	"rhs_weap_m14ebrri_base",	//M14 EBR-RI
 	"rhs_weap_m14ebrri",	//M14 EBR-RI
 	"rhs_weap_sr25",	//Mk 11 Mod 0
 	"rhs_weap_sr25_ec",	//Mk 11 Mod 0 (EC)
@@ -270,7 +221,6 @@ GRLIB_arsenal_weapons = [
 	"rhs_weap_sr25_d",	//Mk 11 Mod 0 (Desert)
 	"rhs_weap_sr25_ec_d",	//Mk 11 Mod 0 (EC/Desert)
 	"rhs_weap_m110",	//KAC M-110
-	"rhs_weap_M107_Base_F",	//소총
 	"rhs_weap_M107",	//M107
 	"rhs_weap_M107_d",	//M107 (Desert)
 	"rhs_weap_M107_w",	//M107 (Woodland)
@@ -278,7 +228,6 @@ GRLIB_arsenal_weapons = [
 	"rhs_weap_M590_5RD",	//M590A1 (Short)
 	"rhs_weap_M590_8RD",	//M590A1 (Long)
 	"rhs_weap_m32",	//M32 MGL
-	"rhsusf_weap_MP7A1_base_f",	//MP7A1
 	"rhsusf_weap_MP7A2",	//MP7A2
 	"rhsusf_weap_MP7A2_winter",	//MP7A2 (Winter)
 	"rhsusf_weap_MP7A2_desert",	//MP7A2 (Desert)
@@ -294,32 +243,7 @@ GRLIB_arsenal_weapons = [
 	"rhs_weap_SCARH_USA_LB",	//SCAR-H (USA/LB)
 	"rhs_m4a1_m320",	//M4A1 PIP (M320)
 	"rhs_m4_m320",	//M4 (M320)
-	"rhs_weap_XM2010_d_leu",	//M2010 ESR (Desert)
-	"rhs_weap_XM2010_wd_leu",	//M2010 ESR (Camo)
-	"rhs_weap_m14ebrri_leu",	//M14 EBR-RI
-	"rhs_weap_m14_bipod_M8541",	//M14 (Rail)
-	"rhs_weap_M107_leu",	//M107
-	"rhs_weap_M107_d_leu",	//M107 (Desert)
-	"rhs_weap_M107_w_leu",	//M107 (Woodland)
-	"rhs_weap_m24sws_leu",	//M24 SWS
-	"rhs_weap_m24sws_d_leu",	//M24 SWS (Desert)
-	"rhs_weap_m24sws_wd_leu",	//M24 SWS (Woodland)
-	"rhs_weap_m24sws_blk_leu",	//M24 SWS (Black)
 	"rhs_weap_m39",	//M39 EMR
-	"rhs_weap_m240b_usmc",	//M240B (CAP)
-	"rhs_weap_m249_pip_usmc",	//M249 PIP (Long/Savit)
-	"rhs_weap_m249_para_usmc",	//M249 PIP (Short/Para)
-	"rhs_weap_sr25_usmc",	//Mk 11 Mod 0
-	"rhs_weap_sr25_sup_usmc",	//Mk 11 Mod 0
-	"rhs_weap_m40_wd_usmc",	//M40A5 (Woodland)
-	"rhs_weap_m40_d_usmc",	//M40A5 (Desert)
-	"rhs_weap_m32_usmc",	//M32 MGL
-	"rhs_weap_M107_premier",	//M107
-	"rhs_weap_M107_d_premier",	//M107 (Desert)
-	"rhs_weap_M107_w_premier",	//M107 (Woodland)
-	"rhs_weap_mk17_CQC_G33_sup_marsoc",	//Mk 17 Mod 0 (CQC)
-	"rhs_weap_mk17_LB_DMR_marsoc",	//Mk 17 Mod 0 (LB)
-	"rhs_weap_sr25_sup_marsoc",	//Mk 11 Mod 0 (EC)
 	"rhs_weap_m38_rail",	//Mosin Nagant M38 (Railed)
 	"rhs_weap_kar98k",	//Karabiner 98 Kurz
 	"rhs_weap_m38",	//Mosin Nagant M38
@@ -333,8 +257,6 @@ GRLIB_arsenal_weapons = [
 	"rhs_weap_m21s",	//M21S
 	"rhs_weap_m21s_pr",	//M21S (Rail)
 	"rhs_weap_savz61",	//Sa vz. 61
-	"rhs_weap_savz58_rail_base",	//소총
-	"rhs_weap_savz58_ris_base",	//소총
 	"rhs_weap_savz58p",	//Sa vz. 58P
 	"rhs_weap_savz58v",	//Sa vz. 58V
 	"rhs_weap_savz58p_rail",	//Sa vz. 58P (Rail)
@@ -355,20 +277,13 @@ GRLIB_arsenal_weapons = [
 	"rhs_weap_m3a1_specops",	//M3A1 (SD)
 	"rhs_weap_MP44",	//MP44
 	"rhs_weap_m1garand_sa43",	//M1 Garand
-	"rhs_weap_mg42_base",	//소총
 	"rhs_weap_mg42",	//MG42
 	"rhs_weap_mg42_aa",	//MG42
 	"rhs_weap_m79",	//M79
 	"rhs_weap_l1a1",	//L1A1 (Polymer)
 	"rhs_weap_l1a1_wood",	//L1A1 (Wood)
 	"rhs_weap_lzh18",
-	"rhs_weap_fnmag_base",	//FN MAG
 	"rhs_weap_fnmag",	//FN MAG
-	"rhs_weap_m21s_eo",	//M21S (Rail)
-	"rhs_weap_m76_pso",	//M76
-	"rhs_weap_vhsd2_eo",	//VHS-D2
-	"rhs_weap_l1a1_suit",	//L1A1 (Polymer)
-	"rhs_weap_l1a1_pvs2",	//L1A1 (Polymer)
 	"rhs_weap_m70b1n",	//M70B1N
 	"rhs_weap_m70b3n",	//M70B3N
 	"rhs_weap_m70b3n_pbg40",	//M70B3N (PBG)
@@ -387,25 +302,12 @@ GRLIB_arsenal_weapons = [
 	"rhs_weap_SCARH_FDE_LB",	//SCAR-H (LB)
 	"rhs_weap_m84",	//M84
 	"rhs_weap_minimi_para_railed",	//FN Minimi Para (RIS)
-	"rhs_weap_m21a_pkas",	//M21A
-	"rhs_weap_m21s_pkas",	//M21S
-	"rhs_weap_minimi_para_railed_eot552_m952v_sfmb",	//FN Minimi Para (RIS)
-	"rhs_weap_g36c_compm4",	//HK G36C
-	"rhs_weap_g36kv_compm4",	//HK G36KV
-	"rhs_weap_g36kv_ag36_eo",	//HK G36KV (AG36)
-	"rhs_weap_m82a1_leu",	//M82A1
-	"rhs_weap_hk416d10_compm4",	//HK416 D10
-	"rhs_weap_SCARH_LB_bipod_m8541",	//SCAR-H (LB)
-	"rhsgref_weap_ak103_pso1m21",	//AK-103
-	"rhsgref_weap_ak103_pso1m2",	//AK-103
 	"rhsgref_weap_svds",	//SVDS
-	"rhsgref_weap_savz58v_black_rxo1",	//Sa vz. 58V (Rail, Black)
 	"rhsgref_weap_savz58v_saboteur",	//Sa vz. 58V (RIS)
 	"rhsgref_weap_akm_zenitco",	//AKM (Zenitco/B-33)
 	"uk3cb_enfield_no3t_no32_worn",	//Enfield No.3 Mk.1(T)
 	"uk3cb_enfield_no4t_no32",	//Enfield No.4 Mk.1(T) (Beech)
 	"uk3cb_enfield_l42_walnut_no32",	//Enfield L42 (Beech)
-	"uk3cb_enfield_l42_walnut_no32_sup",	//Enfield L42 (Beech)
 	"uk3cb_auga1",	//Steyr AUGA1 [OD]
 	"uk3cb_auga1_tan",	//Steyr AUGA1 [Tan]
 	"uk3cb_auga1_blk",	//Steyr AUGA1 [Black]
@@ -449,8 +351,6 @@ GRLIB_arsenal_weapons = [
 	"uk3cb_stgw57_RIS_commando",	//SIG Stgw.57 Commando
 	"uk3cb_stgw57_5104",	//SIG SG510-4
 	"uk3cb_stgw57_amt",	//SIG AMT
-	"UK3CB_FNFAL_FULL_SUIT",	//FN FAL 50.00
-	"UK3CB_FNFAL_FULL_SUIT_SUP",	//FN FAL 50.00
 	"UK3CB_Enfield",	//Enfield No.3 Mk.1
 	"UK3CB_FNFAL_PARA",	//FN FAL 50.61 'Para'
 	"UK3CB_FNFAL_PARA_RAILS",	//FN FAL 50.61 'Para' (RIS)
@@ -503,8 +403,6 @@ GRLIB_arsenal_weapons = [
 	"UK3CB_MP5SD6",	//HK MP5SD6
 	"UK3CB_MP5",	//HK MP5A2
 	"UK3CB_MP5_SD",	//HK MP5SD5
-	"UK3CB_P90_TR_BASE",	//FN P90 5.7x28mm
-	"UK3CB_P90C_BASE",	//FN P90 5.7x28mm
 	"UK3CB_P90_TR_black",	//FN PS90 TR (Black)
 	"UK3CB_P90_TR_camo",	//FN PS90 TR (Camo)
 	"UK3CB_P90_TR_khaki",	//FN PS90 TR (Khaki)
@@ -523,238 +421,53 @@ GRLIB_arsenal_weapons = [
 	"UK3CB_P90C_hex",	//FN P90 (Hex)
 	"UK3CB_STGW57",	//SIG Stgw.57
 	"PRACS_galil_SAR",	//IMI Galil SAR
-	"PRACS_galil_SAR_Elcan",	//IMI Galil SAR
-	"PRACS_galil_SAR_ACO",	//IMI Galil SAR
-	"PRACS_galil_SAR_ACO_SD",	//IMI Galil SAR
-	"PRACS_galil_SAR_T1",	//IMI Galil SAR
 	"PRACS_galil_ARM_308",	//IMI Galil ARM 308
 	"PRACS_FNC",	//FN FNC
 	"PRACS_g3a3",	//SMI G3A3-S
-	"PRACS_g3a3_Elcan",	//SMI G3A3-S
-	"PRACS_g3a3_ACOG",	//SMI G3A3-S
-	"PRACS_g3a3_TWS",	//SMI G3A3-S
 	"PRACS_g3a3_w",	//SMI G3A3-S (Wide Handguard)
-	"PRACS_g3a3_W_ELCAN_BP",	//SMI G3A3-S (Wide Handguard)
-	"PRACS_g3a3_W_ACOG_SD",	//SMI G3A3-S (Wide Handguard)
-	"PRACS_g3a3_W_PAS_SD",	//SMI G3A3-S (Wide Handguard)
 	"PRACS_g3a4",	//SMI G3A4-S
-	"PRACS_g3a4_Elcan",	//SMI G3A4-S
-	"PRACS_g3a4_aco",	//SMI G3A4-S
-	"PRACS_g3a4_ACOG",	//SMI G3A4-S
-	"PRACS_g3a4_TWS",	//SMI G3A4-S
 	"PRACS_g3a4_w",	//SMI G3A4-S (wide Handguard)
-	"PRACS_g3a4_w_ELCAN_BP",	//SMI G3A4-S (wide Handguard)
-	"PRACS_g3a4_w_M8541_BP",	//SMI G3A4-S (wide Handguard)
 	"PRACS_CETME",	//SMI CETME-S
 	"PRACS_CETME_BNT",	//SMI CETME-S (Parade)
 	"PRACS_g3a3t40",	//SMI G3A3-S T-40 UGL
 	"PRACS_g3a4t40",	//SMI G3A4-S T-40 UGL
-	"PRACS_g3a4t40_aco",	//SMI G3A4-S T-40 UGL
 	"PRACS_rk62",	//Valmet Rk.62
-	"PRACS_rk62_ELCAN_SD",	//Valmet Rk.62
-	"PRACS_rk62_T1",	//Valmet Rk.62
 	"PRACS_HK53",	//SMI HK-53A4s
-	"PRACS_HK53_XPS",	//SMI HK-53A4s
-	"PRACS_HK53_ACO",	//SMI HK-53A4s
 	"PRACS_HK33",	//SMI HK-33A2s
 	"PRACS_HK33_MKS",	//SMI HK-33A2s
 	"PRACS_HK33A4",	//SMI HK-33A4s
-	"PRACS_HK33A4_T1",	//SMI HK-33A4s
-	"PRACS_HK33A4_ELCAN",	//SMI HK-33A4s
 	"PRACS_UZI",	//IMI Uzi 9mm
 	"PRACS_UZI_Commando",	//IMI Uzi 9mm
 	"PRACS_UZI_FS",	//IMI Uzi 9mm
 	"PRACS_M24",	//M24 SWS
-	"PRACS_M24_BP_SD",	//M24 SWS
-	"PRACS_M40_BP_M",	//M40A5
-	"PRACS_M249_EO_Short",	//M249 PIP (Short/Savit)
-	"PRACS_M249_EO_Short_QSB",	//M249 PIP (Short/Savit)
-	"PRACS_m240B_Su320",	//M240B
 	"PRACS_M60E4",	//M-60E4S
-	"PRACS_M60E4_ACO",	//M-60E4S
-	"PRACS_M60E4_ACO_SD",	//M-60E4S
-	"PRACS_M60E4_xps_g33_SD",	//M-60E4S
-	"PRACS_M60E4_ELCAN_SD",	//M-60E4S
 	"PRACS_M60A2",	//M-60A2
 	"PRACS_Mk48",	//Mk-48 (Railed) LMG
 	"PRACS_Mk48_STD",	//Mk-48 LMG
 	"PRACS_Mk48_Para",	//Mk-48 Para
-	"PRACS_Mk48_Para_ACO",	//Mk-48 Para
-	"PRACS_Mk48_Para_EOT",	//Mk-48 Para
-	"PRACS_Mk48_Para_EOT_2",	//Mk-48 Para
 	"PRACS_Mk48_light",	//Mk-48 Light
-	"PRACS_Mk48_light_ACO",	//Mk-48 Light
 	"PRACS_HK416_recon",	//HK416 D10 (SOPMOD Stock/Desert)
-	"PRACS_HK416_Commando",	//HK416 D10 (SOPMOD Stock/Desert)
-	"PRACS_HK416_Commando_2",	//HK416 D10 (SOPMOD Stock/Desert)
-	"PRACS_HK416_Commando_3",	//HK416 D10 (SOPMOD Stock/Desert)
-	"PRACS_HK416_Commando_4",	//HK416 D10 (SOPMOD Stock/Desert)
 	"PRACS_HK416_m320_recon",	//HK416 D10 (M320)
 	"PRACS_Commando_Mk10",	//Mk 11 Mod 0 (EC/Desert)
 	"PRACS_M249_Marine",	//M249
 	"PRACS_M107",	//M107 (Desert)
 	"PRACS_galil_ACE23",	//IMI Galil ACE-23
-	"PRACS_galil_ACE23_EOT",	//IMI Galil ACE-23
-	"PRACS_galil_ACE23_EOT_XP",	//IMI Galil ACE-23
-	"PRACS_galil_ACE23_G33_T1",	//IMI Galil ACE-23
-	"PRACS_galil_ACE23_ACOG",	//IMI Galil ACE-23
-	"PRACS_galil_ACE23_EOT_XP_P15_SD",	//IMI Galil ACE-23
 	"PRACS_galil_ACE23_SF",	//IMI Galil ACE-23k
-	"PRACS_galil_ACE23_SF_ACO",	//IMI Galil ACE-23k
-	"PRACS_galil_ACE23_SF_EOT_XP_P15_SD",	//IMI Galil ACE-23k
 	"PRACS_SLA_Aks74N",	//AKS-74N
 	"PRACS_SLA_Aks74N_gp25",	//AKS-74N (GP-25)
 	"PRACS_SLA_Ak74",	//AK-74
 	"PRACS_SLA_Ak74_gp25",	//AK-74 (GP-25)
-	"PRACS_ak105_ACO",	//AK-105 (B-13)
-	"PRACS_Ak74M_GP25_ACO",	//AK-74M (GP-25/B-13)
-	"PRACS_Ak74N_ACO",	//AKS-74N (NPZ)
-	"PRACS_Ak74N_GP25_ACO",	//AKS-74N (GP-25/NPZ)
-	"PRACS_Ak74M_PLUM_ACO",	//AK-74M (Plum/B-13)
-	"PRACS_Ak74M_PLUM_GP25_ACO",	//AK-74M (GP-25/Plum/B-13)
 	"PRACS_Ak105_esp_1",	//AK-105 (Zenitco)
 	"PRACS_Ak105_esp_2",	//AK-105 (Zenitco/B-33)
 	"PRACS_SVDs_Recon",	//SVDS
 	"PRACS_SVDs_Recon_2",	//SVDM (NPZ)
-	"Tier1_HK416D145_LMT",	//HK416 D14.5 (LMT)
-	"Tier1_HK416D145_LMT_Desert",	//HK416 D14.5 (LMT) (Desert)
-	"Tier1_HK416D145_CTR",	//HK416 D14.5 (CTR)
-	"Tier1_HK416D145_CTR_Desert",	//HK416 D14.5 (CTR) (Desert)
-	"Tier1_HK416D145_SMR_LMT",	//HK416 D14.5 (SMR/LMT)
-	"Tier1_HK416D145_SMR_LMT_Desert",	//HK416 D14.5 (SMR/LMT) (Desert)
-	"Tier1_HK416D145_SMR_LMT_BlackDesert",	//HK416 D14.5 (SMR/LMT) (Black/Desert)
-	"Tier1_HK416D145_SMR_CTR",	//HK416 D14.5 (SMR/CTR)
-	"Tier1_HK416D145_SMR_CTR_Desert",	//HK416 D14.5 (SMR/CTR) (Desert)
-	"Tier1_HK416D145_SMR_CTR_BlackDesert",	//HK416 D14.5 (SMR/CTR) (Black/Desert)
-	"Tier1_HK416D145_SMR_IMOD",	//HK416 D14.5 (SMR/IMOD)
-	"Tier1_HK416D145_SMR_IMOD_Desert",	//HK416 D14.5 (SMR/IMOD) (Desert)
-	"Tier1_HK416D145_SMR_IMOD_BlackDesert",	//HK416 D14.5 (SMR/IMOD) (Black/Desert)
-	"Tier1_HK416D145_SMR_MFT",	//HK416 D14.5 (SMR/MFT)
-	"Tier1_HK416D145_SMR_MFT_Desert",	//HK416 D14.5 (SMR/MFT) (Desert)
-	"Tier1_HK416D145_SMR_MFT_BlackDesert",	//HK416 D14.5 (SMR/MFT) (Black/Desert)
-	"Tier1_HK416D145_RAHG_LMT",	//HK416 D14.5 (RAHG/LMT)
-	"Tier1_HK416D145_RAHG_LMT_Desert",	//HK416 D14.5 (RAHG/LMT) (Desert)
-	"Tier1_HK416D145_RAHG_LMT_BlackDesert",	//HK416 D14.5 (RAHG/LMT) (Black/Desert)
-	"Tier1_HK416D145_RAHG_CTR",	//HK416 D14.5 (RAHG/CTR)
-	"Tier1_HK416D145_RAHG_CTR_Desert",	//HK416 D14.5 (RAHG/CTR) (Desert)
-	"Tier1_HK416D145_RAHG_CTR_BlackDesert",	//HK416 D14.5 (RAHG/CTR) (Black/Desert)
-	"Tier1_HK416D145_RAHG_IMOD",	//HK416 D14.5 (RAHG/IMOD)
-	"Tier1_HK416D145_RAHG_IMOD_Desert",	//HK416 D14.5 (RAHG/IMOD) (Desert)
-	"Tier1_HK416D145_RAHG_IMOD_BlackDesert",	//HK416 D14.5 (RAHG/IMOD) (Black/Desert)
-	"Tier1_HK416D145_RAHG_MFT",	//HK416 D14.5 (RAHG/MFT)
-	"Tier1_HK416D145_RAHG_MFT_Desert",	//HK416 D14.5 (RAHG/MFT) (Desert)
-	"Tier1_HK416D145_RAHG_MFT_BlackDesert",	//HK416 D14.5 (RAHG/MFT) (Black/Desert)
-	"Tier1_HK416D145_MW13_MFT",	//HK416 D14.5 (Midwest/MFT)
-	"Tier1_HK416D145_MW13_MFT_Desert",	//HK416 D14.5 (Midwest/MFT) (Desert)
-	"Tier1_HK416D145_MW13_MFT_BlackDesert",	//HK416 D14.5 (Midwest/MFT) (Black/Desert)
-	"Tier1_HK416D145_MW13_CTR",	//HK416 D14.5 (Midwest/CTR)
-	"Tier1_HK416D145_MW13_CTR_Desert",	//HK416 D14.5 (Midwest/CTR) (Desert)
-	"Tier1_HK416D145_MW13_CTR_BlackDesert",	//HK416 D14.5 (Midwest/CTR) (Black/Desert)
-	"Tier1_HK416D145_MW13_LMT",	//HK416 D14.5 (Midwest/LMT)
-	"Tier1_HK416D145_MW13_LMT_Desert",	//HK416 D14.5 (Midwest/LMT) (Desert)
-	"Tier1_HK416D145_MW13_LMT_BlackDesert",	//HK416 D14.5 (Midwest/LMT) (Black/Desert)
-	"Tier1_HK416D145_MW13_IMOD",	//HK416 D14.5 (Midwest/IMOD)
-	"Tier1_HK416D145_MW13_IMOD_Desert",	//HK416 D14.5 (Midwest/IMOD) (Desert)
-	"Tier1_HK416D145_MW13_IMOD_BlackDesert",	//HK416 D14.5 (Midwest/IMOD) (Black/Desert)
-	"Tier1_HK416D10_LMT",	//HK416 D10 (LMT)
-	"Tier1_HK416D10_LMT_Desert",	//HK416 D10 (LMT) (Desert)
-	"Tier1_HK416D10_CTR",	//HK416 D10 (CTR)
-	"Tier1_HK416D10_CTR_Desert",	//HK416 D10 (CTR) (Desert)
-	"Tier1_HK416D10_SMR_LMT",	//HK416 D10 (SMR/LMT)
-	"Tier1_HK416D10_SMR_LMT_Desert",	//HK416 D10 (SMR/LMT) (Desert)
-	"Tier1_HK416D10_SMR_LMT_BlackDesert",	//HK416 D10 (SMR/LMT) (Black/Desert)
-	"Tier1_HK416D10_SMR_CTR",	//HK416 D10 (SMR/CTR)
-	"Tier1_HK416D10_SMR_CTR_Desert",	//HK416 D10 (SMR/CTR) (Desert)
-	"Tier1_HK416D10_SMR_CTR_BlackDesert",	//HK416 D10 (SMR/CTR) (Black/Desert)
-	"Tier1_HK416D10_SMR_IMOD",	//HK416 D10 (SMR/IMOD)
-	"Tier1_HK416D10_SMR_IMOD_Desert",	//HK416 D10 (SMR/IMOD) (Desert)
-	"Tier1_HK416D10_SMR_IMOD_BlackDesert",	//HK416 D10 (SMR/IMOD) (Black/Desert)
-	"Tier1_HK416D10_SMR_MFT",	//HK416 D10 (SMR/MFT)
-	"Tier1_HK416D10_SMR_MFT_Desert",	//HK416 D10 (SMR/MFT) (Desert)
-	"Tier1_HK416D10_SMR_MFT_BlackDesert",	//HK416 D10 (SMR/MFT) (Black/Desert)
-	"Tier1_HK416D10_RAHG_LMT",	//HK416 D10 (RAHG/LMT)
-	"Tier1_HK416D10_RAHG_LMT_Desert",	//HK416 D10 (RAHG/LMT) (Desert)
-	"Tier1_HK416D10_RAHG_LMT_BlackDesert",	//HK416 D10 (RAHG/LMT) (Black/Desert)
-	"Tier1_HK416D10_RAHG_CTR",	//HK416 D10 (RAHG/CTR)
-	"Tier1_HK416D10_RAHG_CTR_Desert",	//HK416 D10 (RAHG/CTR) (Desert)
-	"Tier1_HK416D10_RAHG_CTR_BlackDesert",	//HK416 D10 (RAHG/CTR) (Black/Desert)
-	"Tier1_HK416D10_RAHG_IMOD",	//HK416 D10 (RAHG/IMOD)
-	"Tier1_HK416D10_RAHG_IMOD_Desert",	//HK416 D10 (RAHG/IMOD) (Desert)
-	"Tier1_HK416D10_RAHG_IMOD_BlackDesert",	//HK416 D10 (RAHG/IMOD) (Black/Desert)
-	"Tier1_HK416D10_RAHG_MFT",	//HK416 D10 (RAHG/MFT)
-	"Tier1_HK416D10_RAHG_MFT_Desert",	//HK416 D10 (RAHG/MFT) (Desert)
-	"Tier1_HK416D10_RAHG_MFT_BlackDesert",	//HK416 D10 (RAHG/MFT) (Black/Desert)
-	"Tier1_HK416D10_MW9_MFT",	//HK416 D10 (Midwest/MFT)
-	"Tier1_HK416D10_MW9_MFT_Desert",	//HK416 D10 (Midwest/MFT) (Desert)
-	"Tier1_HK416D10_MW9_MFT_BlackDesert",	//HK416 D10 (Midwest/MFT) (Black/Desert)
-	"Tier1_HK416D10_MW9_CTR",	//HK416 D10 (Midwest/CTR)
-	"Tier1_HK416D10_MW9_CTR_Desert",	//HK416 D10 (Midwest/CTR) (Desert)
-	"Tier1_HK416D10_MW9_CTR_BlackDesert",	//HK416 D10 (Midwest/CTR) (Black/Desert)
-	"Tier1_HK416D10_MW9_LMT",	//HK416 D10 (Midwest/LMT)
-	"Tier1_HK416D10_MW9_LMT_Desert",	//HK416 D10 (Midwest/LMT) (Desert)
-	"Tier1_HK416D10_MW9_LMT_BlackDesert",	//HK416 D10 (Midwest/LMT) (Black/Desert)
-	"Tier1_HK416D10_MW9_IMOD",	//HK416 D10 (Midwest/IMOD)
-	"Tier1_HK416D10_MW9_IMOD_Desert",	//HK416 D10 (Midwest/IMOD) (Desert)
-	"Tier1_HK416D10_MW9_IMOD_BlackDesert",	//HK416 D10 (Midwest/IMOD) (Black/Desert)
-	"Tier1_SR16_CQB_Mod2_CTR_FDE",	//SR-16 CQB Mod2 M-LOK (CTR) (FDE)
-	"Tier1_SR16_CQB_Mod2_CTR_Black",	//SR-16 CQB Mod2 M-LOK (CTR)
-	"Tier1_SR16_CQB_Mod2_LMT_FDE",	//SR-16 CQB Mod2 M-LOK (LMT) (FDE)
-	"Tier1_SR16_CQB_Mod2_LMT_Black",	//SR-16 CQB Mod2 M-LOK (LMT)
-	"Tier1_SR16_CQB_Mod2_IMOD_FDE",	//SR-16 CQB Mod2 M-LOK (IMOD) (FDE)
-	"Tier1_SR16_CQB_Mod2_IMOD_Black",	//SR-16 CQB Mod2 M-LOK (IMOD)
-	"Tier1_SR16_CQB_Mod2_MFT_FDE",	//SR-16 CQB Mod2 M-LOK (MFT) (FDE)
-	"Tier1_SR16_CQB_Mod2_MFT_Black",	//SR-16 CQB Mod2 M-LOK (MFT)
-	"Tier1_SR16_Carbine_Mod2_CTR_FDE",	//SR-16 Carbine Mod2 M-LOK (CTR) (FDE)
-	"Tier1_SR16_Carbine_Mod2_CTR_Black",	//SR-16 Carbine Mod2 M-LOK (CTR)
-	"Tier1_SR16_Carbine_Mod2_LMT_FDE",	//SR-16 Carbine Mod2 M-LOK (LMT) (FDE)
-	"Tier1_SR16_Carbine_Mod2_LMT_Black",	//SR-16 Carbine Mod2 M-LOK (LMT)
-	"Tier1_SR16_Carbine_Mod2_IMOD_FDE",	//SR-16 Carbine Mod2 M-LOK (IMOD) (FDE)
-	"Tier1_SR16_Carbine_Mod2_IMOD_Black",	//SR-16 Carbine Mod2 M-LOK (IMOD)
-	"Tier1_SR16_Carbine_Mod2_MFT_FDE",	//SR-16 Carbine Mod2 M-LOK (MFT) (FDE)
-	"Tier1_SR16_Carbine_Mod2_MFT_Black",	//SR-16 Carbine Mod2 M-LOK (MFT)
-	"Tier1_SIG_MCX_115_Virtus",	//MCX 11.5 Virtus
-	"Tier1_SIG_MCX_115_Virtus_Desert",	//MCX 11.5 Virtus (Desert)
-	"Tier1_SIG_MCX_115_Virtus_FDE",	//MCX 11.5 Virtus (FDE)
-	"Tier1_SIG_MCX_115_Virtus_Black",	//MCX 11.5 Virtus (Black)
-	"Tier1_SIG_MCX_115_Virtus_300BLK",	//MCX 11.5 Virtus (.300BLK)
-	"Tier1_SIG_MCX_115_Virtus_300BLK_Desert",	//MCX 11.5 Virtus (.300BLK) (Desert)
-	"Tier1_SIG_MCX_115_Virtus_300BLK_FDE",	//MCX 11.5 Virtus (.300BLK) (FDE)
-	"Tier1_SIG_MCX_115_Virtus_300BLK_Black",	//MCX 11.5 Virtus (.300BLK) (Black)
-	"Tier1_SR25",	//SR-25
-	"Tier1_SR25_EC",	//SR-25 EC
-	"Tier1_SR25_tan",	//SR-25 (Tan)
-	"Tier1_SR25_EC_tan",	//SR-25 EC (Tan)
-	"Tier1_M110k1",	//M110k1
-	"Tier1_M110k1_CTR",	//M110k1 (CTR)
-	"Tier1_M110k5",	//M110k5 M-LOK
-	"Tier1_M110k5_ACS",	//M110k5 M-LOK (ACS)
-	"Tier1_M110k5_65mm",	//M110k5 M-LOK (6.5mm)
-	"Tier1_M110k5_ACS_65mm",	//M110k5 M-LOK (ACS) (6.5mm)
-	"Tier1_M249_light_S_Desert",	//M249 PIP (Short/LCBA) (Desert)
-	"Tier1_MK46_Mod0",	//Mk 46 Mod 0
-	"Tier1_MK46_Mod0_Desert",	//Mk 46 Mod 0 (Desert)
-	"Tier1_MK46_Mod0_Para",	//Mk 46 Mod 0 (Para)
-	"Tier1_MK46_Mod0_Para_Desert",	//Mk 46 Mod 0 (Para) (Desert)
-	"Tier1_MK46_Mod1",	//Mk 46 Mod 1 (Para)
-	"Tier1_MK46_Mod1_Desert",	//Mk 46 Mod 1 (Para) (Desert)
-	"Tier1_MK46_Mod1_Savit",	//Mk 46 Mod 1 (Savit)
-	"Tier1_MK46_Mod1_Savit_Desert",	//Mk 46 Mod 1 (Savit) (Desert)
-	"Tier1_MK48_Mod0",	//Mk 48 Mod 0
-	"Tier1_MK48_Mod0_Desert",	//Mk 48 Mod 0 (Desert)
-	"Tier1_MK48_Mod0_Para",	//Mk 48 Mod 0 (Para)
-	"Tier1_MK48_Mod0_Para_Desert",	//Mk 48 Mod 0 (Para) (Desert)
-	"Tier1_MK48_Mod1",	//Mk 48 Mod 1 (Savit)
-	"Tier1_MK48_Mod1_Desert",	//Mk 48 Mod 1 (Savit) (Desert)
 	/* =======================
 	 * Type : SecondaryWeapon
 	 * ======================= */
 	"rhs_weap_pya",	//MP-443
 	"rhs_weap_rsp30_white",	//ROP-30
-	"rhs_weap_rsp30_white_used",	//ROP-30
 	"rhs_weap_rsp30_red",	//RSP-30 (Red)
-	"rhs_weap_rsp30_red_used",	//RSP-30 (Red)
 	"rhs_weap_rsp30_green",	//RSP-30 (Green)
-	"rhs_weap_rsp30_green_used",	//RSP-30 (Green)
 	"rhs_weap_tr8",	//TR-8 Periscope
 	"rhs_weap_makarov_pm",	//PM
 	"rhs_weap_makarov_pmm",	//PMM
@@ -769,31 +482,13 @@ GRLIB_arsenal_weapons = [
 	"rhs_weap_cz99",	//CZ99
 	"rhs_weap_cz99_etched",	//CZ99 (Engraved)
 	"UK3CB_USP",	//HK USP Pistol
-	"uk3cb_usp_sup",	//HK USP Pistol
-	"uk3cb_weap_pb_6p9_sup",	//6P9
-	"Tier1_Glock19_Urban",	//Glock 19 Urban
-	"Tier1_Glock19_Urban_TB",	//Glock 19/TB Urban
-	"Tier1_Glock19_WAR",	//Glock 19 WAR
-	"Tier1_Glock19_WAR_TB",	//Glock 19/TB WAR
-	"Tier1_Glock22",	//Glock 22
-	"Tier1_Glock22_TB",	//Glock 22/TB
-	"Tier1_Glock22_Rail",	//Glock 22/Rail
-	"Tier1_Glock22_TB_Rail",	//Glock 22/TB/Rail
-	"Tier1_P320",	//P320
-	"Tier1_P320_PMM",	//P320/PMM
-	"Tier1_P320_TB",	//P320/TB
 	/* =======================
 	 * Type : Launcher
 	 * ======================= */
 	"rhs_weap_rpg26",	//RPG-26
-	"rhs_weap_rpg26_used",	//RPG-26 (Used)
 	"rhs_weap_rpg18",	//RPG-18
-	"rhs_weap_rpg18_used",	//RPG-18 (Used)
 	"rhs_weap_rshg2",	//RShG-2
-	"rhs_weap_rshg2_used",	//RShG-2 (Used)
 	"rhs_weap_rpg7",	//RPG-7V2
-	"rhs_weap_rpg7_pgo",	//RPG-7V2
-	"rhs_weap_rpg7_1pn93",	//RPG-7V2
 	"rhs_weap_strela",	//9K32
 	"rhs_weap_igla",	//9K38 Igla
 	"rhs_weap_smaw",	//MK153 Mod 0 SMAW (Black)
@@ -802,24 +497,14 @@ GRLIB_arsenal_weapons = [
 	"rhs_weap_M136",	//M136 (HEAT)
 	"rhs_weap_M136_hedp",	//M136 (HEDP)
 	"rhs_weap_M136_hp",	//M136 (HP)
-	"rhs_weap_M136_used",	//M136 HEAT (used)
-	"rhs_weap_M136_hedp_used",	//M136 HEDP (used)
-	"rhs_weap_M136_hp_used",	//M136 HP (used)
 	"rhs_weap_m72a7",	//M72A7
-	"rhs_weap_m72a7_used",	//M72A7 (used)
 	"rhs_weap_fim92",	//FIM-92F
 	"rhs_weap_fgm148",	//FGM-148 Javelin
 	"rhs_weap_mk40_sraw",	//Mk 40 Mod 0 SRAW
 	"rhs_weap_mk41_sraw",	//Mk 41 Mod 0 SRAW-MPV
-	"rhs_weap_smaw_optic",	//MK153 Mod 0 SMAW (Black)
-	"rhs_weap_smaw_gr_optic",	//MK153 Mod 0 SMAW (Green)
-	"rhs_weap_maaws_optic",	//M3 MAAWS
 	"rhs_weap_rpg75",	//RPG-75
 	"rhs_weap_m80",	//RBR-M80
-	"rhs_weap_rpg75_used",	//RPG-75 (used)
 	"rhs_weap_panzerfaust60",	//Panzerfaust 60
-	"rhs_weap_panzerfaust60_used",	//Panzerfaust 60 (used)
-	"rhs_weap_m80_used",	//RBR-M80(used)
 	"PRACS_SAAWS"	//M3 SAAWS
 ];
 
@@ -1820,67 +1505,7 @@ GRLIB_arsenal_magazines = [
 	"PRACS_30rd_9mm_UZI",	//30 Round 9mm UZI Magazine
 	"PRACS_100rd_Mk48_AP_Soft_pouch",	//100rd Mk48 7.62x51 M61 AP Soft Pack
 	"PRACS_100rd_Mk48_M80ball_Soft_pouch",	//100rd Mk48 7.62x51 M80 ball Soft Pack
-	"PRACS_100rd_Mk48_M62T_Soft_pouch",	//100rd Mk48 7.62x51 M62 Tracer Soft Pack
-	"Tier1_30Rnd_762x35_300BLK_EMag",	//30rnd EMAG .300 AAC Blackout EPR
-	"Tier1_30Rnd_762x35_300BLK_RNBT_EMag",	//30rnd EMAG .300 RNBT (Tracer)
-	"Tier1_30Rnd_762x35_300BLK_SMK_EMag",	//30rnd EMAG .300 Custom Combat TAC-TX
-	"Tier1_30Rnd_762x35_300BLK_Stanag",	//30rnd STANAG .300 AAC Blackout EPR
-	"Tier1_30Rnd_762x35_300BLK_RNBT_Stanag",	//30rnd STANAG .300 RNBT (Tracer)
-	"Tier1_30Rnd_762x35_300BLK_SMK_Stanag",	//30rnd STANAG .300 Custom Combat TAC-TX
-	"Tier1_30Rnd_762x35_300BLK_Stanag_Pull",	//30rnd STANAG (Puller) .300 AAC Blackout EPR
-	"Tier1_30Rnd_762x35_300BLK_RNBT_Stanag_Pull",	//30rnd STANAG (Puller) .300 RNBT (Tracer)
-	"Tier1_30Rnd_762x35_300BLK_SMK_Stanag_Pull",	//30rnd STANAG (Puller) .300 Custom Combat TAC-TX
-	"Tier1_30Rnd_762x35_300BLK_Stanag_Ranger",	//30rnd STANAG (Ranger) .300 AAC Blackout EPR
-	"Tier1_30Rnd_762x35_300BLK_RNBT_Stanag_Ranger",	//30rnd STANAG (Ranger) .300 RNBT (Tracer)
-	"Tier1_30Rnd_762x35_300BLK_SMK_Stanag_Ranger",	//30rnd STANAG (Ranger) .300 Custom Combat TAC-TX
-	"Tier1_30Rnd_762x35_300BLK_PMAG",	//30rnd PMAG .300 AAC Blackout EPR
-	"Tier1_30Rnd_762x35_300BLK_RNBT_PMAG",	//30rnd PMAG .300 RNBT (Tracer)
-	"Tier1_30Rnd_762x35_300BLK_SMK_PMAG",	//30rnd PMAG .300 Custom Combat TAC-TX
-	"Tier1_30Rnd_762x35_300BLK_PMAG_Tan",	//30rnd PMAG .300 AAC Blackout EPR
-	"Tier1_30Rnd_762x35_300BLK_RNBT_PMAG_Tan",	//30rnd PMAG .300 RNBT (Tracer)
-	"Tier1_30Rnd_762x35_300BLK_SMK_PMAG_Tan",	//30rnd PMAG .300 Custom Combat TAC-TX
-	"Tier1_30Rnd_762x35_300BLK_EPM",	//30rnd EPM .300 AAC Blackout EPR
-	"Tier1_30Rnd_762x35_300BLK_RNBT_EPM",	//30rnd EPM .300 RNBT (Tracer)
-	"Tier1_30Rnd_762x35_300BLK_SMK_EPM",	//30rnd EPM .300 Custom Combat TAC-TX
-	"Tier1_20Rnd_762x51_M118_Special_SR25_Mag",	//20rnd SR-25/M110 M118
-	"Tier1_20Rnd_762x51_M993_SR25_Mag",	//20rnd SR-25/M110 M993 AP
-	"Tier1_20Rnd_762x51_M61_AP_SR25_Mag",	//20rnd SR-25/M110 M61 AP
-	"Tier1_20Rnd_762x51_M62_SR25_Mag",	//20rnd SR-25/M110 M62 (Tracer)
-	"Tier1_20Rnd_762x51_M80_ball_SR25_Mag",	//20rnd SR-25/M110 M80 Ball
-	"Tier1_20Rnd_762x51_M80A1_EPR_SR25_Mag",	//20rnd SR-25/M110 M80A1 EPR
-	"Tier1_20Rnd_762x51_Mk316Mod0_SR25_Mag",	//20rnd SR-25/M110 Mk316 Mod 0
-	"Tier1_20Rnd_65x48_Creedmoor_SR25_Mag",	//20rnd SR-25/M110 6.5mm Creedmoor
-	"Tier1_100Rnd_762x51_Belt_M80",	//100rnd Ammo Belt M80
-	"Tier1_250Rnd_762x51_Belt_M80",	//250rnd Ammo Belt M80
-	"Tier1_100Rnd_762x51_Belt_M61_AP",	//100rnd Ammo Belt M61 AP
-	"Tier1_250Rnd_762x51_Belt_M61_AP",	//250rnd Ammo Belt M61 AP
-	"Tier1_100Rnd_762x51_Belt_M62_Tracer",	//100rnd Ammo Belt M62 (Tracer)
-	"Tier1_250Rnd_762x51_Belt_M62_Tracer",	//250rnd Ammo Belt M62 (Tracer)
-	"Tier1_100Rnd_762x51_Belt_M80A1_EPR",	//100rnd Ammo Belt M80A1 EPR
-	"Tier1_250Rnd_762x51_Belt_M80A1_EPR",	//250rnd Ammo Belt M80A1 EPR
-	"Tier1_100Rnd_762x51_Belt_M82_Blank",	//100rnd Ammo Belt M82 (Blank)
-	"Tier1_250Rnd_762x51_Belt_M82_Blank",	//250rnd Ammo Belt M82 (Blank)
-	"Tier1_100Rnd_762x51_Belt_M993_AP",	//100rnd Ammo Belt M993 AP
-	"Tier1_250Rnd_762x51_Belt_M993_AP",	//250rnd Ammo Belt M993 AP
-	"Tier1_15Rnd_9x19_FMJ",	//15rnd Glock M882 FMJ
-	"Tier1_15Rnd_9x19_JHP",	//15rnd Glock Mk243 JHP
-	"Tier1_20Rnd_9x19_FMJ",	//20rnd Glock M882 FMJ
-	"Tier1_20Rnd_9x19_JHP",	//20rnd Glock Mk243 JHP
-	"Tier1_15Rnd_40SW_FMJ",	//15rnd Glock Mk309 FMJ
-	"Tier1_15Rnd_40SW_JHP",	//15rnd Glock Mk308 JHP
-	"Tier1_20Rnd_40SW_FMJ",	//20rnd Glock Mk309 FMJ
-	"Tier1_20Rnd_40SW_JHP",	//20rnd Glock Mk308 JHP
-	"Tier1_17Rnd_9x19_P320_FMJ",	//17rnd P320 M882 FMJ
-	"Tier1_17Rnd_9x19_P320_JHP",	//17rnd P320 Mk243 JHP
-	"Tier1_21Rnd_9x19_P320_FMJ",	//21rnd P320 M882 FMJ
-	"Tier1_21Rnd_9x19_P320_JHP",	//21rnd P320 Mk243 JHP
-	"Tier1_30Rnd_556x45_M855A1_EMag",	//30rnd EMAG M855A1
-	"Tier1_30Rnd_556x45_M856A1_EMag",	//30rnd EMAG M856A1 (Tracer)
-	"Tier1_30Rnd_556x45_M855_EMag",	//30rnd EMAG M855
-	"Tier1_30Rnd_556x45_M856_EMag",	//30rnd EMAG M856 (Tracer)
-	"Tier1_30Rnd_556x45_M200_EMag",	//30rnd EMAG M200 (Blank)
-	"Tier1_30Rnd_556x45_Mk262Mod1_EMag",	//30rnd EMAG Mk262 Mod 1
-	"Tier1_30Rnd_556x45_Mk318Mod0_EMag"	//30rnd EMAG Mk318 Mod 0
+	"PRACS_100rd_Mk48_M62T_Soft_pouch"	//100rd Mk48 7.62x51 M62 Tracer Soft Pack
 ];
 
 GRLIB_arsenal_items = [
@@ -13120,114 +12745,6 @@ GRLIB_arsenal_items = [
 	"PRACS_RSAF_recruit_uniform",	//RACS RSAF Airman Recruit Uniform
 	"PRACS_RSM_recruit_uniform",	//RACS Royal Marine Recruit Uniform
 	"PRACS_Sailor_Recruit_uniform",	//RACS Sailor Recruit Uniform
-	"Tier1_Gemtech_Halo",	//Gemtech Halo (Black)
-	"Tier1_Gemtech_Halo_DE",	//Gemtech Halo (Tan)
-	"Tier1_RotexIIIC_DE",	//Rotex-IIIC (DE)
-	"Tier1_RotexIIIC_Grey",	//Rotex-IIIC (Grey)
-	"Tier1_SOCOM556_DE",	//Surefire SOCOM 556-RC (Tan)
-	"Tier1_SOCOM556_Black",	//Surefire SOCOM 556-RC (Black)
-	"Tier1_SOCOM556_2_DE",	//Surefire SOCOM 556-RC2 (DE)
-	"Tier1_SOCOM556_2_Black",	//Surefire SOCOM 556-RC2 (Black)
-	"Tier1_SOCOM556_2_Mini_DE",	//Surefire SOCOM 556-Mini2 (DE)
-	"Tier1_SOCOM556_2_Mini_Black",	//Surefire SOCOM 556-Mini2 (Black)
-	"Tier1_SOCOM762_2_DE",	//Surefire SOCOM 762-RC2 (DE)
-	"Tier1_SOCOM762_2_Black",	//Surefire SOCOM 762-RC2 (Black)
-	"Tier1_SOCOM762_2_Mini_DE",	//Surefire SOCOM 762-Mini2 (DE)
-	"Tier1_SOCOM762_2_Mini_Black",	//Surefire SOCOM 762-Mini2 (Black)
-	"Tier1_SOCOM762MG_DE",	//Surefire SOCOM 762-MG (Tan)
-	"Tier1_SOCOM762MG_Black",	//Surefire SOCOM 762-MG (Black)
-	"Tier1_KAC_556_QDC_Tan",	//KAC 5.56 QDC (Tan)
-	"Tier1_KAC_556_QDC_Black",	//KAC 5.56 QDC (Black)
-	"Tier1_KAC_556_QDC_CQB_Tan",	//KAC 5.56 QDC/CQB (Tan)
-	"Tier1_KAC_556_QDC_CQB_Black",	//KAC 5.56 QDC/CQB (Black)
-	"Tier1_KAC_762_QDC_Tan",	//KAC 7.62 QDC/CRS (Tan)
-	"Tier1_KAC_762_QDC_Black",	//KAC 7.62 QDC/CRS (Black)
-	"Tier1_KAC_762_DSR",	//KAC 7.62 DSR (Tan)
-	"Tier1_AAC_M42000_Black",	//AAC M4-2000 (Black)
-	"Tier1_AAC_M42000_Desert",	//AAC M4-2000 (Desert)
-	"Tier1_SandmanS_Black",	//Dead Air Sandman-S (Black)
-	"Tier1_SandmanS_Desert",	//Dead Air Sandman-S (Desert)
-	"Tier1_SRD762_Black",	//SIG Sauer SRD762 (Black)
-	"Tier1_SRD762_Desert",	//SIG Sauer SRD762 (Desert)
-	"Tier1_SR25S_tan",	//SR-25 Rifle Suppressor (Tan)
-	"Tier1_Octane9",	//SilencerCo. Octane9
-	"Tier1_Evo9",	//AAC Evolution 9
-	"Tier1_TiRant9",	//AAC Ti-Rant 9
-	"Tier1_TiRant9S",	//AAC Ti-Rant 9s
-	"Tier1_Agency_Compensator",	//Agency Arms Compensator
-	"Tier1_Razor_Gen2_16_PIP",	//Vortex Razor HD GenII
-	"Tier1_Razor_Gen2_16_CQB_PIP",	//Vortex Razor HD GenII
-	"Tier1_Razor_Gen2_16_ADM_PIP",	//Vortex Razor HD GenII/ADM
-	"Tier1_Razor_Gen2_16_ADM_CQB_PIP",	//Vortex Razor HD GenII/ADM
-	"Tier1_Razor_Gen2_16_Geissele_PIP",	//Vortex Razor HD GenII/GAM
-	"Tier1_Razor_Gen2_16_Geissele_CQB_PIP",	//Vortex Razor HD GenII/GAM
-	"Tier1_Razor_Gen2_16_Geissele_Docter_PIP",	//Vortex Razor HD GenII/GAM/Docter III
-	"Tier1_Razor_Gen2_16_Geissele_Docter_CQB_PIP",	//Vortex Razor HD GenII/GAM/Docter III
-	"Tier1_Razor_Gen3_110_ADM_PIP",	//Vortex Razor HD GenIII/ADM
-	"Tier1_Razor_Gen3_110_ADM_CQB_PIP",	//Vortex Razor HD GenIII/ADM
-	"Tier1_Razor_Gen3_110_ADM_T2_PIP",	//Vortex Razor HD GenIII/ADM/Micro T-2
-	"Tier1_Razor_Gen3_110_ADM_T2_CQB_PIP",	//Vortex Razor HD GenIII/ADM/Micro T-2
-	"Tier1_Razor_Gen3_110_Geissele_PIP",	//Vortex Razor HD GenIII/GAM
-	"Tier1_Razor_Gen3_110_Geissele_CQB_PIP",	//Vortex Razor HD GenIII/GAM
-	"Tier1_Razor_Gen3_110_Geissele_Docter_PIP",	//Vortex Razor HD GenIII/GAM/Docter III
-	"Tier1_Razor_Gen3_110_Geissele_Docter_CQB_PIP",	//Vortex Razor HD GenIII/GAM/Docter III
-	"Tier1_Elcan_156_C1_FDE_PIP",	//SpecterDR 1.5x/6x C1 (FDE) [2D]
-	"Tier1_Elcan_156_C1_Black_PIP",	//SpecterDR 1.5x/6x C1 [2D]
-	"Tier1_Elcan_156_C1_ARD_FDE_PIP",	//SpecterDR 1.5x/6x C1/ARD (FDE) [2D]
-	"Tier1_Elcan_156_C1_ARD_Black_PIP",	//SpecterDR 1.5x/6x C1/ARD [2D]
-	"Tier1_Elcan_156_C1_Docter_FDE_PIP",	//SpecterDR 1.5x/6x C1/Docter III (FDE) [2D]
-	"Tier1_Elcan_156_C1_Docter_Black_PIP",	//SpecterDR 1.5x/6x C1/Docter III [2D]
-	"Tier1_Elcan_156_C1_ARD_Docter_FDE_PIP",	//SpecterDR 1.5x/6x C1/ARD/Docter III (FDE) [2D]
-	"Tier1_Elcan_156_C1_ARD_Docter_Black_PIP",	//SpecterDR 1.5x/6x C1/ARD/Docter III [2D]
-	"Tier1_Elcan_156_C2_FDE_PIP",	//SpecterDR 1.5x/6x C2 (FDE) [2D]
-	"Tier1_Elcan_156_C2_Black_PIP",	//SpecterDR 1.5x/6x C2 [2D]
-	"Tier1_Elcan_156_C2_ARD_FDE_PIP",	//SpecterDR 1.5x/6x C2/ARD (FDE) [2D]
-	"Tier1_Elcan_156_C2_ARD_Black_PIP",	//SpecterDR 1.5x/6x C2/ARD [2D]
-	"Tier1_Elcan_156_C2_Docter_FDE_PIP",	//SpecterDR 1.5x/6x C2/Docter III (FDE) [2D]
-	"Tier1_Elcan_156_C2_Docter_Black_PIP",	//SpecterDR 1.5x/6x C2/Docter III [2D]
-	"Tier1_Elcan_156_C2_ARD_Docter_FDE_PIP",	//SpecterDR 1.5x/6x C2/ARD/Docter III (FDE) [2D]
-	"Tier1_Elcan_156_C2_ARD_Docter_Black_PIP",	//SpecterDR 1.5x/6x C2/ARD/Docter III [2D]
-	"Tier1_Shortdot_ADM_Black_PIP",	//ShortDot 1-8x24 PM II CC/ADM
-	"Tier1_Shortdot_ADM_Black_CQB_PIP",	//ShortDot 1-8x24 PM II CC/ADM
-	"Tier1_Shortdot_ADM_Tan_PIP",	//ShortDot 1-8x24 PM II CC/ADM (Tan)
-	"Tier1_Shortdot_ADM_Tan_CQB",	//ShortDot 1-8x24 PM II CC/ADM (Tan)
-	"Tier1_Shortdot_ADM_Tan_CQB_PIP",	//ShortDot 1-8x24 PM II CC/ADM (Tan)
-	"Tier1_Shortdot_ADM_Desert_PIP",	//ShortDot 1-8x24 PM II CC/ADM (Desert)
-	"Tier1_Shortdot_ADM_Desert_CQB",	//ShortDot 1-8x24 PM II CC/ADM (Desert)
-	"Tier1_Shortdot_ADM_Desert_CQB_PIP",	//ShortDot 1-8x24 PM II CC/ADM (Desert)
-	"Tier1_Shortdot_Geissele_Black_PIP",	//ShortDot 1-8x24 PM II CC/GAM
-	"Tier1_Shortdot_Geissele_Black_CQB_PIP",	//ShortDot 1-8x24 PM II CC/GAM
-	"Tier1_Shortdot_Geissele_Tan_PIP",	//ShortDot 1-8x24 PM II CC/GAM (Tan)
-	"Tier1_Shortdot_Geissele_Tan_CQB",	//ShortDot 1-8x24 PM II CC/GAM (Tan)
-	"Tier1_Shortdot_Geissele_Tan_CQB_PIP",	//ShortDot 1-8x24 PM II CC/GAM (Tan)
-	"Tier1_Shortdot_Geissele_Desert_PIP",	//ShortDot 1-8x24 PM II CC/GAM (Desert)
-	"Tier1_Shortdot_Geissele_Desert_CQB",	//ShortDot 1-8x24 PM II CC/GAM (Desert)
-	"Tier1_Shortdot_Geissele_Desert_CQB_PIP",	//ShortDot 1-8x24 PM II CC/GAM (Desert)
-	"Tier1_Shortdot_Geissele_Docter_Black_PIP",	//ShortDot 1-8x24 PM II CC/GAM/Docter III
-	"Tier1_Shortdot_Geissele_Docter_Black_CQB_PIP",	//ShortDot 1-8x24 PM II CC/GAM/Docter III
-	"Tier1_Shortdot_Geissele_Docter_Tan_PIP",	//ShortDot 1-8x24 PM II CC/GAM/Docter III (Tan)
-	"Tier1_Shortdot_Geissele_Docter_Tan_CQB",	//ShortDot 1-8x24 PM II CC/GAM/Docter III (Tan)
-	"Tier1_Shortdot_Geissele_Docter_Tan_CQB_PIP",	//ShortDot 1-8x24 PM II CC/GAM/Docter III (Tan)
-	"Tier1_Shortdot_Geissele_Docter_Desert_PIP",	//ShortDot 1-8x24 PM II CC/GAM/Docter III (Desert)
-	"Tier1_Shortdot_Geissele_Docter_Desert_CQB",	//ShortDot 1-8x24 PM II CC/GAM/Docter III (Desert)
-	"Tier1_Shortdot_Geissele_Docter_Desert_CQB_PIP",	//ShortDot 1-8x24 PM II CC/GAM/Docter III (Desert)
-	"Tier1_ATACR18_ADM_Black_PIP",	//Nightforce 1-8x24 ATACR/ADM
-	"Tier1_ATACR18_ADM_Black_CQB_PIP",	//Nightforce 1-8x24 ATACR/ADM
-	"Tier1_ATACR18_ADM_Desert_PIP",	//Nightforce 1-8x24 ATACR/ADM (Desert)
-	"Tier1_ATACR18_ADM_Desert_CQB",	//Nightforce 1-8x24 ATACR/ADM (Desert)
-	"Tier1_ATACR18_ADM_Desert_CQB_PIP",	//Nightforce 1-8x24 ATACR/ADM (Desert)
-	"Tier1_ATACR18_ADM_T1_Black_PIP",	//Nightforce 1-8x24 ATACR/ADM/Micro T-1
-	"Tier1_ATACR18_ADM_T1_Black_CQB_PIP",	//Nightforce 1-8x24 ATACR/ADM/Micro T-1
-	"Tier1_ATACR18_ADM_T1_Desert_PIP",	//Nightforce 1-8x24 ATACR/ADM/Micro T-1 (Desert)
-	"Tier1_ATACR18_ADM_T1_Desert_CQB_PIP",	//Nightforce 1-8x24 ATACR/ADM/Micro T-1 (Desert)
-	"Tier1_ATACR18_Geissele_Black_PIP",	//Nightforce 1-8x24 ATACR/GAM
-	"Tier1_ATACR18_Geissele_Black_CQB_PIP",	//Nightforce 1-8x24 ATACR/GAM
-	"Tier1_ATACR18_Geissele_Desert_PIP",	//Nightforce 1-8x24 ATACR/GAM (Desert)
-	"Tier1_ATACR18_Geissele_Desert_CQB_PIP",	//Nightforce 1-8x24 ATACR/GAM (Desert)
-	"Tier1_ATACR18_Geissele_Docter_Black_PIP",	//Nightforce 1-8x24 ATACR/GAM/Docter III
-	"Tier1_ATACR18_Geissele_Docter_Black_CQB_PIP",	//Nightforce 1-8x24 ATACR/GAM/Docter III
-	"Tier1_ATACR18_Geissele_Docter_Desert_PIP",	//Nightforce 1-8x24 ATACR/GAM/Docter III (Desert)
-	"Tier1_ATACR18_Geissele_Docter_Desert_CQB_PIP",	//Nightforce 1-8x24 ATACR/GAM/Docter III (Desert)
 	"muzzle_snds_L",	//소음기(9mm)
 	/* =======================
 	 * Type : HeadGear
@@ -18546,64 +18063,6 @@ GRLIB_arsenal_items = [
 	"PRACS_HGU55_Raised_PMBU12_Special6",	//HGU-55 (Wld427) PMBU12 Mask (Visor Up)
 	"PRACS_tankers_multitool",	//Tankers Toolkit
 	"PRACS_UavTerminal",	//UAV Terminal [RACS]
-	"Tier1_Harris_Bipod_Tan",	//Harris Bipod (Desert)
-	"Tier1_Harris_Bipod_Black",	//Harris Bipod
-	"Tier1_Harris_Bipod_MLOK_Tan",	//Harris Bipod (Desert)
-	"Tier1_Harris_Bipod_MLOK_Black",	//Harris Bipod
-	"Tier1_Harris_Bipod_MLOK_Black_2",	//Harris Bipod
-	"Tier1_Harris_Bipod_KAC_Black",	//KAC VFG/Harris Bipod
-	"Tier1_Harris_Bipod_KAC_Tan",	//KAC VFG/Harris Bipod (Desert)
-	"Tier1_Harris_Bipod_DD_Black",	//DD VFG/Harris Bipod
-	"Tier1_Harris_Bipod_DD_Tan",	//DD VFG/Harris Bipod (Desert)
-	"Tier1_Harris_Bipod_RVG_Black",	//RVG/Harris Bipod
-	"Tier1_Harris_Bipod_RVG_tan",	//RVG/Harris Bipod (Desert)
-	"Tier1_Harris_Bipod_MVG_MLOK_Black",	//M-LOK MVG/Harris Bipod
-	"Tier1_Harris_Bipod_MVG_MLOK_tan",	//M-LOK MVG/Harris Bipod (Desert)
-	"Tier1_Harris_Bipod_DD_MLOK_Black",	//DD VFG/Harris Bipod
-	"Tier1_Harris_Bipod_DD_MLOK_Tan",	//DD VFG/Harris Bipod (Desert)
-	"Tier1_Harris_Bipod_KAC_MLOK_Black",	//KAC VFG/Harris Bipod
-	"Tier1_Harris_Bipod_KAC_MLOK_Tan",	//KAC VFG/Harris Bipod (Desert)
-	"Tier1_Harris_Bipod_RVG_MLOK_Black",	//RVG/Harris Bipod
-	"Tier1_Harris_Bipod_RVG_MLOK_Tan",	//RVG/Harris Bipod (Desert)
-	"Tier1_SAW_Bipod",	//SAW Improved Bipod
-	"Tier1_SAW_Bipod_Desert",	//SAW Improved Bipod (Desert)
-	"Tier1_SAW_Bipod_DD",	//DD VFG/SAW Improved Bipod
-	"Tier1_SAW_Bipod_DD_Desert",	//DD VFG/SAW Improved Bipod (Desert)
-	"Tier1_SAW_Bipod_KAC",	//KAC VFG/SAW Improved Bipod
-	"Tier1_SAW_Bipod_KAC_Desert",	//KAC VFG/SAW Improved Bipod (Desert)
-	"Tier1_SAW_Bipod_2",	//SAW Bipod
-	"Tier1_SAW_Bipod_2_Desert",	//SAW Bipod (Desert)
-	"Tier1_SAW_Bipod_2_DD",	//DD VFG/SAW Bipod
-	"Tier1_SAW_Bipod_2_DD_Desert",	//DD VFG/SAW Bipod (Desert)
-	"Tier1_SAW_Bipod_2_KAC",	//KAC VFG/SAW Bipod
-	"Tier1_SAW_Bipod_2_KAC_Desert",	//KAC VFG/SAW Bipod (Desert)
-	"Tier1_GripPod_Tan",	//Grip-Pod (Tan)
-	"Tier1_GripPod_Black",	//Grip-Pod (Black)
-	"Tier1_GripPod_MLOK_Tan",	//Grip-Pod (Tan)
-	"Tier1_GripPod_MLOK_Black",	//Grip-Pod (Black)
-	"Tier1_DD_VFG_DE",	//DD VFG (DE)
-	"Tier1_DD_VFG_Black",	//DD VFG
-	"Tier1_DD_VFG_MLOK_DE",	//DD VFG (DE)
-	"Tier1_DD_VFG_MLOK_Black",	//DD VFG
-	"Tier1_Larue_FUG_Black",	//Larue FUG
-	"Tier1_Larue_FUG_Tan",	//Larue FUG (Tan)
-	"Tier1_Larue_FUG_UDE",	//Larue FUG (UDE)
-	"Tier1_KAC_VFG_DE",	//KAC VFG (DE)
-	"Tier1_KAC_VFG_Black",	//KAC VFG
-	"Tier1_KAC_VFG_MLOK_DE",	//KAC VFG (DE)
-	"Tier1_KAC_VFG_MLOK_Black",	//KAC VFG
-	"Tier1_Gangster_Grip_Black",	//Gangster Grip
-	"Tier1_Gangster_Grip_Tan",	//Gangster Grip (Tan)
-	"Tier1_MVG_MLOK_Black",	//M-LOK MVG
-	"Tier1_MVG_MLOK_FDE",	//M-LOK MVG (FDE)
-	"Tier1_DD_MLOK_VFG_Black",	//DD M-LOK VFG
-	"Tier1_DD_MLOK_VFG_FDE",	//DD M-LOK VFG (FDE)
-	"Tier1_RVG_MLOK_Black",	//M-LOK RVG
-	"Tier1_RVG_MLOK_FDE",	//M-LOK RVG (FDE)
-	"Tier1_BCM_Gunfighter_VG_Black",	//BCM Gunfighter VG Mod3 MLOK
-	"Tier1_BCM_Gunfighter_VG_FDE",	//BCM Gunfighter VG Mod3 MLOK (FDE)
-	"Tier1_AFG_MLOK_Black",	//M-LOK AFG
-	"Tier1_AFG_MLOK_FDE",	//M-LOK AFG (FDE)
 	/* =======================
 	 * Type : OpticAttachment
 	 * ======================= */
@@ -18714,330 +18173,6 @@ GRLIB_arsenal_items = [
 	"UK3CB_Optic_G36Export35x",	//G36 Export Optic 3.5x
 	"UK3CB_Optic_G36Dualoptic15x",	//G36 Dual-Optic 1.5x
 	"UK3CB_Optic_G36Export15x",	//G36 Export Optic 1.5x
-	"Tier1_Docter",	//Docter III
-	"Tier1_Docter_RIS",	//Docter III/RIS
-	"Tier1_SIG_Romeo1",	//Romeo1
-	"Tier1_SIG_Romeo1_RIS",	//Romeo1/RIS
-	"Tier1_MRDS_Tan",	//Eotech MRDS (Tan)
-	"Tier1_MRDS",	//Eotech MRDS
-	"Tier1_Eotech551_Black",	//Eotech 551
-	"Tier1_Eotech551_3xMag_Black_Up",	//Eotech 551/3X
-	"Tier1_Eotech551_3xMag_Black_Down",	//Eotech 551/3X
-	"Tier1_Eotech551_L3_Black_Up",	//Eotech 551/L3
-	"Tier1_Eotech551_L3_Black_Down",	//Eotech 551/L3
-	"Tier1_Eotech551_Desert",	//Eotech 551 (Desert)
-	"Tier1_Eotech551_3xMag_Desert_Up",	//Eotech 551/3X (Desert)
-	"Tier1_Eotech551_3xMag_Desert_Down",	//Eotech 551/3X (Desert)
-	"Tier1_Eotech551_L3_Desert_Up",	//Eotech 551/L3 (Desert)
-	"Tier1_Eotech551_L3_Desert_Down",	//Eotech 551/L3 (Desert)
-	"Tier1_Eotech551_Riser_Black",	//Eotech 551/UTG 3/50
-	"Tier1_Eotech551_3xMag_Riser_Black_Up",	//Eotech 551/3X/UTG 13/50
-	"Tier1_Eotech551_3xMag_Riser_Black_Down",	//Eotech 551/3X/UTG 13/50
-	"Tier1_Eotech551_L3_Riser_Black_Up",	//Eotech 551/L3/UTG 13/50
-	"Tier1_Eotech551_L3_Riser_Black_Down",	//Eotech 551/L3/UTG 13/50
-	"Tier1_Eotech551_Riser_Desert",	//Eotech 551/UTG 3/50 (Desert)
-	"Tier1_Eotech551_3xMag_Riser_Desert_Up",	//Eotech 551/3X/UTG 13/50 (Desert)
-	"Tier1_Eotech551_3xMag_Riser_Desert_Down",	//Eotech 551/3X/UTG 13/50 (Desert)
-	"Tier1_Eotech551_L3_Riser_Desert_Up",	//Eotech 551/L3/UTG 13/50 (Desert)
-	"Tier1_Eotech551_L3_Riser_Desert_Down",	//Eotech 551/L3/UTG 13/50 (Desert)
-	"Tier1_Eotech553_Black",	//Eotech 553
-	"Tier1_Eotech553_3xMag_Black_Up",	//Eotech 553/3X
-	"Tier1_Eotech553_3xMag_Black_Down",	//Eotech 553/3X
-	"Tier1_Eotech553_L3_Black_Up",	//Eotech 553/L3
-	"Tier1_Eotech553_L3_Black_Down",	//Eotech 553/L3
-	"Tier1_Eotech553_Tan",	//Eotech 553 (Tan)
-	"Tier1_Eotech553_3xMag_Tan_Up",	//Eotech 553/3X (Tan)
-	"Tier1_Eotech553_3xMag_Tan_Down",	//Eotech 553/3X (Tan)
-	"Tier1_Eotech553_L3_TanBlack_Up",	//Eotech 553/L3 (Tan/Black)
-	"Tier1_Eotech553_L3_TanBlack_Down",	//Eotech 553/L3 (Tan/Black)
-	"Tier1_EXPS3_0_Black",	//EXPS3-0
-	"Tier1_EXPS3_2_Black",	//EXPS3-0
-	"Tier1_EXPS3_0_3xMag_Black_Up",	//EXPS3-0/3X
-	"Tier1_EXPS3_2_3xMag_Black_Up",	//EXPS3-0/3X
-	"Tier1_EXPS3_0_3xMag_Black_Down",	//EXPS3-0/3X
-	"Tier1_EXPS3_2_3xMag_Black_Down",	//EXPS3-0/3X
-	"Tier1_EXPS3_0_G33_Black_Up",	//EXPS3-0/G33
-	"Tier1_EXPS3_2_G33_Black_Up",	//EXPS3-0/G33
-	"Tier1_EXPS3_0_G33_Black_Down",	//EXPS3-0/G33
-	"Tier1_EXPS3_2_G33_Black_Down",	//EXPS3-0/G33
-	"Tier1_EXPS3_0_Desert",	//EXPS3-0 (Desert)
-	"Tier1_EXPS3_2_Desert",	//EXPS3-0 (Desert)
-	"Tier1_EXPS3_0_3xMag_Desert_Up",	//EXPS3-0/3X (Desert)
-	"Tier1_EXPS3_2_3xMag_Desert_Up",	//EXPS3-0/3X (Desert)
-	"Tier1_EXPS3_0_3xMag_Desert_Down",	//EXPS3-0/3X (Desert)
-	"Tier1_EXPS3_2_3xMag_Desert_Down",	//EXPS3-0/3X (Desert)
-	"Tier1_EXPS3_0_G33_Desert_Up",	//EXPS3-0/G33 (Desert)
-	"Tier1_EXPS3_2_G33_Desert_Up",	//EXPS3-0/G33 (Desert)
-	"Tier1_EXPS3_0_G33_Desert_Down",	//EXPS3-0/G33 (Desert)
-	"Tier1_EXPS3_2_G33_Desert_Down",	//EXPS3-0/G33 (Desert)
-	"Tier1_EXPS3_0_Tano",	//EXPS3-0 (Tan)
-	"Tier1_EXPS3_2_Tano",	//EXPS3-0 (Tan)
-	"Tier1_EXPS3_0_3xMag_Tano_Up",	//EXPS3-0/3X (Tan)
-	"Tier1_EXPS3_2_3xMag_Tano_Up",	//EXPS3-0/3X (Tan)
-	"Tier1_EXPS3_0_3xMag_Tano_Down",	//EXPS3-0/3X (Tan)
-	"Tier1_EXPS3_2_3xMag_Tano_Down",	//EXPS3-0/3X (Tan)
-	"Tier1_EXPS3_0_G33_Tano_Up",	//EXPS3-0/G33 (Tan)
-	"Tier1_EXPS3_2_G33_Tano_Up",	//EXPS3-0/G33 (Tan)
-	"Tier1_EXPS3_0_G33_Tano_Down",	//EXPS3-0/G33 (Tan)
-	"Tier1_EXPS3_2_G33_Tano_Down",	//EXPS3-0/G33 (Tan)
-	"Tier1_EXPS3_0_Riser_Black",	//EXPS3-0/UTG 3/50
-	"Tier1_EXPS3_2_Riser_Black",	//EXPS3-0/UTG 3/50
-	"Tier1_EXPS3_0_3xMag_Riser_Black_Up",	//EXPS3-0/3X/LT 5/8
-	"Tier1_EXPS3_2_3xMag_Riser_Black_Up",	//EXPS3-0/3X/LT 5/8
-	"Tier1_EXPS3_0_3xMag_Riser_Black_Down",	//EXPS3-0/3X/LT 5/8
-	"Tier1_EXPS3_2_3xMag_Riser_Black_Down",	//EXPS3-0/3X/LT 5/8
-	"Tier1_EXPS3_0_G33_Riser_Black_Up",	//EXPS3-0/G33/LT 5/8
-	"Tier1_EXPS3_2_G33_Riser_Black_Up",	//EXPS3-0/G33/LT 5/8
-	"Tier1_EXPS3_0_G33_Riser_Black_Down",	//EXPS3-0/G33/LT 5/8
-	"Tier1_EXPS3_2_G33_Riser_Black_Down",	//EXPS3-0/G33/LT 5/8
-	"Tier1_EXPS3_0_Riser_Desert",	//EXPS3-0/UTG 3/50 (Desert)
-	"Tier1_EXPS3_2_Riser_Desert",	//EXPS3-0/UTG 3/50 (Desert)
-	"Tier1_EXPS3_0_3xMag_Riser_Desert_Up",	//EXPS3-0/3X/LT 5/8 (Desert)
-	"Tier1_EXPS3_2_3xMag_Riser_Desert_Up",	//EXPS3-0/3X/LT 5/8 (Desert)
-	"Tier1_EXPS3_0_3xMag_Riser_Desert_Down",	//EXPS3-0/3X/LT 5/8 (Desert)
-	"Tier1_EXPS3_2_3xMag_Riser_Desert_Down",	//EXPS3-0/3X/LT 5/8 (Desert)
-	"Tier1_EXPS3_0_G33_Riser_Desert_Up",	//EXPS3-0/G33/LT 5/8 (Desert)
-	"Tier1_EXPS3_2_G33_Riser_Desert_Up",	//EXPS3-0/G33/LT 5/8 (Desert)
-	"Tier1_EXPS3_0_G33_Riser_Desert_Down",	//EXPS3-0/G33/LT 5/8 (Desert)
-	"Tier1_EXPS3_2_G33_Riser_Desert_Down",	//EXPS3-0/G33/LT 5/8 (Desert)
-	"Tier1_EXPS3_0_Riser_Tano",	//EXPS3-0/UTG 3/50 (Tan)
-	"Tier1_EXPS3_2_Riser_Tano",	//EXPS3-0/UTG 3/50 (Tan)
-	"Tier1_EXPS3_0_3xMag_Riser_Tano_Up",	//EXPS3-0/3X/LT 5/8 (Tan)
-	"Tier1_EXPS3_2_3xMag_Riser_Tano_Up",	//EXPS3-0/3X/LT 5/8 (Tan)
-	"Tier1_EXPS3_0_3xMag_Riser_Tano_Down",	//EXPS3-0/3X/LT 5/8 (Tan)
-	"Tier1_EXPS3_2_3xMag_Riser_Tano_Down",	//EXPS3-0/3X/LT 5/8 (Tan)
-	"Tier1_EXPS3_0_G33_Riser_Tano_Up",	//EXPS3-0/G33/LT 5/8 (Tan)
-	"Tier1_EXPS3_2_G33_Riser_Tano_Up",	//EXPS3-0/G33/LT 5/8 (Tan)
-	"Tier1_EXPS3_0_G33_Riser_Tano_Down",	//EXPS3-0/G33/LT 5/8 (Tan)
-	"Tier1_EXPS3_2_G33_Riser_Tano_Down",	//EXPS3-0/G33/LT 5/8 (Tan)
-	"Tier1_MicroT1_Low_Black",	//Micro T-1/Low Mount
-	"Tier1_MicroT1_Leap_Black",	//Micro T-1/Leap
-	"Tier1_MicroT1_Leap_3xMag_Black_Up",	//Micro T-1/Leap/3X
-	"Tier1_MicroT1_Leap_3xMag_Black_Down",	//Micro T-1/Leap/3X
-	"Tier1_MicroT1_Low_Desert",	//Micro T-1/Low Mount (Desert)
-	"Tier1_MicroT1_Leap_Desert",	//Micro T-1/Leap (Desert)
-	"Tier1_MicroT1_Leap_3xMag_Desert_Up",	//Micro T-1/Leap/3X (Desert)
-	"Tier1_MicroT1_Leap_3xMag_Desert_Down",	//Micro T-1/Leap/3X (Desert)
-	"Tier1_MicroT1_Leap_Riser_Black",	//Micro T-1/Leap/UTG 3/50
-	"Tier1_MicroT1_Leap_3xMag_Riser_Black_Up",	//Micro T-1/Leap/3X/UTG 13/50
-	"Tier1_MicroT1_Leap_3xMag_Riser_Black_Down",	//Micro T-1/Leap/3X/UTG 13/50
-	"Tier1_MicroT1_Leap_Riser_Desert",	//Micro T-1/Leap/UTG 3/50 (Desert)
-	"Tier1_MicroT1_Leap_3xMag_Riser_Desert_Up",	//Micro T-1/Leap/3X/UTG 13/50 (Desert)
-	"Tier1_MicroT1_Leap_3xMag_Riser_Desert_Down",	//Micro T-1/Leap/3X/UTG 13/50 (Desert)
-	"Tier1_MicroT2_Low_Black",	//Micro T-2/Low Mount
-	"Tier1_MicroT2_Black",	//Micro T-2
-	"Tier1_MicroT2_3xMag_Black_Up",	//Micro T-2/3X
-	"Tier1_MicroT2_3xMag_Black_Down",	//Micro T-2/3X
-	"Tier1_MicroT2_G33_Black_Up",	//Micro T-2/G33
-	"Tier1_MicroT2_G33_Black_Down",	//Micro T-2/G33
-	"Tier1_MicroT2_Low_Tan",	//Micro T-2/Low Mount (Desert)
-	"Tier1_MicroT2_Tan",	//Micro T-2 (Desert)
-	"Tier1_MicroT2_3xMag_Tan_Up",	//Micro T-2/3X (Desert)
-	"Tier1_MicroT2_3xMag_Tan_Down",	//Micro T-2/3X (Desert)
-	"Tier1_MicroT2_G33_Tan_Up",	//Micro T-2/G33 (Tan)
-	"Tier1_MicroT2_G33_Tan_Down",	//Micro T-2/G33 (Tan)
-	"Tier1_MicroT2_G33_Desert_Up",	//Micro T-2/G33 (Desert)
-	"Tier1_MicroT2_G33_Desert_Down",	//Micro T-2/G33 (Desert)
-	"Tier1_MicroT2_Riser_Black",	//Micro T-2/UTG 3/50
-	"Tier1_MicroT2_3xMag_Riser_Black_Up",	//Micro T-2/3X/LT 5/8
-	"Tier1_MicroT2_3xMag_Riser_Black_Down",	//Micro T-2/3X/LT 5/8
-	"Tier1_MicroT2_G33_Riser_Black_Up",	//Micro T-2/G33/LT 5/8
-	"Tier1_MicroT2_G33_Riser_Black_Down",	//Micro T-2/G33/LT 5/8
-	"Tier1_MicroT2_Riser_Tan",	//Micro T-2/UTG 3/50 (Desert)
-	"Tier1_MicroT2_3xMag_Riser_Tan_Up",	//Micro T-2/3X/LT 5/8 (Desert)
-	"Tier1_MicroT2_3xMag_Riser_Tan_Down",	//Micro T-2/3X/LT 5/8 (Desert)
-	"Tier1_MicroT2_G33_Riser_Tan_Up",	//Micro T-2/G33/LT 5/8 (Tan)
-	"Tier1_MicroT2_G33_Riser_Tan_Down",	//Micro T-2/G33/LT 5/8 (Tan)
-	"Tier1_MicroT2_G33_Riser_Desert_Up",	//Micro T-2/G33/LT 5/8 (Desert)
-	"Tier1_MicroT2_G33_Riser_Desert_Down",	//Micro T-2/G33/LT 5/8 (Desert)
-	"Tier1_MicroT2_Leap_Black",	//Micro T-2/Leap
-	"Tier1_MicroT2_Leap_3xMag_Black_Up",	//Micro T-2/Leap/3X
-	"Tier1_MicroT2_Leap_3xMag_Black_Down",	//Micro T-2/Leap/3X
-	"Tier1_MicroT2_Leap_G33_Black_Up",	//Micro T-2/Leap/G33
-	"Tier1_MicroT2_Leap_G33_Black_Down",	//Micro T-2/Leap/G33
-	"Tier1_MicroT2_Leap_Tan",	//Micro T-2/Leap (Desert)
-	"Tier1_MicroT2_Leap_3xMag_Tan_Up",	//Micro T-2/Leap/3X (Desert)
-	"Tier1_MicroT2_Leap_3xMag_Tan_Down",	//Micro T-2/Leap/3X (Desert)
-	"Tier1_MicroT2_Leap_G33_Tan_Up",	//Micro T-2/Leap/G33 (Tan)
-	"Tier1_MicroT2_Leap_G33_Tan_Down",	//Micro T-2/Leap/G33 (Tan)
-	"Tier1_MicroT2_Leap_G33_TanBlack_Up",	//Micro T-2/Leap/G33 (Black/Tan)
-	"Tier1_MicroT2_Leap_G33_TanBlack_Down",	//Micro T-2/Leap/G33 (Black/Tan)
-	"Tier1_MicroT2_Leap_G33_Desert_Up",	//Micro T-2/Leap/G33 (Desert)
-	"Tier1_MicroT2_Leap_G33_Desert_Down",	//Micro T-2/Leap/G33 (Desert)
-	"Tier1_MicroT2_Leap_Riser_Black",	//Micro T-2/Leap/UTG 3/50
-	"Tier1_MicroT2_Leap_3xMag_Riser_Black_Up",	//Micro T-2/Leap/3X/LT 5/8
-	"Tier1_MicroT2_Leap_3xMag_Riser_Black_Down",	//Micro T-2/Leap/3X/LT 5/8
-	"Tier1_MicroT2_Leap_G33_Riser_Black_Up",	//Micro T-2/Leap/G33/LT 5/8
-	"Tier1_MicroT2_Leap_G33_Riser_Black_Down",	//Micro T-2/Leap/G33/LT 5/8
-	"Tier1_MicroT2_Leap_Riser_Tan",	//Micro T-2/Leap/UTG 3/50 (Desert)
-	"Tier1_MicroT2_Leap_3xMag_Riser_Tan_Up",	//Micro T-2/Leap/3X/LT 5/8 (Desert)
-	"Tier1_MicroT2_Leap_3xMag_Riser_Tan_Down",	//Micro T-2/Leap/3X/LT 5/8 (Desert)
-	"Tier1_MicroT2_Leap_G33_Riser_Tan_Up",	//Micro T-2/Leap/G33/LT 5/8 (Tan)
-	"Tier1_MicroT2_Leap_G33_Riser_Tan_Down",	//Micro T-2/Leap/G33/LT 5/8 (Tan)
-	"Tier1_MicroT2_Leap_G33_Riser_TanBlack_Up",	//Micro T-2/Leap/G33/LT 5/8 (Black/Tan)
-	"Tier1_MicroT2_Leap_G33_Riser_TanBlack_Down",	//Micro T-2/Leap/G33/LT 5/8 (Black/Tan)
-	"Tier1_MicroT2_Leap_G33_Riser_Desert_Up",	//Micro T-2/Leap/G33/LT 5/8 (Desert)
-	"Tier1_MicroT2_Leap_G33_Riser_Desert_Down",	//Micro T-2/Leap/G33/LT 5/8 (Desert)
-	"Tier1_Romeo4T_BCD_Low_Black",	//Romeo4T (BCD)/Low Mount
-	"Tier1_Romeo4T_BCD_4D_Low_Black",	//Romeo4T (BCD)/Low Mount
-	"Tier1_Romeo4T_BCD_Black",	//Romeo4T (BCD)
-	"Tier1_Romeo4T_BCD_4D_Black",	//Romeo4T (BCD)
-	"Tier1_Romeo4T_BCD_G33_Black_Up",	//Romeo4T (BCD)/G33
-	"Tier1_Romeo4T_BCD_4D_G33_Black_Up",	//Romeo4T (BCD)/G33
-	"Tier1_Romeo4T_BCD_G33_Black_Down",	//Romeo4T (BCD)/G33
-	"Tier1_Romeo4T_BCD_4D_G33_Black_Down",	//Romeo4T (BCD)/G33
-	"Tier1_Romeo4T_BCD_Low_Tan",	//Romeo4T (BCD)/Low Mount (Tan)
-	"Tier1_Romeo4T_BCD_4D_Low_Tan",	//Romeo4T (BCD)/Low Mount (Tan)
-	"Tier1_Romeo4T_BCD_Tan",	//Romeo4T (BCD) (Tan)
-	"Tier1_Romeo4T_BCD_4D_Tan",	//Romeo4T (BCD) (Tan)
-	"Tier1_Romeo4T_BCD_G33_Tan_Up",	//Romeo4T (BCD)/G33 (Tan)
-	"Tier1_Romeo4T_BCD_4D_G33_Tan_Up",	//Romeo4T (BCD)/G33 (Tan)
-	"Tier1_Romeo4T_BCD_G33_Tan_Down",	//Romeo4T (BCD)/G33 (Tan)
-	"Tier1_Romeo4T_BCD_4D_G33_Tan_Down",	//Romeo4T (BCD)/G33 (Tan)
-	"Tier1_Romeo4T_BCD_G33_TanBlack_Up",	//Romeo4T (BCD)/G33 (Black/Tan)
-	"Tier1_Romeo4T_BCD_4D_G33_TanBlack_Up",	//Romeo4T (BCD)/G33 (Black/Tan)
-	"Tier1_Romeo4T_BCD_G33_TanBlack_Down",	//Romeo4T (BCD)/G33 (Black/Tan)
-	"Tier1_Romeo4T_BCD_4D_G33_TanBlack_Down",	//Romeo4T (BCD)/G33 (Black/Tan)
-	"Tier1_Romeo4T_BCD_Riser_Black",	//Romeo4T (BCD)/UTG 3/50
-	"Tier1_Romeo4T_BCD_4D_Riser_Black",	//Romeo4T (BCD)/UTG 3/50
-	"Tier1_Romeo4T_BCD_G33_Riser_Black_Up",	//Romeo4T (BCD)/G33/LT 5/8
-	"Tier1_Romeo4T_BCD_4D_G33_Riser_Black_Up",	//Romeo4T (BCD)/G33/LT 5/8
-	"Tier1_Romeo4T_BCD_G33_Riser_Black_Down",	//Romeo4T (BCD)/G33/LT 5/8
-	"Tier1_Romeo4T_BCD_4D_G33_Riser_Black_Down",	//Romeo4T (BCD)/G33/LT 5/8
-	"Tier1_Romeo4T_BCD_Riser_Tan",	//Romeo4T (BCD)/UTG 3/50 (Tan)
-	"Tier1_Romeo4T_BCD_4D_Riser_Tan",	//Romeo4T (BCD)/UTG 3/50 (Tan)
-	"Tier1_Romeo4T_BCD_G33_Riser_Tan_Up",	//Romeo4T (BCD)/G33/LT 5/8 (Tan)
-	"Tier1_Romeo4T_BCD_4D_G33_Riser_Tan_Up",	//Romeo4T (BCD)/G33/LT 5/8 (Tan)
-	"Tier1_Romeo4T_BCD_G33_Riser_Tan_Down",	//Romeo4T (BCD)/G33/LT 5/8 (Tan)
-	"Tier1_Romeo4T_BCD_4D_G33_Riser_Tan_Down",	//Romeo4T (BCD)/G33/LT 5/8 (Tan)
-	"Tier1_Romeo4T_BCD_G33_Riser_TanBlack_Up",	//Romeo4T (BCD)/G33/LT 5/8 (Black/Tan)
-	"Tier1_Romeo4T_BCD_4D_G33_Riser_TanBlack_Up",	//Romeo4T (BCD)/G33/LT 5/8 (Black/Tan)
-	"Tier1_Romeo4T_BCD_G33_Riser_TanBlack_Down",	//Romeo4T (BCD)/G33/LT 5/8 (Black/Tan)
-	"Tier1_Romeo4T_BCD_4D_G33_Riser_TanBlack_Down",	//Romeo4T (BCD)/G33/LT 5/8 (Black/Tan)
-	"Tier1_Romeo4T_BCQ_Low_Black",	//Romeo4T (BCQ)/Low Mount
-	"Tier1_Romeo4T_BCQ_2D_Low_Black",	//Romeo4T (BCQ)/Low Mount
-	"Tier1_Romeo4T_BCQ_Black",	//Romeo4T (BCQ)
-	"Tier1_Romeo4T_BCQ_2D_Black",	//Romeo4T (BCQ)
-	"Tier1_Romeo4T_BCQ_G33_Black_Up",	//Romeo4T (BCQ)/G33
-	"Tier1_Romeo4T_BCQ_2D_G33_Black_Up",	//Romeo4T (BCQ)/G33
-	"Tier1_Romeo4T_BCQ_G33_Black_Down",	//Romeo4T (BCQ)/G33
-	"Tier1_Romeo4T_BCQ_2D_G33_Black_Down",	//Romeo4T (BCQ)/G33
-	"Tier1_Romeo4T_BCQ_Low_Tan",	//Romeo4T (BCQ)/Low Mount (Tan)
-	"Tier1_Romeo4T_BCQ_2D_Low_Tan",	//Romeo4T (BCQ)/Low Mount (Tan)
-	"Tier1_Romeo4T_BCQ_Tan",	//Romeo4T (BCQ) (Tan)
-	"Tier1_Romeo4T_BCQ_2D_Tan",	//Romeo4T (BCQ) (Tan)
-	"Tier1_Romeo4T_BCQ_G33_Tan_Up",	//Romeo4T (BCQ)/G33 (Tan)
-	"Tier1_Romeo4T_BCQ_2D_G33_Tan_Up",	//Romeo4T (BCQ)/G33 (Tan)
-	"Tier1_Romeo4T_BCQ_G33_Tan_Down",	//Romeo4T (BCQ)/G33 (Tan)
-	"Tier1_Romeo4T_BCQ_2D_G33_Tan_Down",	//Romeo4T (BCQ)/G33 (Tan)
-	"Tier1_Romeo4T_BCQ_G33_TanBlack_Up",	//Romeo4T (BCQ)/G33 (Black/Tan)
-	"Tier1_Romeo4T_BCQ_2D_G33_TanBlack_Up",	//Romeo4T (BCQ)/G33 (Black/Tan)
-	"Tier1_Romeo4T_BCQ_G33_TanBlack_Down",	//Romeo4T (BCQ)/G33 (Black/Tan)
-	"Tier1_Romeo4T_BCQ_2D_G33_TanBlack_Down",	//Romeo4T (BCQ)/G33 (Black/Tan)
-	"Tier1_Romeo4T_BCQ_Riser_Black",	//Romeo4T (BCQ)/UTG 3/50
-	"Tier1_Romeo4T_BCQ_2D_Riser_Black",	//Romeo4T (BCQ)/UTG 3/50
-	"Tier1_Romeo4T_BCQ_G33_Riser_Black_Up",	//Romeo4T (BCQ)/G33/LT 5/8
-	"Tier1_Romeo4T_BCQ_2D_G33_Riser_Black_Up",	//Romeo4T (BCQ)/G33/LT 5/8
-	"Tier1_Romeo4T_BCQ_G33_Riser_Black_Down",	//Romeo4T (BCQ)/G33/LT 5/8
-	"Tier1_Romeo4T_BCQ_2D_G33_Riser_Black_Down",	//Romeo4T (BCQ)/G33/LT 5/8
-	"Tier1_Romeo4T_BCQ_Riser_Tan",	//Romeo4T (BCQ)/UTG 3/50 (Tan)
-	"Tier1_Romeo4T_BCQ_2D_Riser_Tan",	//Romeo4T (BCQ)/UTG 3/50 (Tan)
-	"Tier1_Romeo4T_BCQ_G33_Riser_Tan_Up",	//Romeo4T (BCQ)/G33/LT 5/8 (Tan)
-	"Tier1_Romeo4T_BCQ_2D_G33_Riser_Tan_Up",	//Romeo4T (BCQ)/G33/LT 5/8 (Tan)
-	"Tier1_Romeo4T_BCQ_G33_Riser_Tan_Down",	//Romeo4T (BCQ)/G33/LT 5/8 (Tan)
-	"Tier1_Romeo4T_BCQ_2D_G33_Riser_Tan_Down",	//Romeo4T (BCQ)/G33/LT 5/8 (Tan)
-	"Tier1_Romeo4T_BCQ_G33_Riser_TanBlack_Up",	//Romeo4T (BCQ)/G33/LT 5/8 (Black/Tan)
-	"Tier1_Romeo4T_BCQ_2D_G33_Riser_TanBlack_Up",	//Romeo4T (BCQ)/G33/LT 5/8 (Black/Tan)
-	"Tier1_Romeo4T_BCQ_G33_Riser_TanBlack_Down",	//Romeo4T (BCQ)/G33/LT 5/8 (Black/Tan)
-	"Tier1_Romeo4T_BCQ_2D_G33_Riser_TanBlack_Down",	//Romeo4T (BCQ)/G33/LT 5/8 (Black/Tan)
-	"Tier1_Razor_Gen2_16",	//Vortex Razor HD GenII
-	"Tier1_Razor_Gen2_16_CQB",	//Vortex Razor HD GenII
-	"Tier1_Razor_Gen2_16_ADM",	//Vortex Razor HD GenII/ADM
-	"Tier1_Razor_Gen2_16_ADM_CQB",	//Vortex Razor HD GenII/ADM
-	"Tier1_Razor_Gen2_16_Geissele",	//Vortex Razor HD GenII/GAM
-	"Tier1_Razor_Gen2_16_Geissele_CQB",	//Vortex Razor HD GenII/GAM
-	"Tier1_Razor_Gen2_16_Geissele_Docter",	//Vortex Razor HD GenII/GAM/Docter III
-	"Tier1_Razor_Gen2_16_Geissele_Docter_CQB",	//Vortex Razor HD GenII/GAM/Docter III
-	"Tier1_Razor_Gen3_110_ADM",	//Vortex Razor HD GenIII/ADM
-	"Tier1_Razor_Gen3_110_ADM_CQB",	//Vortex Razor HD GenIII/ADM
-	"Tier1_Razor_Gen3_110_ADM_T2",	//Vortex Razor HD GenIII/ADM/Micro T-2
-	"Tier1_Razor_Gen3_110_ADM_T2_CQB",	//Vortex Razor HD GenIII/ADM/Micro T-2
-	"Tier1_Razor_Gen3_110_Geissele",	//Vortex Razor HD GenIII/GAM
-	"Tier1_Razor_Gen3_110_Geissele_CQB",	//Vortex Razor HD GenIII/GAM
-	"Tier1_Razor_Gen3_110_Geissele_Docter",	//Vortex Razor HD GenIII/GAM/Docter III
-	"Tier1_Razor_Gen3_110_Geissele_Docter_CQB",	//Vortex Razor HD GenIII/GAM/Docter III
-	"Tier1_LeupoldM3A_ADM_Desert",	//Leupold M3A/ADM (Desert)
-	"Tier1_LeupoldM3A_ADM_Tan",	//Leupold M3A/ADM (Tan)
-	"Tier1_LeupoldM3A_ADM_Black",	//Leupold M3A/ADM
-	"Tier1_LeupoldM3A_ADM_T2_Desert",	//Leupold M3A/ADM/Micro T-2 (Desert)
-	"Tier1_LeupoldM3A_ADM_T2_Tan",	//Leupold M3A/ADM/Micro T-2 (Tan)
-	"Tier1_LeupoldM3A_ADM_T2_Black",	//Leupold M3A/ADM/Micro T-2
-	"Tier1_LeupoldM3A_Geissele_Desert",	//Leupold M3A/GAM (Desert)
-	"Tier1_LeupoldM3A_Geissele_Tan",	//Leupold M3A/GAM (Tan)
-	"Tier1_LeupoldM3A_Geissele_Black",	//Leupold M3A/GAM
-	"Tier1_LeupoldM3A_Geissele_Docter_Desert",	//Leupold M3A/GAM/Docter III (Desert)
-	"Tier1_LeupoldM3A_Geissele_Docter_Tan",	//Leupold M3A/GAM/Docter III (Tan)
-	"Tier1_LeupoldM3A_Geissele_Docter_Black",	//Leupold M3A/GAM/Docter III
-	"Tier1_ANPVS10_Tan",	//AN/PVS-10 (Tan)
-	"Tier1_Elcan_156_C1_FDE_2D",	//SpecterDR 1.5x/6x C1 (FDE) [2D]
-	"Tier1_Elcan_156_C1_Black_2D",	//SpecterDR 1.5x/6x C1 [2D]
-	"Tier1_Elcan_156_C1_ARD_FDE_2D",	//SpecterDR 1.5x/6x C1/ARD (FDE) [2D]
-	"Tier1_Elcan_156_C1_ARD_Black_2D",	//SpecterDR 1.5x/6x C1/ARD [2D]
-	"Tier1_Elcan_156_C1_Docter_FDE_2D",	//SpecterDR 1.5x/6x C1/Docter III (FDE) [2D]
-	"Tier1_Elcan_156_C1_Docter_Black_2D",	//SpecterDR 1.5x/6x C1/Docter III [2D]
-	"Tier1_Elcan_156_C1_ARD_Docter_FDE_2D",	//SpecterDR 1.5x/6x C1/ARD/Docter III (FDE) [2D]
-	"Tier1_Elcan_156_C1_ARD_Docter_Black_2D",	//SpecterDR 1.5x/6x C1/ARD/Docter III [2D]
-	"Tier1_Elcan_156_C2_FDE_2D",	//SpecterDR 1.5x/6x C2 (FDE) [2D]
-	"Tier1_Elcan_156_C2_Black_2D",	//SpecterDR 1.5x/6x C2 [2D]
-	"Tier1_Elcan_156_C2_ARD_FDE_2D",	//SpecterDR 1.5x/6x C2/ARD (FDE) [2D]
-	"Tier1_Elcan_156_C2_ARD_Black_2D",	//SpecterDR 1.5x/6x C2/ARD [2D]
-	"Tier1_Elcan_156_C2_Docter_FDE_2D",	//SpecterDR 1.5x/6x C2/Docter III (FDE) [2D]
-	"Tier1_Elcan_156_C2_Docter_Black_2D",	//SpecterDR 1.5x/6x C2/Docter III [2D]
-	"Tier1_Elcan_156_C2_ARD_Docter_FDE_2D",	//SpecterDR 1.5x/6x C2/ARD/Docter III (FDE) [2D]
-	"Tier1_Elcan_156_C2_ARD_Docter_Black_2D",	//SpecterDR 1.5x/6x C2/ARD/Docter III [2D]
-	"Tier1_Elcan_156_C1_FDE",	//SpecterDR 1.5x/6x C1 (FDE)
-	"Tier1_Elcan_156_C1_Black",	//SpecterDR 1.5x/6x C1
-	"Tier1_Elcan_156_C1_ARD_FDE",	//SpecterDR 1.5x/6x C1/ARD (FDE)
-	"Tier1_Elcan_156_C1_ARD_Black",	//SpecterDR 1.5x/6x C1/ARD
-	"Tier1_Elcan_156_C1_Docter_FDE",	//SpecterDR 1.5x/6x C1/Docter III (FDE)
-	"Tier1_Elcan_156_C1_Docter_Black",	//SpecterDR 1.5x/6x C1/Docter III
-	"Tier1_Elcan_156_C1_ARD_Docter_FDE",	//SpecterDR 1.5x/6x C1/ARD/Docter III (FDE)
-	"Tier1_Elcan_156_C1_ARD_Docter_Black",	//SpecterDR 1.5x/6x C1/ARD/Docter III
-	"Tier1_Elcan_156_C2_FDE",	//SpecterDR 1.5x/6x C2 (FDE)
-	"Tier1_Elcan_156_C2_Black",	//SpecterDR 1.5x/6x C2
-	"Tier1_Elcan_156_C2_ARD_FDE",	//SpecterDR 1.5x/6x C2/ARD (FDE)
-	"Tier1_Elcan_156_C2_ARD_Black",	//SpecterDR 1.5x/6x C2/ARD
-	"Tier1_Elcan_156_C2_Docter_FDE",	//SpecterDR 1.5x/6x C2/Docter III (FDE)
-	"Tier1_Elcan_156_C2_Docter_Black",	//SpecterDR 1.5x/6x C2/Docter III
-	"Tier1_Elcan_156_C2_ARD_Docter_FDE",	//SpecterDR 1.5x/6x C2/ARD/Docter III (FDE)
-	"Tier1_Elcan_156_C2_ARD_Docter_Black",	//SpecterDR 1.5x/6x C2/ARD/Docter III
-	"Tier1_Shortdot_ADM_Black",	//ShortDot 1-8x24 PM II CC/ADM
-	"Tier1_Shortdot_ADM_Black_CQB",	//ShortDot 1-8x24 PM II CC/ADM
-	"Tier1_Shortdot_ADM_Tan",	//ShortDot 1-8x24 PM II CC/ADM (Tan)
-	"Tier1_Shortdot_ADM_Desert",	//ShortDot 1-8x24 PM II CC/ADM (Desert)
-	"Tier1_Shortdot_Geissele_Black",	//ShortDot 1-8x24 PM II CC/GAM
-	"Tier1_Shortdot_Geissele_Black_CQB",	//ShortDot 1-8x24 PM II CC/GAM
-	"Tier1_Shortdot_Geissele_Tan",	//ShortDot 1-8x24 PM II CC/GAM (Tan)
-	"Tier1_Shortdot_Geissele_Desert",	//ShortDot 1-8x24 PM II CC/GAM (Desert)
-	"Tier1_Shortdot_Geissele_Docter_Black",	//ShortDot 1-8x24 PM II CC/GAM/Docter III
-	"Tier1_Shortdot_Geissele_Docter_Black_CQB",	//ShortDot 1-8x24 PM II CC/GAM/Docter III
-	"Tier1_Shortdot_Geissele_Docter_Tan",	//ShortDot 1-8x24 PM II CC/GAM/Docter III (Tan)
-	"Tier1_Shortdot_Geissele_Docter_Desert",	//ShortDot 1-8x24 PM II CC/GAM/Docter III (Desert)
-	"Tier1_ATACR18_ADM_Black",	//Nightforce 1-8x24 ATACR/ADM
-	"Tier1_ATACR18_ADM_Black_CQB",	//Nightforce 1-8x24 ATACR/ADM
-	"Tier1_ATACR18_ADM_Desert",	//Nightforce 1-8x24 ATACR/ADM (Desert)
-	"Tier1_ATACR18_ADM_T1_Black",	//Nightforce 1-8x24 ATACR/ADM/Micro T-1
-	"Tier1_ATACR18_ADM_T1_Black_CQB",	//Nightforce 1-8x24 ATACR/ADM/Micro T-1
-	"Tier1_ATACR18_ADM_T1_Desert",	//Nightforce 1-8x24 ATACR/ADM/Micro T-1 (Desert)
-	"Tier1_ATACR18_ADM_T1_Desert_CQB",	//Nightforce 1-8x24 ATACR/ADM/Micro T-1 (Desert)
-	"Tier1_ATACR18_Geissele_Black",	//Nightforce 1-8x24 ATACR/GAM
-	"Tier1_ATACR18_Geissele_Black_CQB",	//Nightforce 1-8x24 ATACR/GAM
-	"Tier1_ATACR18_Geissele_Desert",	//Nightforce 1-8x24 ATACR/GAM (Desert)
-	"Tier1_ATACR18_Geissele_Desert_CQB",	//Nightforce 1-8x24 ATACR/GAM (Desert)
-	"Tier1_ATACR18_Geissele_Docter_Black",	//Nightforce 1-8x24 ATACR/GAM/Docter III
-	"Tier1_ATACR18_Geissele_Docter_Black_CQB",	//Nightforce 1-8x24 ATACR/GAM/Docter III
-	"Tier1_ATACR18_Geissele_Docter_Desert",	//Nightforce 1-8x24 ATACR/GAM/Docter III (Desert)
-	"Tier1_ATACR18_Geissele_Docter_Desert_CQB",	//Nightforce 1-8x24 ATACR/GAM/Docter III (Desert)
 	/* =======================
 	 * Type : SideAttachment
 	 * ======================= */
@@ -19072,314 +18207,6 @@ GRLIB_arsenal_items = [
 	"rhsusf_acc_anpeq16a_top_h",	//AN/PEQ-16A (Top/Laser)
 	"rhsusf_acc_anpeq16a_top_sc",	//AN/PEQ-16A (Top/Laser)
 	"rhsgref_K98k_acc_sighthood_add",	//K98k Sight Hood
-	"Tier1_TLR1",	//Streamlight TLR-1
-	"Tier1_DBALPL",	//Steiner DBAL-PL (Laser)
-	"Tier1_DBALPL_FL",	//Steiner DBAL-PL (Light)
-	"Tier1_X300U",	//Surefire X300U-B
-	"Tier1_M300C",	//M300C (Tan)
-	"Tier1_M300C_Black",	//M300C (Black)
-	"Tier1_M600V",	//M600V (Tan)
-	"Tier1_M600V_Black",	//M600V (Black)
-	"Tier1_416_LA5_Top",	//LA-5B (Top)
-	"Tier1_416_LA5_Side",	//LA-5B
-	"Tier1_416_LA5_M300C",	//LA-5B/M300C (Tan) (Laser)
-	"Tier1_416_LA5_M300C_FL",	//LA-5B/M300C (Tan) (Light)
-	"Tier1_416_LA5_M300C_Black",	//LA-5B/M300C (Black) (Laser)
-	"Tier1_416_LA5_M300C_Black_FL",	//LA-5B/M300C (Black) (Light)
-	"Tier1_416_LA5_M600V",	//LA-5B/M600V (Tan) (Laser)
-	"Tier1_416_LA5_M600V_FL",	//LA-5B/M600V (Tan) (Light)
-	"Tier1_416_LA5_M600V_Black",	//LA-5B/M600V (Black) (Laser)
-	"Tier1_416_LA5_M600V_Black_FL",	//LA-5B/M600V (Black) (Light)
-	"Tier1_416_LA5_M600V_alt",	//LA-5B/M600V (Tan)/alt (Laser)
-	"Tier1_416_LA5_M600V_alt_FL",	//LA-5B/M600V (Tan)/alt (Light)
-	"Tier1_416_LA5_M600V_alt_Black",	//LA-5B/M600V (Black)/alt (Laser)
-	"Tier1_416_LA5_M600V_alt_Black_FL",	//LA-5B/M600V (Black)/alt (Light)
-	"Tier1_416_LA5_M603V",	//LA-5B/M603V (Tan) (Laser)
-	"Tier1_416_LA5_M603V_FL",	//LA-5B/M603V (Tan) (Light)
-	"Tier1_145_LA5_Top",	//LA-5B (Top)
-	"Tier1_145_LA5_Side",	//LA-5B
-	"Tier1_145_LA5_M300C",	//LA-5B/M300C (Tan) (Laser)
-	"Tier1_145_LA5_M300C_FL",	//LA-5B/M300C (Tan) (Light)
-	"Tier1_145_LA5_M600V",	//LA-5B/M600V (Tan) (Laser)
-	"Tier1_145_LA5_M600V_FL",	//LA-5B/M600V (Tan) (Light)
-	"Tier1_145_LA5_M600V_alt",	//LA-5B/M600V (Tan)/alt (Laser)
-	"Tier1_145_LA5_M600V_alt_FL",	//LA-5B/M600V (Tan)/alt (Light)
-	"Tier1_145_LA5_M603V",	//LA-5B/M603V (Tan) (Laser)
-	"Tier1_145_LA5_M603V_FL",	//LA-5B/M603V (Tan) (Light)
-	"Tier1_145_NGAL_Top",	//NGAL (Top)
-	"Tier1_145_NGAL_Side",	//NGAL
-	"Tier1_145_NGAL_M300C",	//NGAL/M300C (Tan) (Laser)
-	"Tier1_145_NGAL_M300C_FL",	//NGAL/M300C (Tan) (Light)
-	"Tier1_145_NGAL_M600V",	//NGAL/M600V (Tan) (Laser)
-	"Tier1_145_NGAL_M600V_FL",	//NGAL/M600V (Tan) (Light)
-	"Tier1_145_NGAL_M600V_alt",	//NGAL/M600V (Tan)/alt (Laser)
-	"Tier1_145_NGAL_M600V_alt_FL",	//NGAL/M600V (Tan)/alt (Light)
-	"Tier1_145_NGAL_M603V",	//NGAL/M603V (Tan) (Laser)
-	"Tier1_145_NGAL_M603V_FL",	//NGAL/M603V (Tan) (Light)
-	"Tier1_10_LA5_Top",	//LA-5B (Top)
-	"Tier1_10_LA5_Side",	//LA-5B
-	"Tier1_10_LA5_M300C",	//LA-5B/M300C (Tan) (Laser)
-	"Tier1_10_LA5_M300C_FL",	//LA-5B/M300C (Tan) (Light)
-	"Tier1_10_LA5_M600V",	//LA-5B/M600V (Tan) (Laser)
-	"Tier1_10_LA5_M600V_FL",	//LA-5B/M600V (Tan) (Light)
-	"Tier1_10_LA5_M600V_alt",	//LA-5B/M600V (Tan)/alt (Laser)
-	"Tier1_10_LA5_M600V_alt_FL",	//LA-5B/M600V (Tan)/alt (Light)
-	"Tier1_10_LA5_M603V",	//LA-5B/M603V (Tan) (Laser)
-	"Tier1_10_LA5_M603V_FL",	//LA-5B/M603V (Tan) (Light)
-	"Tier1_10_NGAL_Top",	//NGAL (Top)
-	"Tier1_10_NGAL_Side",	//NGAL
-	"Tier1_10_NGAL_M300C",	//NGAL/M300C (Tan) (Laser)
-	"Tier1_10_NGAL_M300C_FL",	//NGAL/M300C (Tan) (Light)
-	"Tier1_10_NGAL_M600V",	//NGAL/M600V (Tan) (Laser)
-	"Tier1_10_NGAL_M600V_FL",	//NGAL/M600V (Tan) (Light)
-	"Tier1_10_NGAL_M600V_alt",	//NGAL/M600V (Tan)/alt (Laser)
-	"Tier1_10_NGAL_M600V_alt_FL",	//NGAL/M600V (Tan)/alt (Light)
-	"Tier1_10_NGAL_M603V",	//NGAL/M603V (Tan) (Laser)
-	"Tier1_10_NGAL_M603V_FL",	//NGAL/M603V (Tan) (Light)
-	"Tier1_RAHG_LA5_M300C",	//LA-5B/M300C (Tan) (Laser)
-	"Tier1_RAHG_LA5_M300C_FL",	//LA-5B/M300C (Tan) (Light)
-	"Tier1_RAHG_LA5_M300C_Black",	//LA-5B/M300C (Black) (Laser)
-	"Tier1_RAHG_LA5_M300C_Black_FL",	//LA-5B/M300C (Black) (Light)
-	"Tier1_RAHG_LA5_M600V",	//LA-5B/M600V (Tan) (Laser)
-	"Tier1_RAHG_LA5_M600V_FL",	//LA-5B/M600V (Tan) (Light)
-	"Tier1_RAHG_LA5_M600V_Black",	//LA-5B/M600V (Black) (Laser)
-	"Tier1_RAHG_LA5_M600V_Black_FL",	//LA-5B/M600V (Black) (Light)
-	"Tier1_RAHG_LA5_M600V_alt",	//LA-5B/M600V (Tan)/alt (Laser)
-	"Tier1_RAHG_LA5_M600V_alt_FL",	//LA-5B/M600V (Tan)/alt (Light)
-	"Tier1_RAHG_LA5_M600V_alt_Black",	//LA-5B/M600V (Black)/alt (Laser)
-	"Tier1_RAHG_LA5_M600V_alt_Black_FL",	//LA-5B/M600V (Black)/alt (Light)
-	"Tier1_RAHG_LA5_M603V",	//LA-5B/M603V (Tan) (Laser)
-	"Tier1_RAHG_LA5_M603V_FL",	//LA-5B/M603V (Tan) (Light)
-	"Tier1_RAHG_LA5_Top",	//LA-5B (Top)
-	"Tier1_RAHG_LA5_Side",	//LA-5B
-	"Tier1_RAHG_NGAL_M300C",	//NGAL/M300C (Tan) (Laser)
-	"Tier1_RAHG_NGAL_M300C_FL",	//NGAL/M300C (Tan) (Light)
-	"Tier1_RAHG_NGAL_M300C_Black",	//NGAL/M300C (Black) (Laser)
-	"Tier1_RAHG_NGAL_M300C_Black_FL",	//NGAL/M300C (Black) (Light)
-	"Tier1_RAHG_NGAL_M600V",	//NGAL/M600V (Tan) (Laser)
-	"Tier1_RAHG_NGAL_M600V_FL",	//NGAL/M600V (Tan) (Light)
-	"Tier1_RAHG_NGAL_M600V_Black",	//NGAL/M600V (Black) (Laser)
-	"Tier1_RAHG_NGAL_M600V_Black_FL",	//NGAL/M600V (Black) (Light)
-	"Tier1_RAHG_NGAL_M600V_alt",	//NGAL/M600V (Tan)/alt (Laser)
-	"Tier1_RAHG_NGAL_M600V_alt_FL",	//NGAL/M600V (Tan)/alt (Light)
-	"Tier1_RAHG_NGAL_M600V_alt_Black",	//NGAL/M600V (Black)/alt (Laser)
-	"Tier1_RAHG_NGAL_M600V_alt_Black_FL",	//NGAL/M600V (Black)/alt (Light)
-	"Tier1_RAHG_NGAL_M603V",	//NGAL/M603V (Tan) (Laser)
-	"Tier1_RAHG_NGAL_M603V_FL",	//NGAL/M603V (Tan) (Light)
-	"Tier1_RAHG_NGAL_Top",	//NGAL (Top)
-	"Tier1_RAHG_NGAL_Side",	//NGAL
-	"Tier1_MW_LA5_M300C",	//LA-5B/M300C (Tan) (Laser)
-	"Tier1_MW_LA5_M300C_FL",	//LA-5B/M300C (Tan) (Light)
-	"Tier1_MW_LA5_M300C_Black",	//LA-5B/M300C (Black) (Laser)
-	"Tier1_MW_LA5_M300C_Black_FL",	//LA-5B/M300C (Black) (Light)
-	"Tier1_MW_LA5_M600V",	//LA-5B/M600V (Tan) (Laser)
-	"Tier1_MW_LA5_M600V_FL",	//LA-5B/M600V (Tan) (Light)
-	"Tier1_MW_LA5_M600V_Black",	//LA-5B/M600V (Black) (Laser)
-	"Tier1_MW_LA5_M600V_Black_FL",	//LA-5B/M600V (Black) (Light)
-	"Tier1_MW_LA5_M600V_alt",	//LA-5B/M600V (Tan)/alt (Laser)
-	"Tier1_MW_LA5_M600V_alt_FL",	//LA-5B/M600V (Tan)/alt (Light)
-	"Tier1_MW_LA5_M600V_alt_Black",	//LA-5B/M600V (Black)/alt (Laser)
-	"Tier1_MW_LA5_M600V_alt_Black_FL",	//LA-5B/M600V (Black)/alt (Light)
-	"Tier1_MW_LA5_M603V",	//LA-5B/M603V (Tan) (Laser)
-	"Tier1_MW_LA5_M603V_FL",	//LA-5B/M603V (Tan) (Light)
-	"Tier1_MW_LA5_Top",	//LA-5B (Top)
-	"Tier1_MW_LA5_Side",	//LA-5B
-	"Tier1_MW_NGAL_M300C",	//NGAL/M300C (Tan) (Laser)
-	"Tier1_MW_NGAL_M300C_FL",	//NGAL/M300C (Tan) (Light)
-	"Tier1_MW_NGAL_M300C_Black",	//NGAL/M300C (Black) (Laser)
-	"Tier1_MW_NGAL_M300C_Black_FL",	//NGAL/M300C (Black) (Light)
-	"Tier1_MW_NGAL_M600V",	//NGAL/M600V (Tan) (Laser)
-	"Tier1_MW_NGAL_M600V_FL",	//NGAL/M600V (Tan) (Light)
-	"Tier1_MW_NGAL_M600V_Black",	//NGAL/M600V (Black) (Laser)
-	"Tier1_MW_NGAL_M600V_Black_FL",	//NGAL/M600V (Black) (Light)
-	"Tier1_MW_NGAL_M600V_alt",	//NGAL/M600V (Tan)/alt (Laser)
-	"Tier1_MW_NGAL_M600V_alt_FL",	//NGAL/M600V (Tan)/alt (Light)
-	"Tier1_MW_NGAL_M600V_alt_Black",	//NGAL/M600V (Black)/alt (Laser)
-	"Tier1_MW_NGAL_M600V_alt_Black_FL",	//NGAL/M600V (Black)/alt (Light)
-	"Tier1_MW_NGAL_M603V",	//NGAL/M603V (Tan) (Laser)
-	"Tier1_MW_NGAL_M603V_FL",	//NGAL/M603V (Tan) (Light)
-	"Tier1_MW_NGAL_Top",	//NGAL (Top)
-	"Tier1_MW_NGAL_Side",	//NGAL
-	"Tier1_URX4_LA5_Top",	//LA-5B (Top)
-	"Tier1_URX4_LA5_Side",	//LA-5B
-	"Tier1_URX4_LA5_M300C",	//LA-5B/M300C (Tan) (Laser)
-	"Tier1_URX4_LA5_M300C_FL",	//LA-5B/M300C (Tan) (Light)
-	"Tier1_URX4_LA5_M300C_Black",	//LA-5B/M300C (Black) (Laser)
-	"Tier1_URX4_LA5_M300C_Black_FL",	//LA-5B/M300C (Black) (Light)
-	"Tier1_URX4_LA5_M600V",	//LA-5B/M600V (Tan) (Laser)
-	"Tier1_URX4_LA5_M600V_FL",	//LA-5B/M600V (Tan) (Light)
-	"Tier1_URX4_LA5_M600V_Black",	//LA-5B/M600V (Black) (Laser)
-	"Tier1_URX4_LA5_M600V_Black_FL",	//LA-5B/M600V (Black) (Light)
-	"Tier1_URX4_LA5_M600V_alt",	//LA-5B/M600V (Tan)/alt (Laser)
-	"Tier1_URX4_LA5_M600V_alt_FL",	//LA-5B/M600V (Tan)/alt (Light)
-	"Tier1_URX4_LA5_M600V_alt_Black",	//LA-5B/M600V (Black)/alt (Laser)
-	"Tier1_URX4_LA5_M600V_alt_Black_FL",	//LA-5B/M600V (Black)/alt (Light)
-	"Tier1_URX4_LA5_M603V",	//LA-5B/M603V (Tan) (Laser)
-	"Tier1_URX4_LA5_M603V_FL",	//LA-5B/M603V (Tan) (Light)
-	"Tier1_URX4_NGAL_Top",	//NGAL (Top)
-	"Tier1_URX4_NGAL_Side",	//NGAL
-	"Tier1_URX4_NGAL_M300C",	//NGAL/M300C (Tan) (Laser)
-	"Tier1_URX4_NGAL_M300C_FL",	//NGAL/M300C (Tan) (Light)
-	"Tier1_URX4_NGAL_M300C_Black",	//NGAL/M300C (Black) (Laser)
-	"Tier1_URX4_NGAL_M300C_Black_FL",	//NGAL/M300C (Black) (Light)
-	"Tier1_URX4_NGAL_M600V",	//NGAL/M600V (Tan) (Laser)
-	"Tier1_URX4_NGAL_M600V_FL",	//NGAL/M600V (Tan) (Light)
-	"Tier1_URX4_NGAL_M600V_Black",	//NGAL/M600V (Black) (Laser)
-	"Tier1_URX4_NGAL_M600V_Black_FL",	//NGAL/M600V (Black) (Light)
-	"Tier1_URX4_NGAL_M600V_alt",	//NGAL/M600V (Tan)/alt (Laser)
-	"Tier1_URX4_NGAL_M600V_alt_FL",	//NGAL/M600V (Tan)/alt (Light)
-	"Tier1_URX4_NGAL_M600V_alt_Black",	//NGAL/M600V (Black)/alt (Laser)
-	"Tier1_URX4_NGAL_M600V_alt_Black_FL",	//NGAL/M600V (Black)/alt (Light)
-	"Tier1_URX4_NGAL_M603V",	//NGAL/M603V (Tan) (Laser)
-	"Tier1_URX4_NGAL_M603V_FL",	//NGAL/M603V (Tan) (Light)
-	"Tier1_MCX_LA5_M300C",	//LA-5B/M300C (Tan) (Laser)
-	"Tier1_MCX_LA5_M300C_FL",	//LA-5B/M300C (Tan) (Light)
-	"Tier1_MCX_LA5_M300C_Black",	//LA-5B/M300C (Black) (Laser)
-	"Tier1_MCX_LA5_M300C_Black_FL",	//LA-5B/M300C (Black) (Light)
-	"Tier1_MCX_LA5_M600V",	//LA-5B/M600V (Tan) (Laser)
-	"Tier1_MCX_LA5_M600V_FL",	//LA-5B/M600V (Tan) (Light)
-	"Tier1_MCX_LA5_M600V_Black",	//LA-5B/M600V (Black) (Laser)
-	"Tier1_MCX_LA5_M600V_Black_FL",	//LA-5B/M600V (Black) (Light)
-	"Tier1_MCX_LA5_M603V",	//LA-5B/M603V (Tan) (Laser)
-	"Tier1_MCX_LA5_M603V_FL",	//LA-5B/M603V (Tan) (Light)
-	"Tier1_MCX_LA5_Top",	//LA-5B (Top)
-	"Tier1_MCX_LA5_Side",	//LA-5B
-	"Tier1_MCX_NGAL_M300C",	//NGAL/M300C (Tan) (Laser)
-	"Tier1_MCX_NGAL_M300C_FL",	//NGAL/M300C (Tan) (Light)
-	"Tier1_MCX_NGAL_M300C_Black",	//NGAL/M300C (Black) (Laser)
-	"Tier1_MCX_NGAL_M300C_Black_FL",	//NGAL/M300C (Black) (Light)
-	"Tier1_MCX_NGAL_M600V",	//NGAL/M600V (Tan) (Laser)
-	"Tier1_MCX_NGAL_M600V_FL",	//NGAL/M600V (Tan) (Light)
-	"Tier1_MCX_NGAL_M600V_Black",	//NGAL/M600V (Black) (Laser)
-	"Tier1_MCX_NGAL_M600V_Black_FL",	//NGAL/M600V (Black) (Light)
-	"Tier1_MCX_NGAL_M603V",	//NGAL/M603V (Tan) (Laser)
-	"Tier1_MCX_NGAL_M603V_FL",	//NGAL/M603V (Tan) (Light)
-	"Tier1_MCX_NGAL_Top",	//NGAL (Top)
-	"Tier1_MCX_NGAL_Side",	//NGAL
-	"Tier1_SR25_LA5_Top",	//LA-5B (Top)
-	"Tier1_SR25_LA5_Side",	//LA-5B
-	"Tier1_M110_LA5_Top",	//LA-5B (Top)
-	"Tier1_M110_LA5_Side",	//LA-5B
-	"Tier1_Mk46Mod0_LA5",	//LA-5B
-	"Tier1_Mk46Mod0_LA5_M600V",	//LA-5B/M600V (Tan) (Laser)
-	"Tier1_Mk46Mod0_LA5_M600V_FL",	//LA-5B/M600V (Tan) (Light)
-	"Tier1_Mk46Mod0_LA5_M600V_Black",	//LA-5B/M600V (Black) (Laser)
-	"Tier1_Mk46Mod0_LA5_M600V_Black_FL",	//LA-5B/M600V (Black) (Light)
-	"Tier1_Mk46Mod0_LA5_M603V",	//LA-5B/M603V (Tan) (Laser)
-	"Tier1_Mk46Mod0_LA5_M603V_FL",	//LA-5B/M603V (Tan) (Light)
-	"Tier1_Mk46Mod1_LA5",	//LA-5B
-	"Tier1_Mk46Mod1_LA5_M600V",	//LA-5B/M600V (Tan) (Laser)
-	"Tier1_Mk46Mod1_LA5_M600V_FL",	//LA-5B/M600V (Tan) (Light)
-	"Tier1_Mk46Mod1_LA5_M600V_Black",	//LA-5B/M600V (Black) (Laser)
-	"Tier1_Mk46Mod1_LA5_M600V_Black_FL",	//LA-5B/M600V (Black) (Light)
-	"Tier1_Mk46Mod1_LA5_M603V",	//LA-5B/M603V (Tan) (Laser)
-	"Tier1_Mk46Mod1_LA5_M603V_FL",	//LA-5B/M603V (Tan) (Light)
-	"Tier1_Mk48Mod0_LA5_M600V",	//LA-5B/M600V (Tan) (Laser)
-	"Tier1_Mk48Mod0_LA5_M600V_FL",	//LA-5B/M600V (Tan) (Light)
-	"Tier1_Mk48Mod0_LA5_M600V_Black",	//LA-5B/M600V (Black) (Laser)
-	"Tier1_Mk48Mod0_LA5_M600V_Black_FL",	//LA-5B/M600V (Black) (Light)
-	"Tier1_Mk48Mod0_LA5_M603V",	//LA-5B/M603V (Tan) (Laser)
-	"Tier1_Mk48Mod0_LA5_M603V_FL",	//LA-5B/M603V (Tan) (Light)
-	"Tier1_Mk48Mod1_LA5",	//LA-5B
-	"Tier1_Mk48Mod1_LA5_M600V",	//LA-5B/M600V (Tan) (Laser)
-	"Tier1_Mk48Mod1_LA5_M600V_FL",	//LA-5B/M600V (Tan) (Light)
-	"Tier1_Mk48Mod1_LA5_M600V_Black",	//LA-5B/M600V (Black) (Laser)
-	"Tier1_Mk48Mod1_LA5_M600V_Black_FL",	//LA-5B/M600V (Black) (Light)
-	"Tier1_Mk48Mod1_LA5_M603V",	//LA-5B/M603V (Tan) (Laser)
-	"Tier1_Mk48Mod1_LA5_M603V_FL",	//LA-5B/M603V (Tan) (Light)
-	"Tier1_LA5_Side",	//LA-5B
-	"Tier1_LA5_Top",	//LA-5B (Top)
-	"Tier1_NGAL_Side",	//NGAL
-	"Tier1_NGAL_Top",	//NGAL (Top)
-	"Tier1_SCAR_LA5_Top",	//SCAR // LA-5B (Top)
-	"Tier1_SCAR_LA5_Side",	//SCAR // LA-5B
-	"Tier1_SCAR_LA5_M300C",	//SCAR // LA-5B/M300C (Tan) (Laser)
-	"Tier1_SCAR_LA5_M300C_FL",	//SCAR // LA-5B/M300C (Tan) (Light)
-	"Tier1_SCAR_LA5_M300C_Black",	//SCAR // LA-5B/M300C (Black) (Laser)
-	"Tier1_SCAR_LA5_M300C_Black_FL",	//SCAR // LA-5B/M300C (Black) (Light)
-	"Tier1_SCAR_LA5_M600V",	//SCAR // LA-5B/M600V (Tan) (Laser)
-	"Tier1_SCAR_LA5_M600V_FL",	//SCAR // LA-5B/M600V (Tan) (Light)
-	"Tier1_SCAR_LA5_M600V_Black",	//SCAR // LA-5B/M600V (Black) (Laser)
-	"Tier1_SCAR_LA5_M600V_Black_FL",	//SCAR // LA-5B/M600V (Black) (Light)
-	"Tier1_SCAR_LA5_M603V",	//SCAR // LA-5B/M603V (Tan) (Laser)
-	"Tier1_SCAR_LA5_M603V_FL",	//SCAR // LA-5B/M603V (Tan) (Light)
-	"Tier1_SCAR_NGAL_Top",	//SCAR // NGAL (Top)
-	"Tier1_SCAR_NGAL_Side",	//SCAR // NGAL
-	"Tier1_SCAR_NGAL_M300C",	//SCAR // NGAL/M300C (Tan) (Laser)
-	"Tier1_SCAR_NGAL_M300C_FL",	//SCAR // NGAL/M300C (Tan) (Light)
-	"Tier1_SCAR_NGAL_M300C_Black",	//SCAR // NGAL/M300C (Black) (Laser)
-	"Tier1_SCAR_NGAL_M300C_Black_FL",	//SCAR // NGAL/M300C (Black) (Light)
-	"Tier1_SCAR_NGAL_M600V",	//SCAR // NGAL/M600V (Tan) (Laser)
-	"Tier1_SCAR_NGAL_M600V_FL",	//SCAR // NGAL/M600V (Tan) (Light)
-	"Tier1_SCAR_NGAL_M600V_Black",	//SCAR // NGAL/M600V (Black) (Laser)
-	"Tier1_SCAR_NGAL_M600V_Black_FL",	//SCAR // NGAL/M600V (Black) (Light)
-	"Tier1_SCAR_NGAL_M603V",	//SCAR // NGAL/M603V (Tan) (Laser)
-	"Tier1_SCAR_NGAL_M603V_FL",	//SCAR // NGAL/M603V (Tan) (Light)
-	"Tier1_M4BII_LA5_Top",	//M4BII // LA-5B (Top)
-	"Tier1_M4BII_LA5_Side",	//M4BII // LA-5B
-	"Tier1_M4BII_LA5_M300C",	//M4BII // LA-5B/M300C (Tan) (Laser)
-	"Tier1_M4BII_LA5_M300C_FL",	//M4BII // LA-5B/M300C (Tan) (Light)
-	"Tier1_M4BII_LA5_M300C_Black",	//M4BII // LA-5B/M300C (Black) (Laser)
-	"Tier1_M4BII_LA5_M300C_Black_FL",	//M4BII // LA-5B/M300C (Black) (Light)
-	"Tier1_M4BII_LA5_M600V",	//M4BII // LA-5B/M600V (Tan) (Laser)
-	"Tier1_M4BII_LA5_M600V_FL",	//M4BII // LA-5B/M600V (Tan) (Light)
-	"Tier1_M4BII_LA5_M600V_Black",	//M4BII // LA-5B/M600V (Black) (Laser)
-	"Tier1_M4BII_LA5_M600V_Black_FL",	//M4BII // LA-5B/M600V (Black) (Light)
-	"Tier1_M4BII_LA5_M603V",	//M4BII // LA-5B/M603V (Tan) (Laser)
-	"Tier1_M4BII_LA5_M603V_FL",	//M4BII // LA-5B/M603V (Tan) (Light)
-	"Tier1_M4BII_NGAL_Top",	//M4BII // NGAL (Top)
-	"Tier1_M4BII_NGAL_Side",	//M4BII // NGAL
-	"Tier1_M4BII_NGAL_M300C",	//M4BII // NGAL/M300C (Tan) (Laser)
-	"Tier1_M4BII_NGAL_M300C_FL",	//M4BII // NGAL/M300C (Tan) (Light)
-	"Tier1_M4BII_NGAL_M300C_Black",	//M4BII // NGAL/M300C (Black) (Laser)
-	"Tier1_M4BII_NGAL_M300C_Black_FL",	//M4BII // NGAL/M300C (Black) (Light)
-	"Tier1_M4BII_NGAL_M600V",	//M4BII // NGAL/M600V (Tan) (Laser)
-	"Tier1_M4BII_NGAL_M600V_FL",	//M4BII // NGAL/M600V (Tan) (Light)
-	"Tier1_M4BII_NGAL_M600V_Black",	//M4BII // NGAL/M600V (Black) (Laser)
-	"Tier1_M4BII_NGAL_M600V_Black_FL",	//M4BII // NGAL/M600V (Black) (Light)
-	"Tier1_M4BII_NGAL_M603V",	//M4BII // NGAL/M603V (Tan) (Laser)
-	"Tier1_M4BII_NGAL_M603V_FL",	//M4BII // NGAL/M603V (Tan) (Light)
-	"Tier1_Mk18_LA5_Top",	//Mk18 // LA-5B (Top)
-	"Tier1_Mk18_LA5_Side",	//Mk18 // LA-5B
-	"Tier1_Mk18_LA5_M300C",	//Mk18 // LA-5B/M300C (Tan) (Laser)
-	"Tier1_Mk18_LA5_M300C_FL",	//Mk18 // LA-5B/M300C (Tan) (Light)
-	"Tier1_Mk18_LA5_M300C_Black",	//Mk18 // LA-5B/M300C (Black) (Laser)
-	"Tier1_Mk18_LA5_M300C_Black_FL",	//Mk18 // LA-5B/M300C (Black) (Light)
-	"Tier1_Mk18_LA5_M600V",	//Mk18 // LA-5B/M600V (Tan) (Laser)
-	"Tier1_Mk18_LA5_M600V_FL",	//Mk18 // LA-5B/M600V (Tan) (Light)
-	"Tier1_Mk18_LA5_M600V_Black",	//Mk18 // LA-5B/M600V (Black) (Laser)
-	"Tier1_Mk18_LA5_M600V_Black_FL",	//Mk18 // LA-5B/M600V (Black) (Light)
-	"Tier1_Mk18_LA5_M603V",	//Mk18 // LA-5B/M603V (Tan) (Laser)
-	"Tier1_Mk18_LA5_M603V_FL",	//Mk18 // LA-5B/M603V (Tan) (Light)
-	"Tier1_Mk18_NGAL_Top",	//Mk18 // NGAL (Top)
-	"Tier1_Mk18_NGAL_Side",	//Mk18 // NGAL
-	"Tier1_Mk18_NGAL_M300C",	//Mk18 // NGAL/M300C (Tan) (Laser)
-	"Tier1_Mk18_NGAL_M300C_FL",	//Mk18 // NGAL/M300C (Tan) (Light)
-	"Tier1_Mk18_NGAL_M300C_Black",	//Mk18 // NGAL/M300C (Black) (Laser)
-	"Tier1_Mk18_NGAL_M300C_Black_FL",	//Mk18 // NGAL/M300C (Black) (Light)
-	"Tier1_Mk18_NGAL_M600V",	//Mk18 // NGAL/M600V (Tan) (Laser)
-	"Tier1_Mk18_NGAL_M600V_FL",	//Mk18 // NGAL/M600V (Tan) (Light)
-	"Tier1_Mk18_NGAL_M600V_Black",	//Mk18 // NGAL/M600V (Black) (Laser)
-	"Tier1_Mk18_NGAL_M600V_Black_FL",	//Mk18 // NGAL/M600V (Black) (Light)
-	"Tier1_Mk18_NGAL_M603V",	//Mk18 // NGAL/M603V (Tan) (Laser)
-	"Tier1_Mk18_NGAL_M603V_FL",	//Mk18 // NGAL/M603V (Tan) (Light)
-	"Tier1_MP7_LA5_Side",	//MP7 // LA-5B
-	"Tier1_MP7_LA5_M300C",	//MP7 // LA-5B/M300C (Tan) (Laser)
-	"Tier1_MP7_LA5_M300C_FL",	//MP7 // LA-5B/M300C (Tan) (Light)
-	"Tier1_MP7_LA5_M300C_Black",	//MP7 // LA-5B/M300C (Black) (Laser)
-	"Tier1_MP7_LA5_M300C_Black_FL",	//MP7 // LA-5B/M300C (Black) (Light)
-	"Tier1_MP7_NGAL_Side",	//MP7 // NGAL
-	"Tier1_MP7_NGAL_M300C",	//MP7 // NGAL/M300C (Tan) (Laser)
-	"Tier1_MP7_NGAL_M300C_FL",	//MP7 // NGAL/M300C (Tan) (Light)
-	"Tier1_MP7_NGAL_M300C_Black",	//MP7 // NGAL/M300C (Black) (Laser)
-	"Tier1_MP7_NGAL_M300C_Black_FL",	//MP7 // NGAL/M300C (Black) (Light)
-	"Tier1_M249_LA5_Side",	//M249 // LA-5B
-	"Tier1_M249_LA5_M600V",	//M249 // LA-5B/M600V (Tan) (Laser)
-	"Tier1_M249_LA5_M600V_FL",	//M249 // LA-5B/M600V (Tan) (Light)
-	"Tier1_M249_LA5_M600V_Black",	//M249 // LA-5B/M600V (Black) (Laser)
-	"Tier1_M249_LA5_M600V_Black_FL",	//M249 // LA-5B/M600V (Black) (Light)
-	"Tier1_M249_LA5_M603V",	//M249 // LA-5B/M603V (Tan) (Laser)
-	"Tier1_M249_LA5_M603V_FL",	//M249 // LA-5B/M603V (Tan) (Light)
 	/* =======================
 	 * Type : NVGoggles
 	 * ======================= */

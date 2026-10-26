@@ -31,6 +31,7 @@ private _sector_despawn_tickets = BASE_TICKETS;
 private _maximum_additional_tickets = (KP_liberation_delayDespawnMax * 60 / SECTOR_TICK_TIME);
 private _popfactor = 1;
 private _guerilla = false;
+private _mslSpecops = false;
 
 if (GRLIB_unitcap < 1) then {_popfactor = GRLIB_unitcap;};
 
@@ -166,6 +167,9 @@ if ((!(_sector in blufor_sectors)) && (([markerPos _sector, [_opforcount] call K
         _building_ai_max = 0;
     };
 
+    if (missionNamespace getVariable ["MSL_enabled", false] && {(_sector in sectors_military) || {_sector in sectors_bigtown}} && {combat_readiness >= 40} && {random 1 < 0.25 * ([] call MSL_fnc_supportFactor)}) then {
+        _squad4 = ["specops"] call KPLIB_fnc_getSquadComp; _mslSpecops = true;
+    };
     _vehtospawn = _vehtospawn select {!(isNil "_x")};
 
     if (KP_liberation_sectorspawn_debug > 0) then {[format ["Sector %1 (%2) - manage_one_sector calculated -> _infsquad: %3 - _squad1: %4 - _squad2: %5 - _squad3: %6 - _squad4: %7 - _vehtospawn: %8 - _building_ai_max: %9", (markerText _sector), _sector, _infsquad, (count _squad1), (count _squad2), (count _squad3), (count _squad4), (count _vehtospawn), _building_ai_max], "SECTORSPAWN"] remoteExecCall ["KPLIB_fnc_log", 2];};
@@ -217,6 +221,7 @@ if ((!(_sector in blufor_sectors)) && (([markerPos _sector, [_opforcount] call K
     if (count _squad4 > 0) then {
         _grp = [_sector, _squad4] call KPLIB_fnc_spawnRegularSquad;
         [_grp, _sectorpos] spawn add_defense_waypoints;
+        if (_mslSpecops) then {[_grp, _sectorpos] spawn MSL_fnc_specopsAI;};
         _managed_units = _managed_units + (units _grp);
     };
 
@@ -243,7 +248,9 @@ if ((!(_sector in blufor_sectors)) && (([markerPos _sector, [_opforcount] call K
     // sector lifetime loop
     while {!_stopit} do {
         // sector was captured
-        if (([_sectorpos, _local_capture_size] call KPLIB_fnc_getSectorOwnership == GRLIB_side_friendly) && (GRLIB_endgame == 0)) then {
+        private _captured = [_sectorpos, _local_capture_size] call KPLIB_fnc_getSectorOwnership == GRLIB_side_friendly;
+        if (missionNamespace getVariable ["MSL_enabled", false]) then {_captured = [_sector, _local_capture_size] call MSL_fnc_captureReady;};
+        if (_captured && (GRLIB_endgame == 0)) then {
             if (isServer) then {
                 [_sector] spawn sector_liberated_remote_call;
             } else {

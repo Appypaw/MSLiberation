@@ -3,7 +3,9 @@ params [
     ["_chopper_type", objNull, [objNull]]
 ];
 
-if (_targetsector isEqualTo "" || opfor_choppers isEqualTo []) exitWith {false};
+private _transportPool = opfor_choppers select {_x in opfor_troup_transports};
+if (missionNamespace getVariable ["MSL_enabled", false]) then {_transportPool = MSL_transportHelos select {isClass (configFile >> "CfgVehicles" >> _x)};};
+if (_targetsector isEqualTo "" || {_transportPool isEqualTo []} || {sectors_airspawn isEqualTo []}) exitWith {false};
 
 private _targetpos = _targetsector;
 if (_targetpos isEqualType "") then {
@@ -13,11 +15,7 @@ private _spawnsector = ([sectors_airspawn, [_targetpos], {(markerpos _x) distanc
 private _newvehicle = objNull;
 private _pilot_group = grpNull;
 if (isNull _chopper_type) then {
-    _chopper_type = selectRandom opfor_choppers;
-
-    while {!(_chopper_type in opfor_troup_transports)} do {
-        _chopper_type = selectRandom opfor_choppers;
-    };
+    _chopper_type = selectRandom _transportPool;
 
     _newvehicle = createVehicle [_chopper_type, markerpos _spawnsector, [], 0, "FLY"];
     createVehicleCrew _newvehicle;

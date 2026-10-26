@@ -2,6 +2,7 @@ waitUntil {!isNil "KPLIB_initServer"};
 
 params ["_newUnit", "_oldUnit"];
 
+if !(missionNamespace getVariable ["MSL_enabled", false]) then {
 if (isNil "GRLIB_respawn_loadout") then {
     removeAllWeapons player;
     removeAllItems player;
@@ -17,6 +18,8 @@ if (isNil "GRLIB_respawn_loadout") then {
 } else {
     sleep 4;
     [player, GRLIB_respawn_loadout] call KPLIB_fnc_setLoadout;
+};
+
 };
 
 [] call KPLIB_fnc_addActionsPlayer;

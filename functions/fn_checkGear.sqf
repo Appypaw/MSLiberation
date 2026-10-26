@@ -1,3 +1,5 @@
+if (missionNamespace getVariable ["MSL_enabled", false]) exitWith {true};
+
 /*
     File: fn_checkGear.sqf
     Author: KP Liberation Dev Team - https://github.com/KillahPotatoes

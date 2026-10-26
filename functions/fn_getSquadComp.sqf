@@ -19,6 +19,19 @@ params [
     ["_type", "army", [""]]
 ];
 
+if (_type == "specops") exitWith {
+    private _pool = ("getNumber (_x >> 'scope') == 2" configClasses (configFile >> "CfgVehicles")) select {
+        ((toLower configName _x) find "pracs_sla_especas") == 0 && {configName _x isKindOf "CAManBase"}
+    };
+    private _classes = _pool apply {configName _x};
+    if (_classes isEqualTo []) then {_classes = missionNamespace getVariable ["MSL_specopsCandidates", []];};
+    _classes = _classes select {isClass (configFile >> "CfgVehicles" >> _x)};
+    if (_classes isEqualTo []) exitWith {["army"] call KPLIB_fnc_getSquadComp};
+    private _out = [];
+    for "_i" from 1 to 6 do {_out pushBack (selectRandom _classes);};
+    _out
+};
+
 private _squadcomp = [];
 
 if (_type == "army") then {

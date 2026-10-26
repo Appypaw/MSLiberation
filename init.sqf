@@ -13,6 +13,7 @@ if (!isServer) then {waitUntil {!isNil "KPLIB_initServer"};};
 [] call compileFinal preprocessFileLineNumbers "scripts\shared\fetch_params.sqf";
 [] call compileFinal preprocessFileLineNumbers "kp_liberation_config.sqf";
 [] call compileFinal preprocessFileLineNumbers "presets\init_presets.sqf";
+[] call compileFinal preprocessFileLineNumbers "scripts\msl\config.sqf";
 [] call compileFinal preprocessFileLineNumbers "kp_objectInits.sqf";
 
 // Activate selected player menu. If CBA isn't loaded -> fallback to GREUH

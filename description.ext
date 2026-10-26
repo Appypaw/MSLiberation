@@ -229,6 +229,7 @@ class CfgDiscordRichPresence {
 
 class CfgFunctions {
     #include "CfgFunctions.hpp"
+    #include "scripts\msl\CfgFunctions.hpp"
     #include "KP\KPPLM\KPPLM_functions.hpp"
     #include "AIS\cfgFunctions.hpp"
 };

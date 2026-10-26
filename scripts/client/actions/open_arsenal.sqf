@@ -1,3 +1,5 @@
+if (missionNamespace getVariable ["MSL_enabled", false]) exitWith {[] call MSL_fnc_menu;};
+
 if (KPLIB_directArsenal) exitWith {
     if (KP_liberation_ace && KP_liberation_arsenal_type) then {
         [player, player, false] call ace_arsenal_fnc_openBox;

@@ -1,3 +1,11 @@
+if (missionNamespace getVariable ["MSL_enabled", false]) exitWith {
+    KP_liberation_allowed_items = [];
+    [missionNamespace, true] call BIS_fnc_removeVirtualWeaponCargo;
+    [missionNamespace, true] call BIS_fnc_removeVirtualMagazineCargo;
+    [missionNamespace, true] call BIS_fnc_removeVirtualItemCargo;
+    [missionNamespace, true] call BIS_fnc_removeVirtualBackpackCargo;
+};
+
 if (KP_liberation_arsenalUsePreset) then {
     private _crawled = [] call KPLIB_fnc_crawlAllItems;
     private _weapons = [];

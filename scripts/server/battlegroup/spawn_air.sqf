@@ -1,4 +1,8 @@
 params ["_first_objective"];
+if (missionNamespace getVariable ["MSL_enabled", false]) exitWith {
+    private _air = vehicles select {alive _x && {_x isKindOf "Air"} && {getPosATL _x select 2 > 30} && {crew _x findIf {isPlayer _x && {side group _x == GRLIB_side_friendly}} >= 0}};
+    [_first_objective, ["CAS", "CAP"] select !(_air isEqualTo [])] spawn MSL_fnc_airMission;
+};
 
 if (opfor_air isEqualTo []) exitWith {false};
 

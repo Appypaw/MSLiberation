@@ -15,6 +15,7 @@ if !(_spawn_marker isEqualTo "") then {
     private _selected_opfor_battlegroup = [];
     private _target_size = (round (GRLIB_battlegroup_size * ([] call KPLIB_fnc_getOpforFactor) * (sqrt GRLIB_csat_aggressivity))) min 16;
     if (combat_readiness < 60) then {_target_size = round (_target_size * 0.65);};
+    if (missionNamespace getVariable ["MSL_enabled", false]) then {_target_size = (round (_target_size * ([] call MSL_fnc_supportFactor))) max 1;};
 
     [_spawn_marker] remoteExec ["remote_call_battlegroup"];
 

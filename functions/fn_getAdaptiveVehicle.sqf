@@ -15,4 +15,6 @@
         Vehicle classname [STRING]
 */
 
-selectRandom ([opfor_vehicles, opfor_vehicles_low_intensity] select (combat_readiness < 40))
+private _weak = combat_readiness < 40;
+if (missionNamespace getVariable ["MSL_enabled", false]) then {_weak = _weak || {[] call MSL_fnc_supportFactor < 0.5};};
+selectRandom ([opfor_vehicles, opfor_vehicles_low_intensity] select _weak)

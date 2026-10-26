@@ -17,5 +17,17 @@ private _tower = objNull;
     _tower = _classname createVehicle (markerpos _x);
     _tower setPos (markerpos _x);
     _tower setVectorUp [0, 0, 1];
-    _tower addEventHandler ["HandleDamage", {0}];
+    if (missionNamespace getVariable ["MSL_enabled", false]) then {
+        _tower setVariable ["MSL_towerSector", _sector];
+        if (isNil "MSL_towerObjects") then {MSL_towerObjects = [];};
+        MSL_towerObjects pushBack _tower;
+        _tower addEventHandler ["Killed", {
+            params ["_tower"];
+            private _s = _tower getVariable ["MSL_towerSector", ""];
+            if (!isNil "MSL_destroyedTowers") then {
+                MSL_destroyedTowers pushBackUnique _s; publicVariable "MSL_destroyedTowers";
+                [] call MSL_fnc_persist;
+            };
+        }];
+    } else {_tower addEventHandler ["HandleDamage", {0}];};
 } forEach sectors_tower;

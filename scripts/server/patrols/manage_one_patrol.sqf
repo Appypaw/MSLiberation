@@ -9,6 +9,7 @@ while { GRLIB_endgame == 0 } do {
     waitUntil { sleep 0.3; combat_readiness >= (_minimum_readiness / GRLIB_difficulty_modifier); };
 
     sleep (random 30);
+    if (missionNamespace getVariable ["MSL_enabled", false]) then {sleep (60 * (1 / ([] call MSL_fnc_supportFactor) - 1));};
 
     while {  [] call KPLIB_fnc_getOpforCap > GRLIB_patrol_cap } do {
             sleep (random 30);

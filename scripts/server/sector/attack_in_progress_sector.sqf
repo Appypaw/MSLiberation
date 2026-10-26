@@ -48,6 +48,7 @@ waitUntil {
 if ( GRLIB_endgame == 0 ) then {
     if ( _attacktime <= 1 && ( [markerpos _sector] call KPLIB_fnc_getSectorOwnership == GRLIB_side_enemy ) ) then {
         blufor_sectors = blufor_sectors - [ _sector ];
+        if (!isNil "MSL_captureClaims") then {MSL_captureClaims = MSL_captureClaims - [_sector];};
         publicVariable "blufor_sectors";
         [_sector, 2] remoteExec ["remote_call_sector"];
         reset_battlegroups_ai = true;
