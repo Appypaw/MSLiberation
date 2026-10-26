@@ -17,12 +17,12 @@ if (isRemoteExecuted) exitWith {};
         MSL_evacRequests = []; MSL_evacActive = false; MSL_nextEvac = 0;
         MSL_dropRequests = []; MSL_nextDrop = 0; MSL_dropActive = false;
         if (isNil "GRLIB_arsenal_weapons") then {[] call compileFinal preprocessFileLineNumbers "arsenal_presets\custom.sqf";};
+        [] call compileFinal preprocessFileLineNumbers "scripts\msl\import_equipment.sqf";
         MSL_shopClasses = []; MSL_shopEntries = [];
-        private _freeWeapons = [];
-        {_freeWeapons append [_x select 2,_x select 3];} forEach MSL_freeKits;
         {
-            {private _entry = [_x] call MSL_fnc_catalog; if (!(_entry isEqualTo []) && {!(_x in MSL_shopClasses) && {!(_x in _freeWeapons)}}) then {MSL_shopClasses pushBack _x; MSL_shopEntries pushBack _entry;};} forEach _x;
+            {private _entry = [_x] call MSL_fnc_catalog; if (!(_entry isEqualTo []) && {!(_x in MSL_shopClasses)}) then {MSL_shopClasses pushBack _x; MSL_shopEntries pushBack _entry;};} forEach _x;
         } forEach [GRLIB_arsenal_weapons, GRLIB_arsenal_magazines, GRLIB_arsenal_items, GRLIB_arsenal_backpacks];
+        [] call MSL_fnc_linkMagazineUnlocks;
         publicVariable "MSL_shopClasses"; publicVariable "MSL_shopEntries";
         MSL_ready = true; publicVariable "MSL_ready";
         // Native global event works with server- and HC-owned AI, without duplicate MPKilled payouts.

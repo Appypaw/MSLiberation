@@ -1,6 +1,7 @@
 // Server-only scheduled flight. Requests are validated before this function is spawned.
 if (!isServer || {isRemoteExecuted}) exitWith {};
 params ["_unit", ["_kind", "ammo"]];
+if (!([_unit] call MSL_fnc_canRequestSupport)) exitWith {};
 if (isNull _unit || {!alive _unit} || {GRLIB_endgame != 0}) exitWith {};
 if !(_kind in ["ammo", "medical", "resources"]) exitWith {};
 private _tell = {params ["_text"]; [_text] remoteExecCall ["systemChat", owner _unit];};

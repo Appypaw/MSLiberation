@@ -17,6 +17,16 @@ if (_root == "CfgWeapons") then {
         _unlockKey = ["weapon_rifle","weapon_pistol","weapon_launcher"] select ([1,2,4] find _type);
         _price = [1200, 500, 2500] select ([1, 2, 4] find _type);
         _level = [2, 1, 4] select ([1, 2, 4] find _type);
+        // Existing explicit prices below win; new families use the established economy.
+        private _weaponInfo = _class call BIS_fnc_itemType;
+        private _weaponType = _weaponInfo param [1, ""];
+        if (!_sale && {(_weaponInfo param [0, ""]) != "Weapon" || {!(_weaponType in ["AssaultRifle", "Handgun", "Launcher", "MachineGun", "MissileLauncher", "RocketLauncher", "Shotgun", "Rifle", "SubmachineGun", "SniperRifle", "GrenadeLauncher"])}}) exitWith {_kind = "invalid";};
+        if (_weaponType == "MachineGun") then {_price = 2800; _level = 4;};
+        if (_weaponType == "SniperRifle") then {_price = 3200; _level = 4;};
+        if (_weaponType == "SubmachineGun") then {_price = 900; _level = 1;};
+        if (_weaponType == "Shotgun") then {_price = 800; _level = 1;};
+        if (_weaponType == "MissileLauncher") then {_price = 6500; _level = 7;};
+        if (_weaponType == "GrenadeLauncher") then {_price = 1600; _level = 3;};
         if (!_sale && {(_class call BIS_fnc_baseWeapon) != _class}) exitWith {_kind = "invalid";};
         if (!_sale && {count ("true" configClasses (_cfg >> "LinkedItems")) > 0}) then {_kind = "invalid";};
     } else {
@@ -71,13 +81,35 @@ if (_root == "CfgWeapons") then {
         if (_class in ["ItemGPS"]) then {_unlockKey = "navigation";};
         if (_class == "ItemRadio" || {(_lower find "tfar_") == 0}) then {_unlockKey = "radio";};
         if (_class == "Medikit") then {_unlockKey = "medical";};
+        private _utilityType = (_class call BIS_fnc_itemType) param [1, ""];
+        if (_utilityType == "GPS") then {_unlockKey = "navigation";};
+        if (_utilityType == "Radio") then {_unlockKey = "radio";};
+        if (_utilityType == "Medikit") then {_unlockKey = "medical";};
         if (_class == "ToolKit") then {_unlockKey = "toolkit";};
         if (_class in ["MineDetector","DroneDetector"]) then {_unlockKey = "detector";};
     };
 };
 if (_root == "CfgVehicles" && {getNumber (_cfg >> "isBackpack") != 1}) then {_kind = "invalid";};
 if (_kind == "invalid") exitWith {[]};
-if (_kind == "magazine") then {_price = 60;};
+if (_kind == "magazine") then {
+    private _ammoCfg = configFile >> "CfgAmmo" >> getText (_cfg >> "ammo");
+    private _sim = toLower getText (_ammoCfg >> "simulation");
+    private _description = toLower (_class + " " + getText (_cfg >> "displayName"));
+    _unlockKey = "ammo_ball";
+    if (getNumber (_cfg >> "count") >= 75) then {_unlockKey = "ammo_belt";};
+    if (getNumber (_ammoCfg >> "caliber") >= 2.5) then {_unlockKey = "ammo_heavy";};
+    if (_sim == "shotbullet" && {(["_ap", "_api", "_apds", "_mk211", "_m993", "_m995"] findIf {(_lower find _x) >= 0}) >= 0}) then {_unlockKey = "ammo_special";};
+    if (_sim == "shotgrenade") then {_unlockKey = "ammo_grenade";};
+    if (_sim == "shotshell") then {_unlockKey = "ammo_ugl";};
+    if (_sim == "shotrocket") then {_unlockKey = "ammo_rocket";};
+    if (_sim == "shotmissile") then {
+        _unlockKey = "ammo_rocket";
+        if (getNumber (_ammoCfg >> "irLock") > 0 || {getNumber (_ammoCfg >> "laserLock") > 0} || {getNumber (_ammoCfg >> "manualControl") > 0}) then {_unlockKey = "ammo_guided";};
+    };
+    if (_sim in ["shotmine", "shotdirectionalbomb", "shotboundingmine", "shotpipebomb", "shotexplosive"]) then {_unlockKey = "ammo_charge";};
+    if ((["mine", "claymore"] findIf {(_description find _x) >= 0}) >= 0) then {_unlockKey = "ammo_mine";};
+    if ((["smoke", "flare", "chemlight"] findIf {(_description find _x) >= 0}) >= 0) then {_unlockKey = "ammo_signal";};
+};
 if (_kind == "backpack") then {
     private _load = getNumber (_cfg >> "maximumLoad");
     if (_load > 160) then {_unlockKey = "backpack_medium";};
@@ -93,4 +125,16 @@ if (_kind == "backpack") then {
 {if ((_x select 0) == _class) exitWith {_price = _x select 1; _level = _x select 2;};} forEach MSL_priceOverrides;
 // Ordinary uniforms are free to acquire and have no resale value.
 if (_unlockKey == "uniform") then {_price = 0; _level = 1;};
+// Royal Sahrani Army clothing and unarmored hats; protective equipment keeps its tiers.
+if (_root == "CfgWeapons" && {getNumber (_cfg >> "ItemInfo" >> "type") == 801 || {_unlockKey == "headgear"}} && {(_lower find "pracs_") == 0} && {(_lower find "pracs_sla") != 0}) then {_price = 0; _level = 0;};
+// Applies to weapons only, after all explicit prices; no resale revenue for free arms.
+if (_kind == "weapon" && {MSL_freeWeaponFamilies findIf {(_lower find _x) >= 0} >= 0}) then {_price = 0; _level = 0;};
+// Essential utilities, including long-range radio backpacks, have no level or cost.
+if (_unlockKey in ["navigation", "radio", "radio_pack", "medical"]) then {_price = 0; _level = 0;};
+// Use the same derived ammunition unlocks in direct purchases and arsenal quotes.
+if (_kind == "magazine" && {!_sale}) then {
+    private _unlocks = missionNamespace getVariable ["MSL_magazineUnlocks",[]];
+    private _i = _unlocks findIf {(_x select 0) == _lower};
+    if (_i >= 0) then {_level = (_unlocks select _i) select 1;};
+};
 [_class, getText (_cfg >> "displayName"), _price, _level, _kind]

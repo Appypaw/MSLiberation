@@ -3,7 +3,7 @@ disableSerialization;
 params ["_d"];
 if (isNull _d) exitWith {};
 private _mode = _d getVariable ["MSL_mode","buy"];
-if (_mode in ["progress","transfer"] && {!([player] call MSL_fnc_atTerminal)}) exitWith {_d closeDisplay 2;};
+if (_mode == "transfer" && {!([player] call MSL_fnc_atTerminal)}) exitWith {_d closeDisplay 2;};
 {ctrlDelete _x;} forEach (_d getVariable ["MSL_body",[]]);
 private _controls = []; private _id = 8100;
 private _make = _d getVariable "MSL_make";
@@ -20,62 +20,32 @@ private _button = {
 private _s = player getVariable ["MSL_stats",[0,0,0,0,0,0]];
 private _progress = [_s select 1] call MSL_fnc_progress;
 private _level = _progress select 0;
-if (_mode == "progress") then {
-    (_d displayCtrl 8004) ctrlSetText "CAREER / 개인 해금 진행도";
-    ["RscText",[0.23,0.18,0.68,0.055],format ["LEVEL %1   %2",_level,MSL_levelTitles param [_level - 1,"OPERATOR"]],[0.91,0.76,0.45,1]] call _mk;
-    private _bar = ["RscProgress",[0.23,0.25,0.71,0.014]] call _mk; _bar progressSetPosition (_progress select 3); _bar ctrlSetTextColor [0.91,0.76,0.45,1];
-    ["RscText",[0.23,0.28,0.71,0.045],format ["XP %1 / %2     처치 %3  |  사망 %4  |  점령 %5  |  독택 %6",_s select 1,_progress select 2,_s select 2,_s select 3,_s select 4,player getVariable ["MSL_dogtags",0]]] call _mk;
-    private _page = _d getVariable ["MSL_page",0];
-    for "_i" from 0 to 5 do {
-        private _tier = _page * 6 + _i + 1;
-        if (_tier <= count MSL_levelThresholds) then {
-            private _xPos = 0.23 + _i * 0.12;
-            private _unlocked = _tier <= _level;
-            private _color = [[0.3,0.36,0.4,1],[0.9,0.73,0.4,1]] select _unlocked;
-            private _panel = ["RscText",[_xPos,0.39,0.108,0.37]] call _mk;
-            _panel ctrlSetBackgroundColor ([[0.045,0.06,0.075,1],[0.11,0.105,0.075,1]] select _unlocked);
-            ["RscText",[_xPos + 0.006,0.405,0.1,0.045],format ["LV. %1",_tier],_color] call _mk;
-            private _rewards = MSL_shopEntries select {(_x select 3) == _tier};
-            private _name = "기본 보급 / 전투 경력";
-            private _image = "res\ui_arsenal.paa";
-            if !(_rewards isEqualTo []) then {
-                private _entry = _rewards select 0; _name = _entry select 1;
-                private _class = _entry select 0;
-                {private _cfg = configFile >> _x >> _class; if (isClass _cfg && {getText (_cfg >> "picture") != ""}) exitWith {_image = getText (_cfg >> "picture");};} forEach ["CfgWeapons","CfgVehicles","CfgGlasses","CfgMagazines"];
-            };
-            ["RscPicture",[_xPos + 0.005,0.47,0.098,0.105],_image,_color] call _mk;
-            ["RscText",[_xPos + 0.005,0.59,0.1,0.045],MSL_levelTitles param [_tier - 1,"OPERATOR"],_color] call _mk;
-            ["RscText",[_xPos + 0.005,0.635,0.1,0.045],format ["%1 XP",MSL_levelThresholds select (_tier - 1)]] call _mk;
-            private _card = [[_xPos + 0.005,0.69,0.1,0.05],format ["품목 %1",count _rewards],{
-                private _b = _this select 0; private _d = ctrlParent _b;
-                _d setVariable ["MSL_query",""];
-                _d setVariable ["MSL_filterLevel",_b getVariable "MSL_tier"];
-                _d setVariable ["MSL_mode","buy"]; [_d] call MSL_fnc_terminalRender;
-            }] call _button;
-            _card setVariable ["MSL_tier",_tier];
-            _panel ctrlSetTooltip format ["LV.%1 / %2 / 해금 품목 %3개",_tier,_name,count _rewards];
-            ["RscText",[_xPos + 0.005,0.75,0.1,0.035],["잠김","해금 완료"] select _unlocked,_color] call _mk;
-        };
-    };
-    [[0.23,0.8,0.2,0.05],"이전 티어",{private _d = ctrlParent (_this select 0); _d setVariable ["MSL_page",((_d getVariable ["MSL_page",0]) - 1) max 0]; [_d] call MSL_fnc_terminalRender;}] call _button;
-    [[0.74,0.8,0.2,0.05],"다음 티어",{private _d = ctrlParent (_this select 0); _d setVariable ["MSL_page",((_d getVariable ["MSL_page",0]) + 1) min (floor ((count MSL_levelThresholds - 1) / 6))]; [_d] call MSL_fnc_terminalRender;}] call _button;
-    ["RscText",[0.23,0.88,0.71,0.05],"레벨 달성 시 구매 권한 영구 해금 / 장비는 개인 자금으로 구매",[0.55,0.65,0.7,1]] call _mk;
-};
-if (_mode == "kits") then {
-    (_d displayCtrl 8004) ctrlSetText "ARMORY / 무료 군수 키트";
-    ["RscText",[0.23,0.18,0.71,0.05],"레벨 제한 없음 / $0 / 필요한 키트를 선택하세요."] call _mk;
+{
+    private _tab = _d displayCtrl (8010 + _forEachIndex);
+    _tab ctrlSetBackgroundColor (if (_x == _mode) then {[0.16,0.19,0.20,1]} else {[0.055,0.075,0.085,1]});
+    _tab ctrlSetTextColor (if (_x == _mode) then {[0.94,0.8,0.5,1]} else {[0.72,0.79,0.82,1]});
+} forEach ["progress","buy","sell","support","transfer"];
+if (_mode == "progress") then {[_d,_mk,_button,_level,_progress] call MSL_fnc_equipmentBrowser;};
+if (_mode == "support") then {
+    (_d displayCtrl 8004) ctrlSetText "지원 요청";
+    ["RscText",[0.23,0.19,0.71,0.05],"AI 공중보급 및 분대 철수"] call _mk;
+    ["RscText",[0.23,0.26,0.71,0.05],"분대장 / 지휘관 전용 · 공중보급 요청 후 연막 또는 야간 플레어 표시",[0.6,0.68,0.72,1]] call _mk;
     {
-        private _row = _x;
-        private _b = [[0.23,0.27 + _forEachIndex * 0.09,0.71,0.07],format ["%1   |   무료 $0",_row select 1],{
+        _x params ["_label","_op","_args","_hint"];
+        private _xPos = 0.23 + (_forEachIndex mod 2) * 0.37;
+        private _yPos = 0.38 + floor (_forEachIndex / 2) * 0.22;
+        private _b = [[_xPos,_yPos,0.34,0.10],_label,{
             private _b = _this select 0;
-            [_b getVariable "MSL_kit"] spawn {
-                params ["_id"];
-                if (["현재 장비를 버리고 선택한 무료 키트로 교체할까요?","무료 키트 수령",true,true] call BIS_fnc_guiMessage) then {[player,"free",[_id]] remoteExecCall ["MSL_fnc_request",2];};
+            if ([player] call MSL_fnc_canRequestSupport) then {
+                (_b getVariable "MSL_supportRequest") params ["_op","_args"];
+                [player,_op,_args] remoteExecCall ["MSL_fnc_request",2];
+                (ctrlParent _b) closeDisplay 1;
             };
         }] call _button;
-        _b setVariable ["MSL_kit",_row select 0];
-    } forEach MSL_freeKits;
-    ["RscText",[0.23,0.86,0.71,0.07],"전체 장비 교체 / 무료 키트 장비는 판매 불가",[0.91,0.76,0.45,1]] call _mk;
+        _b setVariable ["MSL_supportRequest",[_op,_args]];
+        _b ctrlEnable ([player] call MSL_fnc_canRequestSupport);
+        ["RscText",[_xPos,_yPos + 0.11,0.34,0.05],_hint,[0.58,0.66,0.7,1]] call _mk;
+    } forEach [["탄약 보급","airdrop",["ammo"],"전투 탄약 보충"],["의료품 보급","airdrop",["medical"],"의료 물자 보충"],["팀 자원 보급","airdrop",["resources"],"팀 공용 자원 보충"],["EVAC / 분대 철수","evac",[],"후방 안전지대로 헬기 철수"]];
 };
 if (_mode == "transfer") then {
     (_d displayCtrl 8004) ctrlSetText "BANKING / 아군 송금";
@@ -99,7 +69,8 @@ if (_mode == "transfer") then {
     _send setVariable ["MSL_combo",_combo]; _send setVariable ["MSL_amount",_amount];
     ["RscText",[0.24,0.84,0.67,0.06],"본진 전용 서비스 / 서버가 잔액과 수신자를 다시 검증합니다.",[0.55,0.65,0.7,1]] call _mk;
 };
-if (_mode in ["buy","sell"]) then {
+if (_mode == "sell") then {
+    if (!([player] call MSL_fnc_atBase)) exitWith {(_d displayCtrl 8004) ctrlSetText "장비 판매는 본진 또는 FOB 보급소에서 이용하세요.";};
     (_d displayCtrl 8004) ctrlSetText (["ARMORY / 해금 장비 구매","SALVAGE / 노획품 정산"] select (_mode == "sell"));
     private _search = ["RscEdit",[0.23,0.18,0.53,0.055],_d getVariable ["MSL_query",""]] call _mk;
     private _queryButton = [[0.78,0.18,0.16,0.055],"검색 / 적용",{
@@ -158,9 +129,9 @@ if (_mode in ["buy","sell"]) then {
         [_d] spawn {disableSerialization; params ["_d"]; sleep 2; if (!isNull _d) then {[_d] call MSL_fnc_terminalRender;};};
     }] call _button; _trade setVariable ["MSL_list",_list];
     _list setVariable ["MSL_trade",_trade]; _trade ctrlEnable (_shown > 0); _list lbSetCurSel 0;
-    if (_shown == 0) then {_detail ctrlSetText "표시할 해금 장비가 없습니다. 무료 키트 또는 해금 진행도를 확인하세요.";};
+    if (_shown == 0) then {_detail ctrlSetText "판매 가능한 장비가 없습니다. 구매하거나 노획한 장비만 판매할 수 있습니다.";};
     _trade ctrlSetTooltip "장비를 넣을 빈 슬롯과 수납 공간이 필요합니다. 기존 장비는 먼저 내려놓으세요.";
-    [[0.23,0.8,0.71,0.065],"무료 키트 선택 / $0",{private _d = ctrlParent (_this select 0); _d setVariable ["MSL_mode","kits"]; [_d] call MSL_fnc_terminalRender;}] call _button;
-    ["RscText",[0.23,0.9,0.71,0.045],"최대 200개 / 검색으로 전체 조회 / 해금 장비만 표시 / 무료 장비는 키트 탭",[0.55,0.65,0.7,1]] call _mk;
+    [[0.23,0.8,0.71,0.065],"무기고 열기",{(ctrlParent (_this select 0)) closeDisplay 1; [] call MSL_fnc_arsenal;}] call _button;
+    ["RscText",[0.23,0.9,0.71,0.045],"구매 / 노획 장비만 판매 가능 / 무료 장비는 판매 불가",[0.55,0.65,0.7,1]] call _mk;
 };
 _d setVariable ["MSL_body",_controls];

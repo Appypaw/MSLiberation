@@ -25,7 +25,8 @@ try:
     from sqf.types import Array, Code, Number, Keyword, Config
     # Register only missing real engine signatures before parser/analyzer initialization.
     for expression in [BinaryExpression(Array, Keyword('findif'), Code, Number),
-                       UnaryExpression(Keyword('configsourceaddonlist'), Config, Array)]:
+                       UnaryExpression(Keyword('configsourceaddonlist'), Config, Array),
+                       UnaryExpression(Keyword('compatiblemagazines'), Array, Array)]:
         if expression not in EXPRESSIONS:
             EXPRESSIONS.append(expression)
     from sqf.parser import parse
@@ -110,7 +111,9 @@ assert len(kits) == 6 and len({row[0] for row in kits}) == len(kits), 'Expected 
 assert all(len(row) == 4 and row[2] for row in kits), 'Invalid free kit definition'
 request = (module / 'fn_request.sqf').read_text()
 assert '_gear = [""] call MSL_fnc_buildKit' in request, 'New profiles must spawn in uniform only'
-assert '_freeWeapons' in (module / 'fn_postInit.sqf').read_text(), 'Free weapons must be excluded from paid catalog'
+assert '_freeWeapons' not in (module / 'fn_postInit.sqf').read_text(), 'Starter weapons must be individually available in the virtual arsenal'
+assert 'MSL_fnc_arsenal' in (ROOT / 'scripts/client/actions/open_arsenal.sqf').read_text(), 'Native arsenal entry point missing'
+assert '무료 키트' not in (module / 'fn_terminalRender.sqf').read_text(), 'Free kit UI must be removed'
 changed = subprocess.check_output(['git', 'diff', '--name-only'], cwd=ROOT, text=True).splitlines()
 files = {ROOT / p for p in changed if p.endswith('.sqf') and p != 'arsenal_presets/custom.sqf'}
 files.update(module.glob('*.sqf'))
@@ -119,6 +122,7 @@ files.add(ROOT / 'presets/msl/custom_attachments.sqf')
 files.add(ROOT / 'tools/msl_selftest.sqf')
 files.add(ROOT / 'tools/msl_preflight.sqf')
 files.add(ROOT / 'tools/msl_performance.sqf')
+files.add(ROOT / 'scripts/msl/import_equipment.sqf')
 
 def diagnostics(text):
     try:

@@ -3,10 +3,16 @@ class MSL {
         file = "scripts\msl";
         class postInit {postInit = 1;};
         class atBase {};
+        class atMainBase {};
         class basePosition {};
         class atTerminal {};
         class progress {};
         class terminalRender {};
+        class equipmentCategory {};
+        class compatibleMags {};
+        class linkMagazineUnlocks {};
+        class equipmentBrowser {};
+        class equipmentSelect {};
         class defenseEvent {};
         class queueScenario {};
         class scenarioLoop {};
@@ -23,6 +29,11 @@ class MSL {
         class settle {};
         class applyGear {};
         class clientLife {};
+        class canRequestSupport {};
+        class supportTablet {};
+        class arsenal {};
+        class arsenalQuote {};
+        class arsenalRequest {};
         class menu {};
         class captureReady {};
         class capturePolicy {};

@@ -69,9 +69,11 @@ call {
         _unit setVariable ["MSL_econBusy", true, true];
         _a set [9, _p];
         [_unit, _gear, _token] remoteExecCall ["MSL_fnc_applyGear", owner _unit];
-        [_unit, "개인 프로필 연결 완료. 보급소에서 무료 보급과 상점을 이용하세요."] call MSL_fnc_publish;
+        [_unit, "개인 프로필 연결 완료. 보급소의 무기고에서 해금 장비를 선택하세요."] call MSL_fnc_publish;
     };
     if (!alive _unit || {!((_unit getVariable ["MSL_pending", []]) isEqualTo [])}) exitWith {};
+    if (_op in ["arsenalOpen","arsenalClose","arsenalCancel"]) exitWith {[_unit,_op,_args,_a] call MSL_fnc_arsenalRequest;};
+    if (!((_unit getVariable ["MSL_arsenalSession",[]]) isEqualTo [])) exitWith {};
     if (diag_tickTime < (_unit getVariable ["MSL_nextRequest", 0])) exitWith {};
     _unit setVariable ["MSL_nextRequest", diag_tickTime + 1];
     if (_op == "dogtag") exitWith {
@@ -97,9 +99,11 @@ call {
         diag_log format ["[MSL TRANSFER] %1 -> %2 : %3", _uid, getPlayerUID _target, _amount];
     };
     if (_op == "evac") exitWith {
+        if (!([_unit] call MSL_fnc_canRequestSupport)) exitWith {["지원 요청은 분대장 또는 지휘관만 가능합니다."] call _tell;};
         if (count MSL_evacRequests < 2) then {MSL_evacRequests pushBack _unit;};
     };
     if (_op == "airdrop") exitWith {
+        if (!([_unit] call MSL_fnc_canRequestSupport)) exitWith {["지원 요청은 분대장 또는 지휘관만 가능합니다."] call _tell;};
         if (count MSL_dropRequests < 4) then {MSL_dropRequests pushBack [_unit, _args param [0, "ammo", [""]]];};
     };
     if (!([_unit] call MSL_fnc_atBase) || {vehicle _unit != _unit}) exitWith {["기지 또는 FOB 보급소에서 이용하세요."] call _tell;};
@@ -107,10 +111,7 @@ call {
     private _cashDelta = 0;
     private _receipt = "";
     private _class = _args param [0, "", [""]];
-    if (_op == "free") then {
-        _new = [_args param [0,"cetme",[""]]] call MSL_fnc_buildKit;
-        if (_new isEqualTo []) then {["이 키트의 무기 또는 탄약 설정을 사용할 수 없습니다."] call _tell;};
-    };
+    if (_op in ["free","buy"]) exitWith {["장비는 무기고에서 선택하세요."] call _tell;};
     if (_op in ["buy", "sell"]) then {
         private _entry = [_class, _op == "sell"] call MSL_fnc_catalog;
         if (_entry isEqualTo []) exitWith {};

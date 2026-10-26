@@ -1,4 +1,4 @@
-if (missionNamespace getVariable ["MSL_enabled", false]) exitWith {[] call MSL_fnc_menu;};
+if (missionNamespace getVariable ["MSL_enabled", false]) exitWith {[] call MSL_fnc_arsenal;};
 
 if (KPLIB_directArsenal) exitWith {
     if (KP_liberation_ace && KP_liberation_arsenal_type) then {

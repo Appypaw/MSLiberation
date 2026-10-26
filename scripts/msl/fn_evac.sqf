@@ -1,6 +1,7 @@
 // Rear-area extraction. Players board a real helicopter; no teleport/eject shortcuts.
 if (!isServer || {isRemoteExecuted}) exitWith {};
 params ["_requester"];
+if (!([_requester] call MSL_fnc_canRequestSupport)) exitWith {};
 if (isNull _requester || {!alive _requester} || {vehicle _requester != _requester}) exitWith {};
 private _tell = {params ["_message"]; if (!isNull _requester && {isPlayer _requester}) then {[_message] remoteExecCall ["systemChat",owner _requester];};};
 if (MSL_evacActive || {time < MSL_nextEvac}) exitWith {[format ["Evac 대기: %1초",ceil ((MSL_nextEvac - time) max 0)]] call _tell;};

@@ -25,22 +25,28 @@ MSL_transportHelos = ["PRACS_SLA_Mi8amt"];
 [] call compileFinal preprocessFileLineNumbers "presets\msl\custom_attachments.sqf";
 // [class, purchase price, required level]; overrides generated category prices.
 MSL_priceOverrides = [];
+// All handheld variants in these starter families are free, including UGL/camo variants.
+MSL_freeWeaponFamilies = ["cetme", "hk33", "m16", "m60"];
 
 // Equipment tiers: [category, purchase price, required level]. Camo variants share stats.
 // Basic kit remains free via MSL_freeKits; these are replacement/upgrade shop prices.
 MSL_equipmentTiers = [
     ["item",120,1], ["goggles",50,1],
+    ["ammo_ball",60,1], ["ammo_special",100,2], ["ammo_belt",180,2],
+    ["ammo_heavy",250,3], ["ammo_signal",30,1], ["ammo_grenade",120,2],
+    ["ammo_ugl",180,3], ["ammo_rocket",450,3], ["ammo_guided",1200,5],
+    ["ammo_charge",400,3], ["ammo_mine",450,3],
     ["uniform",0,1], ["ghillie",700,4], ["wetsuit",450,3],
     ["headgear",100,1], ["helmet",350,2], ["helmet_heavy",650,4],
     ["vest",200,1], ["armor_light",550,2], ["armor",900,3], ["armor_heavy",1500,4],
     ["backpack",250,1], ["backpack_medium",450,2], ["backpack_large",650,3],
-    ["radio_pack",500,2], ["static_pack",3500,4],
+    ["radio_pack",0,1], ["static_pack",3500,4],
     ["optic",350,2], ["optic_medium",650,3], ["optic_long",1100,4],
     ["optic_night",2200,5], ["optic_thermal",4500,7],
     ["muzzle",200,1], ["suppressor",800,3], ["pointer",300,2], ["bipod",250,2],
     ["nvg",2000,5], ["nvg_thermal",5000,7],
     ["binocular",150,1], ["rangefinder",750,3], ["designator",1800,5],
-    ["navigation",250,2], ["radio",100,1], ["medical",350,1],
+    ["navigation",0,1], ["radio",0,1], ["medical",0,1],
     ["toolkit",400,1], ["detector",500,2], ["uav_terminal",1500,4]
 ];
 

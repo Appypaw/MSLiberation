@@ -532,7 +532,9 @@ if ((_lockedVehCount < (count sectors_military)) && (_lockedVehCount < (count el
     } forEach GRLIB_vehicle_to_military_base_links;
 
     // Add new entries, when there are elite vehicles and military sectors are not yet assigned
-    while {((count _assignedVehicles) < (count elite_vehicles)) && ((count _assignedBases) < (count sectors_military))} do {
+    // Presets can repeat a vehicle classname. Count remaining unique candidates,
+    // otherwise duplicate entries eventually make selectRandom receive [].
+    while {!((elite_vehicles - _assignedVehicles) isEqualTo []) && {!((sectors_military - _assignedBases) isEqualTo [])}} do {
         _nextVehicle = selectRandom (elite_vehicles - _assignedVehicles);
         _nextBase = selectRandom (sectors_military - _assignedBases);
         _assignedVehicles pushBack _nextVehicle;

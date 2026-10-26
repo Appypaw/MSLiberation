@@ -55,5 +55,76 @@ private _fresh = ["MSL_SELFTEST"] call MSL_fnc_account;
 MSL_accounts = _savedAccounts;
 missionNamespace setVariable ["MSL_account_MSL_SELFTEST", _savedCache];
 };
+private _freeFamilyWeapons = MSL_shopEntries select {(_x select 4) == "weapon" && {private _name = toLower (_x select 0); MSL_freeWeaponFamilies findIf {(_name find _x) >= 0} >= 0}};
+[(count _freeFamilyWeapons > 0) && {_freeFamilyWeapons findIf {(_x select 2) != 0 || {(_x select 3) != 0}} < 0}, "all starter weapon family variants are free at level zero"] call _assert;
+private _racsUniforms = MSL_shopEntries select {
+    private _n = toLower (_x select 0);
+    (_n find "pracs_") == 0 && {(_n find "pracs_sla") != 0} && {getNumber (configFile >> "CfgWeapons" >> (_x select 0) >> "ItemInfo" >> "type") == 801}
+};
+[(count _racsUniforms > 0) && {_racsUniforms findIf {(_x select 2) != 0 || {(_x select 3) != 0}} < 0}, "RACS uniforms are level zero and free"] call _assert;
+private _shopMags = MSL_shopEntries select {(_x select 4) == "magazine"};
+[(count _shopMags > 0) && {_shopMags findIf {(_x select 2) <= 0} < 0}, "all shop ammunition has a positive purchase price"] call _assert;
+[_shopMags findIf {!((_x select 0) in MSL_import_magazines)} < 0, "shop ammunition comes from the imported whitelist"] call _assert;
+[(MSL_shopClasses arrayIntersect MSL_shopClasses) isEqualTo MSL_shopClasses, "expanded catalog contains no duplicate classes"] call _assert;
+// Quote real whitelist entries without changing accounts or issuing equipment.
+private _emptyGear = [[],[],[],[],[],[],"","",[],[]];
+private _testEntry = MSL_shopEntries select {(_x select 4) == "magazine" && {(_x select 2) > 0}};
+if !(_testEntry isEqualTo []) then {
+    private _e = _testEntry select 0;
+    private _magClass = _e select 0;
+    private _capacity = getNumber (configFile >> "CfgMagazines" >> _magClass >> "count") max 1;
+    private _gear = [[],[],[],[MSL_spawnUniform,[[_magClass,2,_capacity]]],[],[],"","",[],[]];
+    private _base = [[],[],[],[MSL_spawnUniform,[]],[],[],"","",[],[]];
+    private _q = [_base,_gear,100] call MSL_fnc_arsenalQuote;
+    [(_q select 0) && {(_q select 1) == 2 * (_e select 2)}, "arsenal charges per additional magazine"] call _assert;
+    _q = [_gear,_gear,100] call MSL_fnc_arsenalQuote;
+    [(_q select 0) && {(_q select 1) == 0}, "arsenal unchanged equipment costs nothing"] call _assert;
+    _q = [_gear,_base,100] call MSL_fnc_arsenalQuote;
+    [(_q select 0) && {(_q select 1) == 0}, "arsenal removals do not mint refunds"] call _assert;
+    _q = [_base,_gear,-1] call MSL_fnc_arsenalQuote;
+    [!(_q select 0), "arsenal rejects equipment above the player's level"] call _assert;
+    private _partial = [[],[],[],[MSL_spawnUniform,[[_magClass,2,0]]],[],[],"","",[],[]];
+    _q = [_partial,_gear,100] call MSL_fnc_arsenalQuote;
+    [(_q select 1) == 2 * (_e select 2), "arsenal refilling empty magazines is charged"] call _assert;
+};
+private _invalidGear = [[],[],[],[MSL_spawnUniform,[["MSL_invalid_equipment",1]]],[],[],"","",[],[]];
+[!(([_emptyGear,_invalidGear,100] call MSL_fnc_arsenalQuote) select 0), "arsenal rejects classes outside the server whitelist"] call _assert;
+// Compatibility browser: use real engine data with an isolated catalog fixture.
+isNil {
+    private _savedEntries = MSL_shopEntries;
+    private _key = "MSL_compatibleMags_arifle_MX_GL_F";
+    private _savedCache = missionNamespace getVariable [_key,-1];
+    missionNamespace setVariable [_key,-1];
+    MSL_shopEntries = [
+        ["30Rnd_65x39_caseless_mag","Rifle magazine",60,1,"magazine"],
+        ["1Rnd_HE_Grenade_shell","UGL round",180,3,"magazine"],
+        ["MSL_INCOMPATIBLE_MAG","Invalid magazine",60,1,"magazine"]
+    ];
+    private _rows = ["arifle_MX_GL_F"] call MSL_fnc_compatibleMags;
+    private _classes = _rows apply {_x select 0};
+    ["30Rnd_65x39_caseless_mag" in _classes, "browser finds compatible rifle magazines"] call _assert;
+    ["1Rnd_HE_Grenade_shell" in _classes, "browser includes underbarrel launcher ammunition"] call _assert;
+    [!("MSL_INCOMPATIBLE_MAG" in _classes), "browser excludes incompatible magazines"] call _assert;
+    [count _rows == 2 && {(_rows select 0 select 3) == 1} && {(_rows select 1 select 3) == 3}, "browser sorts compatible magazines by unlock level"] call _assert;
+    MSL_shopEntries = [["30RND_65X39_CASELESS_MAG","Case variant",60,1,"magazine"]];
+    missionNamespace setVariable [_key,-1];
+    [count (["arifle_MX_GL_F"] call MSL_fnc_compatibleMags) == 1, "browser matches magazine class names case insensitively"] call _assert;
+    MSL_shopEntries = _savedEntries;
+    missionNamespace setVariable [_key,_savedCache];
+};
+// Starter arms must always have an affordable, level-zero compatible magazine.
+{
+    private _w = _x;
+    private _rows = [_w select 0] call MSL_fnc_compatibleMags;
+    [_rows findIf {(_x select 3) <= (_w select 3)} >= 0,format ["starter ammunition unlocked with %1",_w select 0]] call _assert;
+} forEach _freeFamilyWeapons;
+private _lockedMags = MSL_shopEntries select {(_x select 4) == "magazine" && {(_x select 3) > 1}};
+[count _lockedMags > 0,"special/high-tier magazines remain locked at recruit level"] call _assert;
+{
+    private _m = _x select 0;
+    private _gear = [[],[],[],[MSL_spawnUniform,[[_m,1,1]]],[],[],"","",[],[]];
+    private _base = [[],[],[],[MSL_spawnUniform,[]],[],[],"","",[],[]];
+    [!(([_base,_gear,1] call MSL_fnc_arsenalQuote) select 0),format ["server rejects locked magazine %1",_m]] call _assert;
+} forEach (_lockedMags select [0,20]);
 diag_log format ["[MSL TEST RESULT] %1 passed; %2 failed", _passed, _failed];
 systemChat format ["MSL self-test: %1 passed / %2 failed (see RPT)", _passed, _failed];

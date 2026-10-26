@@ -108,7 +108,8 @@ _player addAction [
     true,
     "",
     "
-        isNull (objectParent _originalTarget)
+        !(missionNamespace getVariable ['MSL_enabled', false])
+        && {isNull (objectParent _originalTarget)}
         && {alive _originalTarget}
         && {
             _originalTarget getVariable ['KPLIB_fobDist', 99999] < 20
