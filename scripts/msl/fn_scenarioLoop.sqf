@@ -44,6 +44,7 @@ while {GRLIB_endgame == 0} do {
                 };
             };
         };
-    } forEach (vehicles select {_x getVariable ["MSL_cleanupPending",false]});
+    } forEach MSL_supportCleanup;
+    MSL_supportCleanup = MSL_supportCleanup select {!isNull _x && {_x getVariable ["MSL_cleanupPending",false]}};
     sleep 5;
 };

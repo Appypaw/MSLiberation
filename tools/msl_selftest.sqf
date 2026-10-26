@@ -41,13 +41,19 @@ private _noVest = [_loadout,"V_PlateCarrier1_rgr"] call MSL_fnc_removeFromLoadou
 [([0,0,true,false,0,MSL_captureHold] call MSL_fnc_capturePolicy), "fully cleared sector only requires the core hold"] call _assert;
 isNil {
 private _savedAccounts = MSL_accounts;
+private _savedCache = missionNamespace getVariable ["MSL_account_MSL_SELFTEST", -1];
 MSL_accounts = [];
 private _a = ["MSL_SELFTEST"] call MSL_fnc_account;
 [_a select 1 == MSL_startingCash && {count _a == 10}, "new account has configured funds and schema"] call _assert;
 _a set [1,100];
 [(((["MSL_SELFTEST"] call MSL_fnc_account) select 1) == 100) && {count MSL_accounts == 1}, "account lookup preserves updates without duplicates"] call _assert;
 [([""] call MSL_fnc_account) isEqualTo [], "empty UID cannot open an account"] call _assert;
+// A stale cached index must never refer to another UID or detached account.
+MSL_accounts = [["MSL_OTHER", 1]];
+private _fresh = ["MSL_SELFTEST"] call MSL_fnc_account;
+[(_fresh select 1) == MSL_startingCash && {count MSL_accounts == 2}, "cached index revalidates after account array replacement"] call _assert;
 MSL_accounts = _savedAccounts;
+missionNamespace setVariable ["MSL_account_MSL_SELFTEST", _savedCache];
 };
 diag_log format ["[MSL TEST RESULT] %1 passed; %2 failed", _passed, _failed];
 systemChat format ["MSL self-test: %1 passed / %2 failed (see RPT)", _passed, _failed];

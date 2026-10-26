@@ -98,6 +98,7 @@ if (!isNull _helicopter) then {
         } else {
             if (!isNull _helo) then {
                 _helo setVariable ["MSL_cleanupPending",true];
+                MSL_supportCleanup pushBackUnique _helo;
                 _helo setVariable ["MSL_cleanupCrew",_crew]; _helo setVariable ["MSL_cleanupGroup",_g];
             };
         };

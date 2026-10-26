@@ -8,6 +8,8 @@ if (isRemoteExecuted) exitWith {};
         private _saved = profileNamespace getVariable [MSL_saveKey, [1, [], [], 0]];
         if (GRLIB_param_wipe_savegame_1 == 1 && {GRLIB_param_wipe_savegame_2 == 1}) then {_saved = [1, [], [], 0];};
         MSL_accounts = _saved param [1, []];
+        MSL_saveDirty = false;
+        MSL_supportCleanup = [];
         MSL_destroyedTowers = _saved param [2, []];
         MSL_supplyPressure = _saved param [3, 0];
         publicVariable "MSL_destroyedTowers"; publicVariable "MSL_supplyPressure";
@@ -82,8 +84,11 @@ if (isRemoteExecuted) exitWith {};
         [] spawn MSL_fnc_scenarioLoop;
         [] spawn {
             private _nextSave = time + 60;
+            private _nextGear = time;
+            private _nextCommit = time + 2;
             while {GRLIB_endgame == 0} do {
                 if !(MSL_dropRequests isEqualTo []) then {(MSL_dropRequests deleteAt 0) spawn MSL_fnc_airdrop;};
+                private _snapshotGear = time >= _nextGear;
                 {
                     if (isPlayer _x && {alive _x} && {_x getVariable ["MSL_joined", false]}) then {
                         private _p = _x getVariable ["MSL_pending", []];
@@ -94,11 +99,18 @@ if (isRemoteExecuted) exitWith {};
                                 [_x, _p select 2, _p select 0] remoteExecCall ["MSL_fnc_applyGear", owner _x];
                             };
                         } else {
-                            private _a = [getPlayerUID _x] call MSL_fnc_account;
-                            _a set [7, getUnitLoadout _x];
+                            if (_snapshotGear) then {
+                                private _a = [getPlayerUID _x] call MSL_fnc_account;
+                                _a set [7, getUnitLoadout _x];
+                            };
                         };
                     };
                 } forEach allPlayers;
+                if (_snapshotGear) then {_nextGear = time + 10;};
+                if (time >= _nextCommit) then {
+                    if (MSL_saveDirty) then {[] call MSL_fnc_persist;};
+                    _nextCommit = time + 2;
+                };
                 if (time >= _nextSave) then {[] call MSL_fnc_persist; _nextSave = time + 60;};
                 sleep 1;
             };

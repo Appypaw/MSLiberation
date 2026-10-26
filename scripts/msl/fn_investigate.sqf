@@ -6,6 +6,7 @@ private _groups = allGroups select {
 };
 private _sent = 0;
 {
+    if (_sent >= _maxGroups) exitWith {};
     private _g = _x;
     private _visible = !(lineIntersects [eyePos leader _g, ATLToASL (_pos vectorAdd [0,0,2]), leader _g]);
     private _detected = leader _g distance2D _pos < 700 && {_visible};

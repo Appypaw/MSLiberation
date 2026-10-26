@@ -79,6 +79,7 @@ files = {ROOT / p for p in changed if p.endswith('.sqf') and p != 'arsenal_prese
 files.update(module.glob('*.sqf'))
 files.add(ROOT / 'tools/msl_selftest.sqf')
 files.add(ROOT / 'tools/msl_preflight.sqf')
+files.add(ROOT / 'tools/msl_performance.sqf')
 
 def diagnostics(text):
     try:

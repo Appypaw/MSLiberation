@@ -248,8 +248,11 @@ if ((!(_sector in blufor_sectors)) && (([markerPos _sector, [_opforcount] call K
     // sector lifetime loop
     while {!_stopit} do {
         // sector was captured
-        private _captured = [_sectorpos, _local_capture_size] call KPLIB_fnc_getSectorOwnership == GRLIB_side_friendly;
-        if (missionNamespace getVariable ["MSL_enabled", false]) then {_captured = [_sector, _local_capture_size] call MSL_fnc_captureReady;};
+        private _captured = if (missionNamespace getVariable ["MSL_enabled", false]) then {
+            [_sector, _local_capture_size] call MSL_fnc_captureReady
+        } else {
+            [_sectorpos, _local_capture_size] call KPLIB_fnc_getSectorOwnership == GRLIB_side_friendly
+        };
         if (_captured && (GRLIB_endgame == 0)) then {
             if (isServer) then {
                 [_sector] spawn sector_liberated_remote_call;

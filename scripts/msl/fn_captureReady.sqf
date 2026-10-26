@@ -6,12 +6,18 @@ private _key = "MSL_hold_" + _sector;
 private _able = {
     alive _x && {getPosATL _x select 2 < 80} && {!(vehicle _x isKindOf "Air") || {getPosATL vehicle _x select 2 < 10}} && {!captive _x} && {!(_x getVariable ["ACE_isUnconscious",false])} && {!(_x getVariable ["ais_unconscious",false])} && {lifeState _x != "INCAPACITATED"}
 };
-private _near = allUnits select {_x distance2D _pos < _radius && {call _able}};
+// Area syntax (Arma 3 2.18+) keeps the original cylindrical distance test
+// and explicitly includes mounted soldiers. A sphere would miss high ground.
+private _area = [_pos, _radius, _radius, 0, false, -1];
+private _areaSupported = (productVersion select 2) >= 218;
+private _candidates = if (_areaSupported) then {_area nearEntities [["Man"], false, true, true]} else {allUnits};
+private _near = _candidates select {_x distance2D _pos < _radius && {call _able}};
 private _friendly = _near select {side group _x == GRLIB_side_friendly};
 private _enemy = _near select {side group _x == GRLIB_side_enemy};
 private _core = _friendly select {_x distance2D _pos < MSL_captureCoreRadius};
 private _coreEnemy = {_x distance2D _pos < MSL_captureCoreRadius} count _enemy;
-private _armor = vehicles findIf {
+private _armorCandidates = if (_areaSupported) then {_area nearEntities [["Tank", "Wheeled_APC_F"], false, true, false]} else {vehicles};
+private _armor = _armorCandidates findIf {
     alive _x && {canMove _x || {canFire _x}} && {_x isKindOf "Tank" || {_x isKindOf "Wheeled_APC_F"}} && {_x distance2D _pos < _radius} && {crew _x findIf {side group _x == GRLIB_side_enemy && {call _able}} >= 0}
 };
 private _suppressed = !(_friendly isEqualTo []) && {count _enemy <= MSL_captureResidual} && {_armor < 0};

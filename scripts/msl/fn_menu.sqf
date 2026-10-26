@@ -53,7 +53,10 @@ _close ctrlAddEventHandler ["ButtonClick",{(ctrlParent (_this select 0)) closeDi
         if (!alive player || {!([player] call MSL_fnc_atBase)} || {(_d getVariable ["MSL_mode",""]) in ["progress","transfer"] && {!([player] call MSL_fnc_atTerminal)}}) exitWith {_d closeDisplay 2;};
         private _stats = player getVariable ["MSL_stats",[0,0,0,0,0,0]];
         (_d displayCtrl 8005) ctrlSetText format ["%1   /   잔고 $%2   /   %3",name player,_stats select 0,["FIELD SUPPLY","BASE NETWORK"] select ([player] call MSL_fnc_atTerminal)];
-        private _signature = str [_stats,player getVariable ["MSL_dogtags",0]];
+        private _mode = _d getVariable ["MSL_mode", ""];
+        private _signature = str (if (_mode == "progress") then {[_stats,player getVariable ["MSL_dogtags",0]]} else {
+            [_mode, _stats select 0, ([_stats select 1] call MSL_fnc_progress) select 0, player getVariable ["MSL_sellCredits",[]]]
+        });
         if (_signature != (_d getVariable ["MSL_signature",""])) then {
             _d setVariable ["MSL_signature",_signature];
             if ((_d getVariable ["MSL_mode",""]) in ["progress","buy","sell"]) then {[_d] call MSL_fnc_terminalRender;};

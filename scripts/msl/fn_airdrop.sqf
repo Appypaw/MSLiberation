@@ -94,7 +94,8 @@ if (!isNull _signal && {alive _plane} && {alive driver _plane} && {alive _unit})
                 };
                 deleteVehicle _chute;
                 sleep 900; deleteMarker _marker;
-                if (!isNull _box && {allPlayers findIf {_x distance _box < 100} < 0}) then {deleteVehicle _box;};
+                waitUntil {sleep 30; isNull _box || {allPlayers findIf {_x distance _box < 100} < 0}};
+                if (!isNull _box) then {deleteVehicle _box;};
             };
         };
     } else {["투하 불가: 표식이 물 위이거나 요청 구역을 벗어났습니다. 재요청 시 새 표식을 사용하세요."] call _tell;};

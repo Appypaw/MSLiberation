@@ -5,10 +5,16 @@ _g setVariable ["MSL_specops", true, true];
 _g setFormation "WEDGE"; _g setCombatMode "YELLOW";
 private _end = time + 1800;
 while {!isNull _g && {local _g} && {count units _g > 0} && {time < _end} && {GRLIB_endgame == 0} && {!(_g getVariable ["MSL_stopSpecops",false])}} do {
-    private _targets = allUnits select {alive _x && {side group _x == GRLIB_side_friendly} && {_g knowsAbout _x > 1.5} && {_x distance2D leader _g < 1200} && {_x distance2D _home < 2000}};
-    if !(_targets isEqualTo []) then {
-        private _ranked = _targets apply {[_x distance2D leader _g, _x]}; _ranked sort true;
-        private _target = (_ranked select 0) select 1;
+    private _leader = leader _g;
+    private _target = objNull;
+    private _nearest = 1200;
+    {
+        private _distance = _x distance2D _leader;
+        if (_distance < _nearest && {alive _x} && {side group _x == GRLIB_side_friendly} && {_g knowsAbout _x > 1.5} && {_x distance2D _home < 2000}) then {
+            _target = _x; _nearest = _distance;
+        };
+    } forEach allUnits;
+    if (!isNull _target) then {
         private _flank = (getPosATL _target) getPos [200, (_target getDir leader _g) + selectRandom [-70,70]];
         if (!surfaceIsWater _flank) then {
             while {count waypoints _g > 0} do {deleteWaypoint ((waypoints _g) select 0);};

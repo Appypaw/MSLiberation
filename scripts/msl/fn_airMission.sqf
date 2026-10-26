@@ -15,7 +15,7 @@ if (random 1 > _factor) exitWith {};
 if (isNil "MSL_airGroups") then {MSL_airGroups = [];};
 MSL_airGroups = MSL_airGroups select {!isNull _x && {count units _x > 0}};
 if (count MSL_airGroups >= 2) exitWith {};
-private _targets = vehicles select {alive _x && {_x isKindOf "Air"} && {getPosATL _x select 2 > 30} && {crew _x findIf {alive _x && {side group _x == GRLIB_side_friendly}} >= 0}};
+private _targets = (entities "Air") select {alive _x && {getPosATL _x select 2 > 30} && {crew _x findIf {alive _x && {side group _x == GRLIB_side_friendly}} >= 0}};
 if (_role == "CAP" && {_targets isEqualTo []}) exitWith {};
 private _spawn = markerPos selectRandom _airfields;
 if (allPlayers findIf {_x distance2D _spawn < 1500} >= 0) exitWith {};
@@ -47,13 +47,16 @@ private _end = time + 600;
 while {alive _plane && {alive driver _plane} && {time < _end} && {GRLIB_endgame == 0}} do {
     private _target = objNull;
     if (_role == "CAP") then {
-        _targets = vehicles select {alive _x && {_x isKindOf "Air"} && {getPosATL _x select 2 > 30} && {crew _x findIf {alive _x && {side group _x == GRLIB_side_friendly}} >= 0} && {_g knowsAbout _x > 1}};
+        _targets = (entities "Air") select {alive _x && {getPosATL _x select 2 > 30} && {crew _x findIf {alive _x && {side group _x == GRLIB_side_friendly}} >= 0} && {_g knowsAbout _x > 1}};
     } else {
         _targets = (allUnits + vehicles) select {alive _x && {!(_x isKindOf "Air")} && {side _x == GRLIB_side_friendly} && {_x distance2D _targetPos < 1500} && {_g knowsAbout _x > 1}};
     };
     if !(_targets isEqualTo []) then {
-        private _ranked = _targets apply {[_x distance2D _plane, _x]}; _ranked sort true;
-        _target = (_ranked select 0) select 1;
+        private _nearest = 1e10;
+        {
+            private _distance = _x distance2D _plane;
+            if (_distance < _nearest) then {_nearest = _distance; _target = _x;};
+        } forEach _targets;
         _wp setWaypointType "DESTROY"; _wp waypointAttachVehicle _target;
         driver _plane doTarget _target; driver _plane doFire _target;
         _wp setWaypointPosition [getPos _target, 100];
@@ -61,7 +64,7 @@ while {alive _plane && {alive driver _plane} && {time < _end} && {GRLIB_endgame 
         _wp setWaypointType "MOVE";
         _wp setWaypointPosition [_targetPos, 500];
     };
-    if (_role == "CAP" && {(vehicles findIf {alive _x && {_x isKindOf "Air"} && {crew _x findIf {isPlayer _x && {side group _x == GRLIB_side_friendly}} >= 0}}) < 0}) exitWith {};
+    if (_role == "CAP" && {((entities "Air") findIf {alive _x && {crew _x findIf {isPlayer _x && {side group _x == GRLIB_side_friendly}} >= 0}}) < 0}) exitWith {};
     sleep 10;
 };
 if (alive _plane) then {
