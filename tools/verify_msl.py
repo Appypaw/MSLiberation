@@ -96,6 +96,19 @@ for path in list(module.glob('*.sqf')) + [ROOT / 'tools/msl_selftest.sqf']:
     for function in re.findall(r'\bMSL_fnc_\w+', path.read_text()):
         if function.lower() not in registered:
             errors.append(f'{path.relative_to(ROOT)}: unregistered {function}')
+# Extraction removal must include dispatcher/background work, not just its button.
+for path in module.glob('*.sqf'):
+    assert not re.search(r'MSL_(?:fnc_evac|evac\w*|nextEvac|supportCleanup)\b', path.read_text(), re.I), f'Stale extraction reference: {path.name}'
+assert not (module / 'fn_evac.sqf').exists(), 'Extraction implementation remains'
+# Translation pairs must preserve positional format arguments in either language.
+pair_pattern = re.compile(r'\["([^"\n]*)","([^"\n]*)"(?:,.*?)?\] call MSL_fnc_text')
+translated = 0
+for path in module.glob('*.sqf'):
+    for ko, en in pair_pattern.findall(path.read_text()):
+        assert re.findall(r'%\d+', ko) == re.findall(r'%\d+', en) or sorted(re.findall(r'%\d+', ko)) == sorted(re.findall(r'%\d+', en)), f'Translation placeholders differ: {path.name}: {ko}'
+        assert en and not re.search('[가-힣]', en), f'Missing English translation: {path.name}: {ko}'
+        translated += 1
+assert translated > 100, 'Tablet English translation coverage unexpectedly low'
 assert '#include "scripts\\msl\\CfgFunctions.hpp"' in (ROOT / 'description.ext').read_text()
 assert 'preprocessFileLineNumbers "scripts\\msl\\config.sqf"' in (ROOT / 'init.sqf').read_text()
 # Preserve non-weapon entries except the explicitly removed Tier1 mod equipment.
@@ -115,7 +128,7 @@ assert '_freeWeapons' not in (module / 'fn_postInit.sqf').read_text(), 'Starter 
 assert 'MSL_fnc_arsenal' in (ROOT / 'scripts/client/actions/open_arsenal.sqf').read_text(), 'Native arsenal entry point missing'
 assert '무료 키트' not in (module / 'fn_terminalRender.sqf').read_text(), 'Free kit UI must be removed'
 changed = subprocess.check_output(['git', 'diff', '--name-only'], cwd=ROOT, text=True).splitlines()
-files = {ROOT / p for p in changed if p.endswith('.sqf') and p != 'arsenal_presets/custom.sqf'}
+files = {ROOT / p for p in changed if p.endswith('.sqf') and p != 'arsenal_presets/custom.sqf' and (ROOT / p).exists()}
 files.update(module.glob('*.sqf'))
 files.add(ROOT / 'presets/msl/custom_weapons.sqf')
 files.add(ROOT / 'presets/msl/custom_attachments.sqf')

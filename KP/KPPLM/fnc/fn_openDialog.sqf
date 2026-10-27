@@ -17,6 +17,12 @@
         Function reached the end [BOOL]
 */
 
+// MS Liberation consolidates the player menu in the tablet.
+if (missionNamespace getVariable ["MSL_enabled",false]) exitWith {
+    ["settings"] call MSL_fnc_menu;
+    true
+};
+
 // Create player options dialog
 createDialog "KPPLM_dialog";
 disableSerialization;

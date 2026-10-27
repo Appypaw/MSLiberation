@@ -112,6 +112,18 @@ isNil {
     MSL_shopEntries = _savedEntries;
     missionNamespace setVariable [_key,_savedCache];
 };
+// Every cumulative threshold must switch exactly at its boundary.
+{
+    private _tier = _forEachIndex + 1;
+    private _at = [_x] call MSL_fnc_progress;
+    [(_at select 0) == _tier,format ["XP boundary enters tier %1",_tier]] call _assert;
+    [(_at select 3) >= 0 && {(_at select 3) <= 1},format ["tier %1 fraction is bounded",_tier]] call _assert;
+    if (_tier > 1) then {
+        private _before = [_x - 1] call MSL_fnc_progress;
+        [(_before select 0) == _tier - 1,format ["tier %1 stays locked below threshold",_tier]] call _assert;
+    };
+} forEach MSL_levelThresholds;
+
 // Starter arms must always have an affordable, level-zero compatible magazine.
 {
     private _w = _x;
@@ -126,5 +138,12 @@ private _lockedMags = MSL_shopEntries select {(_x select 4) == "magazine" && {(_
     private _base = [[],[],[],[MSL_spawnUniform,[]],[],[],"","",[],[]];
     [!(([_base,_gear,1] call MSL_fnc_arsenalQuote) select 0),format ["server rejects locked magazine %1",_m]] call _assert;
 } forEach (_lockedMags select [0,20]);
+
+// Explicit language arguments isolate the checks from any host profile preference.
+[(["한국어","English","ko"] call MSL_fnc_text) == "한국어","Korean UI selection"] call _assert;
+[(["한국어","English","en"] call MSL_fnc_text) == "English","English UI selection"] call _assert;
+[(["기본값","Fallback","invalid"] call MSL_fnc_text) == "기본값","unknown language falls back safely"] call _assert;
+[(format [(["%1에게 $%2","$%2 to %1","en"] call MSL_fnc_text),"Ally",100]) == "$100 to Ally","translated argument order"] call _assert;
+
 diag_log format ["[MSL TEST RESULT] %1 passed; %2 failed", _passed, _failed];
 systemChat format ["MSL self-test: %1 passed / %2 failed (see RPT)", _passed, _failed];

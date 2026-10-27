@@ -11,8 +11,8 @@ if (_op == "arsenalOpen") exitWith {
     };
 
     if (!(_session isEqualTo []) && {diag_tickTime > (_session select 2) + 900}) then {_session = []; _unit setVariable ["MSL_arsenalSession",[],true];};
-    if (!(_session isEqualTo [])) exitWith {["이전 무기고 이용 세션이 남아 있습니다. 재접속 후 다시 시도하세요."] call _tell;};
-    if (!([_unit] call MSL_fnc_atBase) || {vehicle _unit != _unit}) exitWith {["무기고는 본진 안에서 차량에서 내린 상태로 이용하세요."] call _tell;};
+    if (!(_session isEqualTo [])) exitWith {[(["이전 무기고 이용 세션이 남아 있습니다. 재접속 후 다시 시도하세요.","A previous arsenal session is still open. Reconnect and try again.",_unit getVariable ["MSL_language","ko"]] call MSL_fnc_text)] call _tell;};
+    if (!([_unit] call MSL_fnc_atBase) || {vehicle _unit != _unit}) exitWith {[(["무기고는 본진 안에서 차량에서 내린 상태로 이용하세요.","Use the arsenal on foot at base.",_unit getVariable ["MSL_language","ko"]] call MSL_fnc_text)] call _tell;};
     if (diag_tickTime < (_unit getVariable ["MSL_nextRequest",0])) exitWith {};
     _unit setVariable ["MSL_nextRequest",diag_tickTime + 1];
     private _token = format ["arsenal_%1_%2",getPlayerUID _unit,diag_tickTime];
@@ -21,7 +21,7 @@ if (_op == "arsenalOpen") exitWith {
 if (_session isEqualTo [] || {_args param [0,"",[""]] != (_session select 0)}) exitWith {};
 _unit setVariable ["MSL_arsenalSession",[],true];
 if (_op == "arsenalCancel") exitWith {};
-if (!([_unit] call MSL_fnc_atBase) || {vehicle _unit != _unit} || {diag_tickTime > (_session select 2) + 900}) exitWith {["무기고 이용 시간이 지났거나 보급소를 벗어났습니다. 다시 열어주세요."] call _tell;};
+if (!([_unit] call MSL_fnc_atBase) || {vehicle _unit != _unit} || {diag_tickTime > (_session select 2) + 900}) exitWith {[(["무기고 이용 시간이 지났거나 보급소를 벗어났습니다. 다시 열어주세요.","Arsenal session expired or you left the supply point. Open it again.",_unit getVariable ["MSL_language","ko"]] call MSL_fnc_text)] call _tell;};
 private _requested = _args param [1,[],[[]]];
 if (count _requested != 10 || {count str _requested > 60000}) exitWith {};
 // Validate the native loadout shape before passing network data to engine commands.
@@ -82,7 +82,7 @@ if (!(_assigned isEqualType [])) then {_shapeOK = false;} else {
 if (!_shapeOK) exitWith {};
 // Reject locked/unknown additions before engine normalization can discard them.
 private _requestLevel = ([_a select 2] call MSL_fnc_progress) select 0;
-if (!(([_session select 1,_requested,_requestLevel] call MSL_fnc_arsenalQuote) select 0)) exitWith {["해금되지 않은 탄창 또는 장비가 포함되어 있어 결제를 취소했습니다."] call _tell;};
+if (!(([_session select 1,_requested,_requestLevel] call MSL_fnc_arsenalQuote) select 0)) exitWith {[(["해금되지 않은 탄창 또는 장비가 포함되어 있어 결제를 취소했습니다.","Purchase canceled: locked ammunition or equipment was selected.",_unit getVariable ["MSL_language","ko"]] call MSL_fnc_text)] call _tell;};
 // Normalize using the engine; all prices, permissions and credits are server owned.
 private _dummy = createAgent ["B_Soldier_F",[0,0,0],[],0,"NONE"];
 _dummy hideObjectGlobal true; _dummy allowDamage false;
@@ -91,11 +91,11 @@ private _new = getUnitLoadout _dummy;
 deleteVehicle _dummy;
 private _level = ([_a select 2] call MSL_fnc_progress) select 0;
 private _quote = [_session select 1,_new,_level] call MSL_fnc_arsenalQuote;
-if (!(_quote select 0)) exitWith {["해금되지 않은 장비가 포함되어 있습니다. 장비 변경을 취소했습니다."] call _tell;};
+if (!(_quote select 0)) exitWith {[(["해금되지 않은 장비가 포함되어 있습니다. 장비 변경을 취소했습니다.","Equipment change canceled: locked gear was selected.",_unit getVariable ["MSL_language","ko"]] call MSL_fnc_text)] call _tell;};
 private _cost = _quote select 1;
-if (_cost > (_a select 1)) exitWith {[format ["잔액 부족: 필요 $%1 / 보유 $%2. 장비 변경을 취소했습니다.",_cost,_a select 1]] call _tell;};
+if (_cost > (_a select 1)) exitWith {[format [(["잔액 부족: 필요 $%1 / 보유 $%2. 장비 변경을 취소했습니다.","Insufficient funds: cost $%1 / balance $%2. Equipment change canceled.",_unit getVariable ["MSL_language","ko"]] call MSL_fnc_text),_cost,_a select 1]] call _tell;};
 // Do not replace equipment changed by injury/another system while browsing.
-if !((getUnitLoadout _unit) isEqualTo (_session select 1)) exitWith {["이용 중 실제 장비가 변경되었습니다. 무기고를 다시 열어주세요."] call _tell;};
+if !((getUnitLoadout _unit) isEqualTo (_session select 1)) exitWith {[(["이용 중 실제 장비가 변경되었습니다. 무기고를 다시 열어주세요.","Your actual loadout changed while browsing. Reopen the arsenal.",_unit getVariable ["MSL_language","ko"]] call MSL_fnc_text)] call _tell;};
 private _token = _session select 0;
 _a set [1,(_a select 1) - _cost];
 private _p = [_token,diag_tickTime,_new,-_cost,"arsenal","",_session select 1,_quote select 2];
@@ -103,5 +103,5 @@ _a set [9,_p]; _a set [7,_new];
 _unit setVariable ["MSL_pending",_p];
 _unit setVariable ["MSL_econBusy",true,true]; _unit setVariable ["MSL_ack",false];
 [] call MSL_fnc_persist;
-[_unit,format ["무기고 결제: $%1",_cost]] call MSL_fnc_publish;
+[_unit,format [(["무기고 결제: $%1","Arsenal purchase: $%1",_unit getVariable ["MSL_language","ko"]] call MSL_fnc_text),_cost]] call MSL_fnc_publish;
 [_unit,_new,_token] remoteExecCall ["MSL_fnc_applyGear",owner _unit];

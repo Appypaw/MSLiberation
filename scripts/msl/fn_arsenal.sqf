@@ -7,10 +7,10 @@ MSL_arsenalOpening = true;
     private _unit = player;
     private _requestId = format ["%1_%2",clientOwner,diag_tickTime];
     // Wait for the server catalog and the initial equipment transaction before opening.
-    if (!(missionNamespace getVariable ["MSL_ready",false])) then {systemChat "무기고 준비 중입니다. 서버 초기화를 기다립니다.";};
+    if (!(missionNamespace getVariable ["MSL_ready",false])) then {systemChat (["무기고 준비 중입니다. 서버 초기화를 기다립니다.","Preparing the arsenal. Waiting for the server."] call MSL_fnc_text);};
     private _timeout = diag_tickTime + 120;
     waitUntil {sleep 0.2; !alive _unit || {player != _unit} || {diag_tickTime > _timeout} || {(missionNamespace getVariable ["MSL_ready",false]) && {!(_unit getVariable ["MSL_econBusy",false])}}};
-    if (!alive _unit || {player != _unit} || {!(missionNamespace getVariable ["MSL_ready",false])} || {_unit getVariable ["MSL_econBusy",false]}) exitWith {MSL_arsenalOpening = false; systemChat "개인 프로필 또는 무기고 초기화가 아직 끝나지 않았습니다. 잠시 후 다시 시도하세요.";};
+    if (!alive _unit || {player != _unit} || {!(missionNamespace getVariable ["MSL_ready",false])} || {_unit getVariable ["MSL_econBusy",false]}) exitWith {MSL_arsenalOpening = false; systemChat (["개인 프로필 또는 무기고 초기화가 아직 끝나지 않았습니다. 잠시 후 다시 시도하세요.","Your profile or arsenal is not ready yet. Try again shortly."] call MSL_fnc_text);};
     _timeout = diag_tickTime + 15;
     private _nextAttempt = 0;
     waitUntil {
@@ -25,7 +25,7 @@ MSL_arsenalOpening = true;
     if ((_session param [3,""]) != _requestId) exitWith {
         MSL_arsenalOpening = false;
         diag_log format ["[MSL ARSENAL TIMEOUT] request=%1 ready=%2 busy=%3 session=%4",_requestId,missionNamespace getVariable ["MSL_ready",false],_unit getVariable ["MSL_econBusy",false],_session param [3,""]];
-        systemChat "무기고 응답을 받지 못했습니다. 본진 안에서 다시 시도하세요.";
+        systemChat (["무기고 응답을 받지 못했습니다. 본진 안에서 다시 시도하세요.","No arsenal response. Try again at base."] call MSL_fnc_text);
     };
     private _before = _session select 1;
     private _level = ([(_unit getVariable ["MSL_stats",[0,0]]) select 1] call MSL_fnc_progress) select 0;
@@ -56,7 +56,7 @@ MSL_arsenalOpening = true;
             if (!alive _unit || {player != _unit} || {!([_unit] call MSL_fnc_atBase)} || {diag_tickTime > _browseUntil}) exitWith {_cancel = true; _d closeDisplay 2;};
             private _quote = [_before,getUnitLoadout _preview,_level] call MSL_fnc_arsenalQuote;
             private _cash = (_unit getVariable ["MSL_stats",[0,0]]) select 0;
-            _balance ctrlSetText (if (_quote select 0) then {format ["보유 $%1 | 결제 $%2 | 남은 현금 $%3",_cash,_quote select 1,_cash - (_quote select 1)]} else {"잠긴 장비 포함: 결제 불가 — 변경 후 닫으면 장비 변경이 취소됩니다."});
+            _balance ctrlSetText (if (_quote select 0) then {format [(["보유 $%1 | 결제 $%2 | 남은 현금 $%3","Balance $%1 | Cost $%2 | Remaining $%3"] call MSL_fnc_text),_cash,_quote select 1,_cash - (_quote select 1)]} else {(["잠긴 장비 포함: 결제 불가 — 변경 후 닫으면 장비 변경이 취소됩니다.","Locked gear selected: purchase unavailable. Closing will cancel the change."] call MSL_fnc_text)});
             _balance ctrlSetTextColor ([[1,0.35,0.3,1],[0.8,0.95,0.8,1]] select ((_quote select 0) && {(_quote select 1) <= _cash}));
             // Vanilla adds currently worn gear to its lists; hide locked entries too.
             for "_tab" from 0 to 26 do {

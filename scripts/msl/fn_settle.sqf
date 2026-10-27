@@ -36,5 +36,5 @@ _a set [8, _credits select {(_x select 1) > 0}];
 _a set [7, _new]; _a set [9, []];
 _unit setVariable ["MSL_pending", []]; _unit setVariable ["MSL_econBusy", false, true]; _unit setVariable ["MSL_ack", false];
 [false] call MSL_fnc_persist;
-[_unit, "장비 정산 완료"] call MSL_fnc_publish;
+[_unit, (["장비 정산 완료","Equipment transaction completed",_unit getVariable ["MSL_language","ko"]] call MSL_fnc_text)] call MSL_fnc_publish;
 diag_log format ["[MSL TRANSACTION] %1 %2 %3 delta=%4", getPlayerUID _unit, _op, _class, _delta];

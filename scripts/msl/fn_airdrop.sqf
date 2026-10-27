@@ -5,9 +5,9 @@ if (!([_unit] call MSL_fnc_canRequestSupport)) exitWith {};
 if (isNull _unit || {!alive _unit} || {GRLIB_endgame != 0}) exitWith {};
 if !(_kind in ["ammo", "medical", "resources"]) exitWith {};
 private _tell = {params ["_text"]; [_text] remoteExecCall ["systemChat", owner _unit];};
-if (MSL_dropActive || {time < MSL_nextDrop}) exitWith {[format ["공중보급 대기 중. 다음 요청까지 %1초", ceil ((MSL_nextDrop - time) max 0)]] call _tell;};
+if (MSL_dropActive || {time < MSL_nextDrop}) exitWith {[format [(["공중보급 대기 중. 다음 요청까지 %1초","Airdrop unavailable. Next request in %1 seconds.",_unit getVariable ["MSL_language","ko"]] call MSL_fnc_text), ceil ((MSL_nextDrop - time) max 0)]] call _tell;};
 private _pool = MSL_supplyPlaneCandidates select {isClass (configFile >> "CfgVehicles" >> _x)};
-if (_pool isEqualTo []) exitWith {["사용 가능한 아군 수송기 클래스가 없습니다."] call _tell;};
+if (_pool isEqualTo []) exitWith {[(["사용 가능한 아군 수송기 클래스가 없습니다.","No friendly transport aircraft are configured.",_unit getVariable ["MSL_language","ko"]] call MSL_fnc_text)] call _tell;};
 MSL_dropActive = true; MSL_nextDrop = time + MSL_supplyCooldown;
 private _requestPos = getPosATL _unit;
 private _heading = random 360;
@@ -19,7 +19,7 @@ _g setBehaviour "CARELESS"; _g setCombatMode "BLUE";
 {_x disableAI "AUTOTARGET"; _x disableAI "TARGET";} forEach _crew;
 private _wp = _g addWaypoint [_requestPos vectorAdd [0,0,450], 0]; _wp setWaypointType "MOVE";
 _wp setWaypointCompletionRadius 100;
-["수송기 접근 중. 요청 지점 120m 이내에 주간 연막 / 야간 플레어·케미라이트를 사용하세요."] call _tell;
+[(["수송기 접근 중. 요청 지점 120m 이내에 주간 연막 / 야간 플레어·케미라이트를 사용하세요.","Transport inbound. Mark within 120m using daytime smoke or nighttime flares / chemlights.",_unit getVariable ["MSL_language","ko"]] call MSL_fnc_text)] call _tell;
 _unit setVariable ["MSL_signalWindow", [time, _requestPos]];
 _unit setVariable ["MSL_signal", objNull];
 private _deadline = time + MSL_supplySignalTimeout;
@@ -35,7 +35,7 @@ if (!isNull _signal && {alive _plane} && {alive driver _plane} && {alive _unit})
     sleep 3;
     private _lz = getPosATL _signal; _lz set [2, 0];
     if (!isNull _signal && {!surfaceIsWater _lz} && {_lz distance2D _requestPos <= MSL_supplySignalRadius}) then {
-        ["표식 확인. 투하 지점으로 접근합니다. 주변을 확보하세요."] call _tell;
+        [(["표식 확인. 투하 지점으로 접근합니다. 주변을 확보하세요.","Signal confirmed. Approaching the drop point. Secure the area.",_unit getVariable ["MSL_language","ko"]] call MSL_fnc_text)] call _tell;
         [_lz, false, _plane] spawn MSL_fnc_investigate;
         // Build a fresh straight run to avoid dropping on a turn/overshoot.
         while {count waypoints _g > 0} do {deleteWaypoint ((waypoints _g) select 0);};
@@ -76,8 +76,8 @@ if (!isNull _signal && {alive _plane} && {alive driver _plane} && {alive _unit})
             };
 
             private _marker = createMarker [format ["MSL_drop_%1", floor time], _lz];
-            _marker setMarkerType "mil_box"; _marker setMarkerColor "ColorWEST"; _marker setMarkerText "아군 공중보급";
-            ["보급품 투하. 접근하는 적을 경계하세요."] call _tell;
+            _marker setMarkerType "mil_box"; _marker setMarkerColor "ColorWEST"; _marker setMarkerText (["아군 공중보급","Friendly airdrop",_unit getVariable ["MSL_language","ko"]] call MSL_fnc_text);
+            [(["보급품 투하. 접근하는 적을 경계하세요.","Supplies dropped. Watch for approaching enemies.",_unit getVariable ["MSL_language","ko"]] call MSL_fnc_text)] call _tell;
             [_box, _chute, _marker, _kind] spawn {
                 params ["_box", "_chute", "_marker", "_kind"];
                 private _until = time + 180;
@@ -99,8 +99,8 @@ if (!isNull _signal && {alive _plane} && {alive driver _plane} && {alive _unit})
                 if (!isNull _box) then {deleteVehicle _box;};
             };
         };
-    } else {["투하 불가: 표식이 물 위이거나 요청 구역을 벗어났습니다. 재요청 시 새 표식을 사용하세요."] call _tell;};
-} else {["보급 취소: 유효한 표식이 없거나 수송 임무가 중단되었습니다."] call _tell;};
+    } else {[(["투하 불가: 표식이 물 위이거나 요청 구역을 벗어났습니다. 재요청 시 새 표식을 사용하세요.","Drop aborted: signal on water or outside the request area. Use a new signal next time.",_unit getVariable ["MSL_language","ko"]] call MSL_fnc_text)] call _tell;};
+} else {[(["보급 취소: 유효한 표식이 없거나 수송 임무가 중단되었습니다.","Airdrop canceled: no valid signal or transport mission interrupted.",_unit getVariable ["MSL_language","ko"]] call MSL_fnc_text)] call _tell;};
 _unit setVariable ["MSL_signalWindow", []]; _unit setVariable ["MSL_signal", objNull];
 if (alive _plane && {alive driver _plane}) then {
     while {count waypoints _g > 0} do {deleteWaypoint ((waypoints _g) select 0);};

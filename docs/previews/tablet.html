@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ko">
+<meta charset="utf-8">
+<title>Fieldnet tablet preview</title>
+<style>
+*{box-sizing:border-box}html,body{min-height:100vh}body{margin:0;background:radial-gradient(ellipse at 60% 40%,#25302a,#0d120f);color:#f0f2fa;font:1.88604vh 'Apple SD Gothic Neo',sans-serif}.tablet{position:absolute;height:min(78vh,61.333vw);aspect-ratio:1.5;left:50%;top:50%;transform:translate(-50%,-50%)}.bezel{position:absolute;width:100%;height:100%}.screen{position:absolute;left:8%;top:11%;width:84%;height:78%;background:#0e0f13;overflow:hidden}.c{position:absolute;display:flex;align-items:center;padding:0 .4em;white-space:nowrap;overflow:hidden}.muted{color:#9ea6b5}button,select,input{font:inherit;color:inherit;border:0;background:#1f2129;text-align:left}button{cursor:pointer}button:hover{background:#1f4575}.active{color:#f0f2fa;background:#1f4575}.card{background:#1a1c22}.value{font-size:2.67696vh;color:#f0f2fa}.bar{background:#282b33}.bar:after{content:'';display:block;height:100%;width:42%;background:#5ca6ff}.note{position:absolute;bottom:2vh;width:100%;text-align:center;color:#77847b;font-size:12px;letter-spacing:.04em}
+</style>
+<div class="tablet"><img class="bezel" src="../../res/tablet/fieldnet_tablet_v2_source.png"><div class="screen" id="screen"></div></div>
+<div class="note">Design preview · Example data · Not an Arma engine capture</div>
+<script>
+const screen=document.getElementById('screen');
+let commandPage='supply',isLeader=true;
+let mode='overview',lang=localStorage.getItem('fieldnet-preview-language')||'ko';
+const t=(ko,en)=>lang==='en'?en:ko;
+function c(r,text='',cl='',tag='div',fn){
+ const e=document.createElement(tag);e.className='c '+cl;
+ e.style.cssText=`left:${r[0]*100}%;top:${r[1]*100}%;width:${r[2]*100}%;height:${r[3]*100}%;`;
+ e.textContent=text;if(fn)e.onclick=fn;screen.append(e);return e;
+}
+function setLanguage(value){lang=value;localStorage.setItem('fieldnet-preview-language',lang);show(mode)}
+function show(m){
+ mode=m;screen.replaceChildren();
+ c([0,0,.19,1]).style.background='#131418';
+ c([.025,.025,.17,.055],'Fieldnet');c([.025,.09,.16,.04],t('개인 태블릿','Personal tablet'),'muted');
+ c([.23,.025,.71,.06],({career:t('개인 기록','Career'),command:t('분대 지휘','Squad command'),settings:t('플레이어 설정','Player settings')})[mode]||t('요약','Overview'));
+ c([.22,.09,.73,.045],`OPERATOR / $3,250 / ${t('야전','Field')}`,'muted');
+ c([.23,.15,.71,.001]).style.background='#2e3038';
+ const tabs=[['요약','Overview'],['개인 기록','Career'],['장비 도감','Catalog'],['무기고','Arsenal'],['장비 판매','Sell gear'],['분대 지휘','Command'],['아군 송금','Transfers'],['설정','Settings']];
+ tabs.forEach(([ko,en],i)=>{
+  const nav=c([.02,.18+i*.069,.15,.059],t(ko,en),(i===({overview:0,career:1,command:5,settings:7}[mode]||0))?'active':'','button',()=>show(({1:'career',5:'command',7:'settings'})[i]||'overview'));
+  if(i===5)nav.disabled=!isLeader;
+ });
+ c([.025,.745,.15,.035],t('연결됨','Connected'),'muted');
+ const language=c([.02,.805,.15,.05],'','','select');language.title='언어 / Language';
+ [['ko','한국어'],['en','English']].forEach(([value,label])=>{const option=new Option(label,value);language.add(option)});
+ language.value=lang;language.onchange=()=>setLanguage(language.value);
+ c([.02,.89,.15,.06],t('닫기','Close'),'','button');c([.455,.985,.09,.004]).style.background='#8c919e';
+ if(mode==='command'){
+  if(!isLeader){c([.23,.35,.71,.08],t('분대장만 지휘 기능을 사용할 수 있습니다.','Only the current squad leader can use command functions.'));return}
+  [['supply',t('보급 요청','Supply requests'),.23],['groups',t('분대 관리','Group management'),.60]].forEach(([key,label,x])=>c([x,.19,.34,.065],label,key===commandPage?'active':'','button',()=>{commandPage=key;show('command')}));
+ }
+ if(mode==='settings'){
+  c([.23,.19,.71,.05],t('개인 화면과 음향 설정','Personal display and audio'));
+  c([.23,.27,.34,.045],t('시야 거리 / 미터','View distance / meters'));
+  [[t('보병','On foot'),'1600'],[t('차량 / 함정','Land / Sea'),'2500'],[t('항공기','Aircraft'),'4000']].forEach(([label,value],i)=>{
+   const y=.33+i*.075;c([.23,y,.17,.055],label);const e=c([.41,y,.17,.055],'','','input');e.value=value;
+  });
+  [[t('지형 상세도','Terrain detail'),[t('낮음','Low'),t('표준','Standard'),t('높음','High'),t('매우 높음','Very high'),t('최고','Ultra')],2],[t('자동 3인칭','Auto third person'),[t('사용 안 함','Disabled'),t('항공기','Aircraft'),t('지상 / 함정','Land / Sea'),t('모든 차량','All vehicles')],0],[t('무전 음성 숨기기','Suppress radio chatter'),[t('숨기지 않음','Keep all'),t('음성만 숨김','Hide voices'),t('전체 숨김','Hide all')],0]].forEach(([label,options,selected],i)=>{
+   const y=.27+i*.13;c([.62,y,.32,.045],label);const e=c([.62,y+.055,.32,.055],'','','select');options.forEach(label=>e.add(new Option(label)));e.selectedIndex=selected;
+  });
+  c([.23,.58,.35,.045],t('차량 내 음량','In-vehicle volume'));const slider=c([.23,.645,.28,.045],'','','input');slider.type='range';slider.min=0;slider.max=100;slider.value=60;const value=c([.52,.64,.075,.05],'60%');slider.oninput=()=>value.textContent=slider.value+'%';
+  c([.23,.77,.71,.07],t('적용 및 저장','Apply and save'),'','button');
+  c([.23,.92,.71,.045],t('기존 KP 설정에 저장 · 3인칭은 서버 난이도 설정을 따릅니다.','Uses your KP profile · Third person follows server difficulty.'),'muted');
+ }else if(mode==='command'&&commandPage==='groups'){
+  c([.23,.29,.71,.055],'Alpha 1-1 · OPERATOR');
+  c([.23,.365,.71,.045],t('접속 중인 아군 분대','Online allied groups'));
+  const list=c([.23,.43,.46,.25],'','','select');list.size=5;['> Alpha 1-1 · OPERATOR (4)','Bravo 1-1 · ALLY (3)','Charlie 1-1 · ALLY (2)'].forEach(label=>list.add(new Option(label)));list.selectedIndex=0;
+  c([.23,.71,.46,.04],t('분대 이름 / 분대장만 변경 가능','Group name / Leader only'));
+  const name=c([.23,.765,.46,.06],'','','input');name.value='Alpha 1-1';
+  [[.765,t('이름 변경','Rename')],[.43,t('분대 참가','Join group')],[.515,t('새 분대 만들기','New group')],[.60,t('새로고침','Refresh')]].forEach(([y,label])=>c([.72,y,.22,y===.765?.06:.065],label,'','button'));
+  c([.23,.865,.71,.05],t('분대를 선택하세요.','Select a group.'));
+ }else if(mode==='command'){
+  c([.23,.30,.71,.05],t('보급 종류를 선택하세요.','Choose a supply type.'));
+  [['탄약 보급','Ammunition','전투 탄약 보충','Resupply combat ammunition'],['의료품 보급','Medical supplies','의료 물자 보충','Resupply medical equipment'],['팀 자원 보급','Team resources','팀 공용 자원 보충','Resupply shared team resources']].forEach(([ko,en,hko,hen],i)=>{const y=.40+i*.15;c([.23,y,.34,.10],t(ko,en),'','button');c([.60,y,.34,.10],t(hko,hen),'muted')});
+  c([.23,.90,.71,.05],t('보급 요청 후 연막 / 야간 플레어로 위치를 표시하세요.','Mark the drop with smoke by day or flares at night.'),'muted');
+ }else if(mode==='career'){
+  c([.23,.18,.71,.065],'LV.3  SPECIALIST','value');
+  c([.23,.255,.71,.045],t('1620 XP · 다음 LV.4까지 580 XP','1620 XP · 580 XP to LV.4'));
+  c([.23,.315,.71,.014],'','bar');
+  c([.23,.355,.71,.05],t('해금 현황과 다음 레벨 신규 장비 수는 서버 도감 기준','Unlock counts are based on the server catalog'));
+  c([.23,.425,.31,.045],t('레벨 로드맵','Level roadmap'));c([.57,.425,.37,.045],t('작전 기록 / XP 획득','Record / XP rewards'));
+  [0,500,1200,2200,3600,5500].forEach((xp,i)=>c([.23,.48+i*.053,.31,.05],`LV.${i+1}   ${xp} XP`,i===3?'active':'muted'));
+  [["처치 42 / 전사 3","Kills 42 / Deaths 3"],["점령 8 / 독택 12","Captures 8 / Dogtags 12"],['',''],['처치 +10 XP · 독택 +30 XP','Kill +10 XP · Dogtag +30 XP'],['점령 +150 XP · 방어 +250 XP','Capture +150 XP · Defense +250 XP']].forEach(([ko,en],i)=>c([.57,.48+i*.05,.37,.05],t(ko,en),'muted'));
+  c([.23,.85,.71,.065],t('선택한 레벨의 해금 장비 보기','View equipment at selected level'),'','button');
+  c([.23,.94,.71,.04],t('레벨 도달 시 자동 해금 · 장비 수령 비용 별도','Unlocks by level · Equipment costs still apply'),'muted');
+ }else{
+  [[.23,t('개인 잔고','Balance'),'$3,250'],[.472,t('개인 레벨','Level'),'LV.3'],[.714,t('작전 위치','Location'),t('야전','Field')]].forEach(([x,label,value])=>{c([x,.20,.225,.15],'','card');c([x+.012,.21,.20,.04],label,'muted');c([x+.012,.265,.20,.065],value,'value')});
+  c([.23,.37,.71,.012],'','bar');c([.23,.395,.71,.045],t('다음 LV.4까지 580 XP · 해금 현황은 서버 도감 기준','580 XP to LV.4 · Unlock counts from server catalog'),'muted');
+  c([.23,.455,.71,.045],t('빠른 작업','Quick actions'));
+  const command=c([.23,.52,.71,.09],t('분대 지휘','Command'),'','button',()=>show('command'));command.disabled=!isLeader;
+  c([.23,.63,.71,.045],t('분대장 전용 · 보급 요청과 분대 관리','Squad leaders only · Supply requests and group management'),'muted');
+  c([.23,.73,.71,.08],t('개인 화면 / 음향 설정','Display / Audio settings'),'','button',()=>show('settings'));
+
+ }
+}
+show(mode);
+</script>
+</html>

@@ -21,8 +21,8 @@ removed items lose that credit. Saved loadouts are also checked at settlement.
 
 Every player can open the wheel-menu tablet to view level unlocks or sell gear.
 Sales and the arsenal require a base/FOB supply area. Transfers still require the
-main terminal. AI supply and EVAC buttons require current group leadership or the
-campaign commander appointment, and the server rechecks those permissions.
+main terminal. AI supply requests require current group leadership, and the server rechecks
+that permission. A commander appointment alone does not grant access.
 
 Validation: run `python -X utf8 tools/verify_msl.py --sqflint-path D:/Arma3Server/tools/python-libs`.
 The in-engine `tools/msl_selftest.sqf` includes quote cases for extra magazines,
@@ -36,7 +36,7 @@ UI or multiplayer behaviors.
 
 The wheel-menu tablet now uses one navigation shell: equipment browser, native
 arsenal, sales, support requests, and transfers. Support remains restricted to
-current squad leaders and the commander. Opening the tablet defaults to weapons.
+current squad leaders. Opening the tablet defaults to Overview.
 
 The browser filters by weapon type/equipment category, exact unlock level, unlock
 state, and a name/class search. Results sort by level and name, with 50 entries per

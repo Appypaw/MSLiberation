@@ -49,7 +49,11 @@ if (hasInterface) then {
         "",
         '_target isEqualTo _originalTarget'
     ];
-    [_actionArray] call CBA_fnc_addPlayerAction;
+    // The MSL tablet already supplies the entry point; retain the legacy action
+    // when this module is used without the campaign tablet.
+    if (!(missionNamespace getVariable ["MSL_enabled",false])) then {
+        [_actionArray] call CBA_fnc_addPlayerAction;
+    };
 
     // Apply default/loaded values
     [] call KPPLM_fnc_apply;

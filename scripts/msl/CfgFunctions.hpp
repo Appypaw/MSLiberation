@@ -7,6 +7,12 @@ class MSL {
         class basePosition {};
         class atTerminal {};
         class progress {};
+        class text {};
+        class playerSettings {};
+        class savePlayerSettings {};
+        class playerGroups {};
+        class squadCommand {};
+        class playerGroupAction {};
         class terminalRender {};
         class equipmentCategory {};
         class compatibleMags {};
@@ -16,7 +22,6 @@ class MSL {
         class defenseEvent {};
         class queueScenario {};
         class scenarioLoop {};
-        class evac {};
         class inventory {};
         class loadoutInventory {};
         class removeFromLoadout {};

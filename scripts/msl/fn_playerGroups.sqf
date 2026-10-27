@@ -1,0 +1,37 @@
+if (!hasInterface || {isRemoteExecuted}) exitWith {};
+disableSerialization;
+params ["_d","_mk","_button"];
+if (!([player] call MSL_fnc_canRequestSupport)) exitWith {};
+["RscText",[0.23,0.29,0.71,0.055],format ["%1 · %2",groupId group player,name player]] call _mk;
+["RscText",[0.23,0.365,0.71,0.045],(["접속 중인 아군 분대","Online allied groups"] call MSL_fnc_text)] call _mk;
+private _list = ["RscListbox",[0.23,0.43,0.46,0.25]] call _mk;
+private _groups = allGroups select {isPlayer leader _x && {side _x == side group player}};
+private _selected = -1;
+{
+    private _prefix = if (_x == group player) then {"> "} else {""};
+    private _i = _list lbAdd format ["%1%2 · %3 (%4)",_prefix,groupId _x,name leader _x,count units _x];
+    if (_x == group player) then {_selected = _i;};
+} forEach _groups;
+_list setVariable ["MSL_groups",_groups];
+_d setVariable ["MSL_groupList",_list];
+["RscText",[0.23,0.71,0.46,0.04],(["분대 이름 / 분대장만 변경 가능","Group name / Leader only"] call MSL_fnc_text)] call _mk;
+private _name = ["RscEdit",[0.23,0.765,0.46,0.06],groupId group player] call _mk;
+_d setVariable ["MSL_groupName",_name];
+private _rename = [[0.72,0.765,0.22,0.06],(["이름 변경","Rename"] call MSL_fnc_text),{[ctrlParent (_this select 0),"rename"] call MSL_fnc_playerGroupAction;}] call _button;
+private _join = [[0.72,0.43,0.22,0.065],(["분대 참가","Join group"] call MSL_fnc_text),{[ctrlParent (_this select 0),"join"] call MSL_fnc_playerGroupAction;}] call _button;
+[[0.72,0.515,0.22,0.065],(["새 분대 만들기","New group"] call MSL_fnc_text),{[ctrlParent (_this select 0),"create"] call MSL_fnc_playerGroupAction;}] call _button;
+[[0.72,0.60,0.22,0.065],(["새로고침","Refresh"] call MSL_fnc_text),{[ctrlParent (_this select 0)] call MSL_fnc_terminalRender;}] call _button;
+_list setVariable ["MSL_name",_name]; _list setVariable ["MSL_rename",_rename]; _list setVariable ["MSL_join",_join];
+_list ctrlAddEventHandler ["LBSelChanged",{
+    params ["_list","_index"];
+    private _groups = _list getVariable ["MSL_groups",[]];
+    if (_index < 0 || {_index >= count _groups}) exitWith {};
+    private _group = _groups select _index;
+    (_list getVariable "MSL_name") ctrlSetText groupId _group;
+    (_list getVariable "MSL_rename") ctrlEnable (leader _group == player);
+    (_list getVariable "MSL_join") ctrlEnable (_group != group player && {[player] call MSL_fnc_canRequestSupport});
+}];
+_join ctrlEnable false; _rename ctrlEnable false;
+if !(_groups isEqualTo []) then {_list lbSetCurSel (_selected max 0);};
+private _status = ["RscText",[0.23,0.865,0.71,0.05],(_d getVariable ["MSL_groupMessage",["분대를 선택하세요.","Select a group."]]) call MSL_fnc_text] call _mk;
+_d setVariable ["MSL_groupStatus",_status];

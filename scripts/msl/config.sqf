@@ -4,6 +4,18 @@ MSL_startingCash = 1500;
 MSL_captureCash = 350;
 MSL_captureXP = 150;
 MSL_killXP = 10;
+MSL_killCash = 200;
+// First matching vehicle base class wins: [base class, cash, XP].
+// Requires enemy crew at destruction; abandoned/empty vehicles are excluded.
+MSL_vehicleRewards = [
+    ["Plane",5000,100],
+    ["Helicopter",3000,80],
+    ["Tank",2000,60],
+    ["Wheeled_APC_F",1500,50],
+    ["StaticWeapon",500,20],
+    ["Ship",1000,30],
+    ["Car",400,25]
+];
 MSL_sellRatio = 0.35;
 MSL_captureHold = 60;
 MSL_captureCoreRadius = 45;
@@ -63,7 +75,7 @@ MSL_defenseEnabled = true;
 MSL_defenseSectorCooldown = 2700;
 MSL_defenseCash = 650;
 MSL_defenseXP = 250;
-MSL_dogtagCash = 100;
+MSL_dogtagCash = 300;
 MSL_dogtagXP = 30;
 MSL_dogtagRange = 3;
 
@@ -76,13 +88,6 @@ MSL_fobCounterDelay = [240,510]; // +60s warning: departure roughly 5..10m after
 MSL_defenseHoldRange = [600,1200];
 MSL_defenseWaveGap = [150,240];
 MSL_defenseAliveLimit = 16;
-MSL_evacCooldown = 1200;
-MSL_evacHelos = ["PRACS_CH53","RHS_UH60M","B_Heli_Transport_01_F"];
-MSL_evacApproachDelay = [90,180];
-MSL_evacBoardTime = 90;
-MSL_evacFlightTimeout = 360;
-MSL_evacCash = 250;
-MSL_evacXP = 100;
 
 // Free armory kits: [id, label, primary, launcher]. Shared by every player role.
 MSL_spawnUniform = "PRACS_M10_SDPM_uniform";

@@ -69,7 +69,7 @@ call {
         _unit setVariable ["MSL_econBusy", true, true];
         _a set [9, _p];
         [_unit, _gear, _token] remoteExecCall ["MSL_fnc_applyGear", owner _unit];
-        [_unit, "개인 프로필 연결 완료. 보급소의 무기고에서 해금 장비를 선택하세요."] call MSL_fnc_publish;
+        [_unit, (["개인 프로필 연결 완료. 보급소의 무기고에서 해금 장비를 선택하세요.","Profile connected. Select unlocked gear in the supply-point arsenal.",_unit getVariable ["MSL_language","ko"]] call MSL_fnc_text)] call MSL_fnc_publish;
     };
     if (!alive _unit || {!((_unit getVariable ["MSL_pending", []]) isEqualTo [])}) exitWith {};
     if (_op in ["arsenalOpen","arsenalClose","arsenalCancel"]) exitWith {[_unit,_op,_args,_a] call MSL_fnc_arsenalRequest;};
@@ -83,35 +83,32 @@ call {
         _a set [1,(_a select 1) + MSL_dogtagCash]; _a set [2,(_a select 2) + MSL_dogtagXP];
         _a set [10,(_a param [10,0]) + 1];
         [] call MSL_fnc_persist;
-        [_unit,format ["독택 회수: $%1 / XP %2",MSL_dogtagCash,MSL_dogtagXP]] call MSL_fnc_publish;
+        [_unit,format [(["독택 회수: $%1 / XP %2","Dogtag collected: $%1 / %2 XP",_unit getVariable ["MSL_language","ko"]] call MSL_fnc_text),MSL_dogtagCash,MSL_dogtagXP]] call MSL_fnc_publish;
     };
     if (_op == "transfer") exitWith {
-        if (!([_unit] call MSL_fnc_atTerminal)) exitWith {["송금은 본진 단말기에서만 가능합니다."] call _tell;};
+        if (!([_unit] call MSL_fnc_atTerminal)) exitWith {[(["송금은 본진 단말기에서만 가능합니다.","Transfers require the main base terminal.",_unit getVariable ["MSL_language","ko"]] call MSL_fnc_text)] call _tell;};
         private _target = _args param [0, objNull, [objNull]];
         private _amount = _args param [1, 0, [0]];
-        if (!finite _amount || {_amount != floor _amount} || {_amount < 1} || {_amount > (_a select 1)}) exitWith {["송금 금액이나 잔액을 확인하세요."] call _tell;};
-        if (isNull _target || {_target == _unit} || {!isPlayer _target} || {!alive _target} || {side group _target != GRLIB_side_friendly} || {getPlayerUID _target == ""}) exitWith {["접속 중인 아군을 선택하세요."] call _tell;};
+        if (!finite _amount || {_amount != floor _amount} || {_amount < 1} || {_amount > (_a select 1)}) exitWith {[(["송금 금액이나 잔액을 확인하세요.","Check the transfer amount and balance.",_unit getVariable ["MSL_language","ko"]] call MSL_fnc_text)] call _tell;};
+        if (isNull _target || {_target == _unit} || {!isPlayer _target} || {!alive _target} || {side group _target != GRLIB_side_friendly} || {getPlayerUID _target == ""}) exitWith {[(["접속 중인 아군을 선택하세요.","Select an online ally.",_unit getVariable ["MSL_language","ko"]] call MSL_fnc_text)] call _tell;};
         private _b = [getPlayerUID _target] call MSL_fnc_account;
         _a set [1, (_a select 1) - _amount]; _b set [1, (_b select 1) + _amount];
         [] call MSL_fnc_persist;
-        [_unit, format ["%1에게 $%2 송금 완료", name _target, _amount]] call MSL_fnc_publish;
-        [_target, format ["%1에게서 $%2 수신", name _unit, _amount]] call MSL_fnc_publish;
+        [_unit, format [(["%1에게 $%2 송금 완료","Sent $%2 to %1",_unit getVariable ["MSL_language","ko"]] call MSL_fnc_text), name _target, _amount]] call MSL_fnc_publish;
+        [_target, format [(["%1에게서 $%2 수신","Received $%2 from %1",_target getVariable ["MSL_language","ko"]] call MSL_fnc_text), name _unit, _amount]] call MSL_fnc_publish;
         diag_log format ["[MSL TRANSFER] %1 -> %2 : %3", _uid, getPlayerUID _target, _amount];
     };
-    if (_op == "evac") exitWith {
-        if (!([_unit] call MSL_fnc_canRequestSupport)) exitWith {["지원 요청은 분대장 또는 지휘관만 가능합니다."] call _tell;};
-        if (count MSL_evacRequests < 2) then {MSL_evacRequests pushBack _unit;};
-    };
     if (_op == "airdrop") exitWith {
-        if (!([_unit] call MSL_fnc_canRequestSupport)) exitWith {["지원 요청은 분대장 또는 지휘관만 가능합니다."] call _tell;};
+        if (!([_unit] call MSL_fnc_canRequestSupport)) exitWith {[(["지원 요청은 현재 분대장만 가능합니다.","Only current squad leaders can request support.",_unit getVariable ["MSL_language","ko"]] call MSL_fnc_text)] call _tell;};
         if (count MSL_dropRequests < 4) then {MSL_dropRequests pushBack [_unit, _args param [0, "ammo", [""]]];};
     };
-    if (!([_unit] call MSL_fnc_atBase) || {vehicle _unit != _unit}) exitWith {["기지 또는 FOB 보급소에서 이용하세요."] call _tell;};
+    if !(_op in ["free","buy","sell"]) exitWith {};
+    if (!([_unit] call MSL_fnc_atBase) || {vehicle _unit != _unit}) exitWith {[(["기지 또는 FOB 보급소에서 이용하세요.","Use this at base or an FOB supply point.",_unit getVariable ["MSL_language","ko"]] call MSL_fnc_text)] call _tell;};
     private _new = [];
     private _cashDelta = 0;
     private _receipt = "";
     private _class = _args param [0, "", [""]];
-    if (_op in ["free","buy"]) exitWith {["장비는 무기고에서 선택하세요."] call _tell;};
+    if (_op in ["free","buy"]) exitWith {[(["장비는 무기고에서 선택하세요.","Select equipment in the arsenal.",_unit getVariable ["MSL_language","ko"]] call MSL_fnc_text)] call _tell;};
     if (_op in ["buy", "sell"]) then {
         private _entry = [_class, _op == "sell"] call MSL_fnc_catalog;
         if (_entry isEqualTo []) exitWith {};
@@ -119,7 +116,7 @@ call {
         private _credits = _a select 8;
         private _creditIndex = _credits findIf {(_x select 0) == _class};
         if (_op == "buy" && {!(_class in MSL_shopClasses) || {(([_a select 2] call MSL_fnc_progress) select 0) < _level} || {(_a select 1) < _price}}) exitWith {};
-        if (_op == "sell" && {_creditIndex < 0 || {((_credits select _creditIndex) select 1) < 1}}) exitWith {["노획 또는 구매 기록이 없는 무료 보급품은 판매할 수 없습니다."] call _tell;};
+        if (_op == "sell" && {_creditIndex < 0 || {((_credits select _creditIndex) select 1) < 1}}) exitWith {[(["노획 또는 구매 기록이 없는 무료 보급품은 판매할 수 없습니다.","Free supplies without a purchase or capture record cannot be sold.",_unit getVariable ["MSL_language","ko"]] call MSL_fnc_text)] call _tell;};
         private _dummy = createAgent ["B_Soldier_F", [0, 0, 0], [], 0, "NONE"];
         _dummy hideObjectGlobal true; _dummy allowDamage false;
         _dummy setUnitLoadout [getUnitLoadout _unit, false];
@@ -170,7 +167,7 @@ call {
         };
         deleteVehicle _dummy;
     };
-    if (_new isEqualTo []) exitWith {["거래할 수 없습니다. 해금·잔액·빈 슬롯·수납 공간을 확인하세요. 판매 전 총의 부착물과 탄창을 분리하세요."] call _tell;};
+    if (_new isEqualTo []) exitWith {[(["거래할 수 없습니다. 해금·잔액·빈 슬롯·수납 공간을 확인하세요. 판매 전 총의 부착물과 탄창을 분리하세요.","Transaction unavailable. Check level, funds, free slots and storage. Remove attachments and magazines before selling a weapon.",_unit getVariable ["MSL_language","ko"]] call MSL_fnc_text)] call _tell;};
     // Reserve purchases before issuing gear. Sale proceeds wait for server-observed removal.
     if (_cashDelta < 0) then {_a set [1, (_a select 1) + _cashDelta];};
     private _token = format ["%1_%2", _uid, diag_tickTime];

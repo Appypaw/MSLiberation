@@ -9,12 +9,10 @@ if (isRemoteExecuted) exitWith {};
         if (GRLIB_param_wipe_savegame_1 == 1 && {GRLIB_param_wipe_savegame_2 == 1}) then {_saved = [1, [], [], 0];};
         MSL_accounts = _saved param [1, []];
         MSL_saveDirty = false;
-        MSL_supportCleanup = [];
         MSL_destroyedTowers = _saved param [2, []];
         MSL_supplyPressure = _saved param [3, 0];
         publicVariable "MSL_destroyedTowers"; publicVariable "MSL_supplyPressure";
         MSL_scenarioQueue = []; MSL_nextScenario = 0; MSL_defenseActive = false;
-        MSL_evacRequests = []; MSL_evacActive = false; MSL_nextEvac = 0;
         MSL_dropRequests = []; MSL_nextDrop = 0; MSL_dropActive = false;
         if (isNil "GRLIB_arsenal_weapons") then {[] call compileFinal preprocessFileLineNumbers "arsenal_presets\custom.sqf";};
         [] call compileFinal preprocessFileLineNumbers "scripts\msl\import_equipment.sqf";
@@ -55,8 +53,31 @@ if (isRemoteExecuted) exitWith {};
                 if (isNull _instigator) then {_instigator = _killer;};
                 if (isPlayer _instigator && {side group _instigator == GRLIB_side_friendly}) then {
                     private _a = [getPlayerUID _instigator] call MSL_fnc_account;
+                    _a set [1, (_a select 1) + MSL_killCash];
                     _a set [2, (_a select 2) + MSL_killXP]; _a set [3, (_a select 3) + 1];
+                    [false] call MSL_fnc_persist;
                     [_instigator] call MSL_fnc_publish;
+                };
+            };
+            // Event-driven only; no vehicle scans or immediate profile writes.
+            // Crew group side survives death. Require crew still attached, so an
+            // abandoned hull or a captured vehicle cannot earn enemy rewards.
+            if (!(_dead isKindOf "Man") && {!(_dead getVariable ["MSL_destroyRewarded",false])}) then {
+                private _crew = crew _dead;
+                private _rewardIndex = MSL_vehicleRewards findIf {_dead isKindOf (_x select 0)};
+                private _attacker = _instigator;
+                if (isNull _attacker) then {_attacker = _killer;};
+                if (_rewardIndex >= 0 && {count _crew > 0} &&
+                    {_crew findIf {side group _x == GRLIB_side_enemy} >= 0} &&
+                    {_crew findIf {side group _x != GRLIB_side_enemy} < 0} &&
+                    {isPlayer _attacker} && {side group _attacker == GRLIB_side_friendly}) then {
+                    _dead setVariable ["MSL_destroyRewarded",true];
+                    (MSL_vehicleRewards select _rewardIndex) params ["_category","_cash","_xp"];
+                    private _a = [getPlayerUID _attacker] call MSL_fnc_account;
+                    _a set [1, (_a select 1) + _cash];
+                    _a set [2, (_a select 2) + _xp];
+                    [false] call MSL_fnc_persist;
+                    [_attacker,format [(["적 차량 파괴: $%1 / XP %2","Enemy vehicle destroyed: $%1 / %2 XP",_attacker getVariable ["MSL_language","ko"]] call MSL_fnc_text),_cash,_xp]] call MSL_fnc_publish;
                 };
             };
             if (isPlayer _dead && {side group _dead == GRLIB_side_friendly}) then {
